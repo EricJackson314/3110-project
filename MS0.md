@@ -4,11 +4,9 @@ Ralph Wang ``` ```
 
 Eric Jackson ``` ebj29```
 
----
 
 ## Status Meetings
 
----
 
 ## Proposal
 
@@ -21,7 +19,6 @@ Eric Jackson ``` ebj29```
 
 *Description* 
 
----
 ## Road Map
 
 ### MS1 (Beta)
@@ -35,7 +32,6 @@ Satisfactory | Good | Excellent
 --------------- | ------- | --------------
 a <br>b <br>c | d <br>e <br>f | g <br>h <br>i
 
----
 ## Design Sketch
 
 ### Modules
@@ -46,7 +42,6 @@ a <br>b <br>c | d <br>e <br>f | g <br>h <br>i
 
 ### Testing
 
----
 ## Team Expectations
 
 * Expectation 1 
