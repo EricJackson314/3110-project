@@ -28,12 +28,12 @@ Our goal is to design a robust and efficient linear algebra library, including m
 
 Satisfactory | Good | Excellent
 --------------- | ------- | --------------
-a <br>b <br>c | d <br>e <br>f | g <br>h <br>i
+a implementation of matrix multiplication, null space, column space, row reduction, and other basic matrix operations<br>b implementation of eigenvalues, eigenvectors, diagonalization, and the other matrix operations<br>c | d write an image file parser to extract and store image data and an image file generator to generate an image from given data <br>e optimize and performance test the matrix operations <br>f | g write the image compression algorithm, leaving compression parameters and basis choice flexible<br>h optimize compression parameters and basis choice<br>i
 
 ### MS2 (Release)
 Satisfactory | Good | Excellent
 --------------- | ------- | --------------
-a <br>b <br>c | d <br>e <br>f | g <br>h <br>i
+a finish excellent scope from MS1<br>b implement eigenfaces algorithm <br>c | d <br>e <br>f | g <br>h <br>i
 
 ## Design Sketch
 
