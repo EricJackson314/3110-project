@@ -10,14 +10,14 @@ Eric Jackson ``` ebj29```
 
 ## Proposal
 
-*Summary*
+### Summary
 
 ### Key Features
 * 1
 * 2
 * 3
 
-*Description* 
+### Description 
 
 ## Road Map
 
