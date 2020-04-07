@@ -73,3 +73,4 @@ Testing of Image Compression and EigenFace performance will be done by human ins
 * We feel comfortable and relaxed with one another.
 
 signed, Eric Jackson. 7 April 2020.
+signed, Ralph Wang. 7 April 2020.
