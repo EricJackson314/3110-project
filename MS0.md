@@ -28,24 +28,48 @@ Our goal is to design a robust and efficient linear algebra library, including m
 
 Satisfactory | Good | Excellent
 --------------- | ------- | --------------
-a implementation of matrix multiplication, null space, column space, row reduction, and other basic matrix operations<br>b implementation of eigenvalues, eigenvectors, diagonalization, and the other matrix operations<br>c | d write an image file parser to extract and store image data and an image file generator to generate an image from given data <br>e optimize and performance test the matrix operations <br>f | g write the image compression algorithm, leaving compression parameters and basis choice flexible<br>h optimize compression parameters and basis choice<br>i
+implementation of matrix multiplication, null space, column space, row reduction, and other basic matrix operations<br> implementation of eigenvalues, eigenvectors, diagonalization, and the other matrix operations<br> |  write an image file parser to extract and store image data and an image file generator to generate an image from given data <br> optimize and performance test the matrix operations <br> |  write the image compression algorithm, leaving compression parameters and basis choice flexible<br> optimize compression parameters and basis choice<br>
 
 ### MS2 (Release)
 Satisfactory | Good | Excellent
 --------------- | ------- | --------------
-a finish excellent scope from MS1<br>b implement eigenfaces algorithm <br>c | d <br>e <br>f | g <br>h <br>i
+ finish excellent scope from MS1<br> implement eigenfaces algorithm <br> | <br> <br> |  <br> <br>
 
 ## Design Sketch
 
 ### Modules
 
+* Vector
+* Matrix
+* Image
+* EigenFaces
+
 ### Data Structures
+Tentatively, we are planning to use arrays to implement vectors and matrices. We agree to not mutate them.
 
 ### Third-Party Libraries
+We are not planning to use any third-party libraries. If we decide to implement a GUI, this may change.
 
 ### Testing
+We will need to write thorough tests for the Vector and Matrix modules. We plan to test against a pre-existing library, or to create tests using Python's Numpy library.
+Testing of Image Compression and EigenFace performance will be done by human inspection.
 
 ## Team Expectations
 
-* Expectation 1 
-* Expectation 2
+* We both show equal commitment to our objective.
+* We both take part in deciding how work should be allocated.
+  - Volunteer system
+* We are both committed to helping each other learn.
+* We acknowledge good contributions from team members.
+* We handle disagreements and conflicts constructively within the team.
+* We are able to give constructive criticism to one another and to accept it ourselves.
+* We all turn up to meetings and stay to the end.
+* We are good at making sure that we both know what’s going on.
+	- We will use a review branch to ensure that we are both on the same page with what is being done.
+* When one of us is under pressure, others offer to help them.
+* We trust each other.
+* We remain united even when we disagree.
+* We support each other to outsiders.
+* We feel comfortable and relaxed with one another.
+
+signed, Eric Jackson. 7 April 2020.
