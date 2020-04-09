@@ -1,4 +1,4 @@
-type 'a t
+type t
 
 let dim u =
   failwith "Unimplemented"
