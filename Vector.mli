@@ -1,6 +1,8 @@
 (** Real-valued, finite-dimensional vectors with basic algebraic functions.
     @author Eric Jackson *)
 
+(*  General type for entries in vectors and matrices *)
+
 (** Representation of a real-valued, finite-dimensional vector. *)
 type t
 
