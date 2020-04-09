@@ -1,5 +1,5 @@
 (** Real-valued, finite-dimensional vectors with basic algebraic functions.
-    @author Eric Jackson *)
+    @author Eric Jackson [ebj29] Ralph Wang [rw484] *)
 
 (** Representation of a real-valued, finite-dimensional vector. *)
 type t
@@ -42,3 +42,6 @@ val perp : t list -> t list
 (** [change_basis b v] is the vector [v]'s coordinates relative to
     the basis [b]. *)
 val change_basis : t list -> t -> t
+
+(** [as_col v] is the column matrix containing the same entries as [v]. *)
+(* val as_col : t -> Matrix.t *)

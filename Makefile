@@ -1,4 +1,4 @@
-MODULES= Vector
+MODULES= Vector Matrix
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
