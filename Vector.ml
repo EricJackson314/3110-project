@@ -1,37 +1,78 @@
-type t
+open Element
 
-let dim u =
-  failwith "Unimplemented"
+module type Vector = sig
+  module E : Element
+  type elem = E.t
+  type t
+  val dim : t -> int
+  val add : t -> t -> t
+  val sub : t ->  t -> t
+  val scale : t -> elem -> t
+  val inner : t -> t -> elem
+  val norm : t -> elem
+  val normalize : t -> t
+  val basis : t list -> t list
+  val ortho_basis : t list -> t list
+  val ortho_normal_basis : t list -> t list
+  val perp : t list -> t list
+  val change_basis : t list -> t -> t
+end
 
-let add u v =
-  failwith "Unimplemented"
+module type VectorMaker = 
+  functor (Elem : Element) -> Vector with module E = Elem 
 
-let sub u v =
-  failwith "Unimplemented"
+module Make : VectorMaker = functor (Elem : Element) -> struct
+  module E = Elem
+  type elem = E.t
 
-let scale v c =
-  failwith "Unimplemented"
+  (* TODO: Replace unit with an appropriate representation for vectors. *)
+  type t = unit
 
-let inner u v=
-  failwith "Unimplemented"
+  let dim v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let norm v =
-  failwith "Unimplemented"
+  let add u v= 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let normalize v =
-  failwith "Unimplemented"
+  let sub u v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let basis h =
-  failwith "Unimplemented"
+  let scale v c = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let ortho_basis h =
-  failwith "Unimplemented"
+  let inner u v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let ortho_normal_basis h =
-  failwith "Unimplemented"
+  let norm v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let perp w =
-  failwith "Unimplemented"
+  let normalize v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
 
-let change_basis b v =
-  failwith "Unimplemented"
+  let basis v_list = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
+
+  let ortho_basis v_list = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
+
+  let ortho_normal_basis v_list = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
+
+  let perp v_list = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
+
+  let change_basis v_list v = 
+    (* TODO: implement this method.  *)
+    failwith "unimplemented"
+end
