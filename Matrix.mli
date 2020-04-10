@@ -1,6 +1,13 @@
 (* General representation type for matrices *)
 type t
 
+exception DimensionMismatchException
+exception OutOfBoundsException
+exception SingularMatrixException
+
+(* [from_vector v] is the column matrix representation of vector v *)
+val from_vector : Vector.t -> t
+
 (* [num_rows t] is the number of rows in matrix t*)
 val num_rows : t -> int
 
@@ -25,6 +32,14 @@ val add : t -> t -> t option
 (* [transpose mat] is [x : Matrix.t] such that entry a b mat = entry b a x for
    all a and b *)
 val transpose : t -> t
+
+(* [col_sp mat] is [x] if the columns of x form a basis for the columns space
+   of mat *)
+val col_sp mat : t -> t
+
+(* [nul_sp mat] is [x] if the columns of x form a basis for the null space of
+   mat *)
+val nul_sp : t -> t
 
 (* [inverse mat] is [Some x] if x * mat is the identity matrix, [None] if mat
    is singular or non-square *)
@@ -63,6 +78,10 @@ val is_herm : t -> bool
    order. *)
 val to_column : t -> Vector.t list
 
+(* [concat v] is [Some x] if x is a matrix whose columns are the column vector
+   representation of the vectors in v or [None] if there is a dimension
+   mismatch*)
+val concat : Vector.t list -> t option
 (* [svd mat] is [u * s * v] if the matrix product u * s * (transpose v) = mat,
    u and v are orthogonal, and s is a diagonal matrix *)
 val svd : t -> t * t * t
