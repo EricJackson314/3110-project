@@ -1,10 +1,12 @@
 open Num
+open Vector
+
 module type Matrix = sig
   (* General representation type for matrices *)
   type t
   
   module E : Num
-  module V : Vector.Vector with module E = E
+  module V : Vector with module E = E
 
   type vector = V.t
 
@@ -54,6 +56,21 @@ module type Matrix = sig
      mat *)
   val nul_sp : t -> t
  
+  (* [ortho mat] is [x] if x and mat have the same column space and x is an
+     orthogonal matrix *)
+  val ortho : t -> t
+
+  (* [ortho_normal mat] is [x] if x and mat have the same column space and x
+     is an orthonormal matrix *)
+  val ortho_normal : t -> t
+
+  (* [perp mat] is [x] if the columns of x form a basis for the largest possible
+     subspace orthogonal to the column space of mat *)
+  val perp : t -> t
+
+  (* [change_basis mat] is [x] if changing from standard basis to the basis
+     given by mat requires left-multiplying by x *)
+  val change_basis : t -> t
   (* [is_sing mat] is true if mat is a square matrix and is not invertible,
      false otherwise. *)
   val is_sing : t -> bool
@@ -80,6 +97,10 @@ module type Matrix = sig
   (* [rref mat] is the reduced row echelon form of mat *)
   val rref : t -> t
   
+  (* [det mat] is the determinant of the matrix mat. Raises
+     DimensionMismatchException if mat is not a square *)
+  val det : t -> elem
+
   (* [eigen mat] is a list of eigenvalue- eigenvector list pairs, where each
      eigenvalue is paired with a list of its corresponding eigenvectors.
      Postcondition: the list contains no duplicate eigenvalues *)
