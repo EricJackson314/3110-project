@@ -15,22 +15,23 @@ module type Matrix = sig
   val num_rows : t -> int
   val num_cols : t -> int
   val is_square : t -> bool
-  val entry : int -> int -> t -> float option
-  val mult : t -> t -> t option
-  val add : t -> t -> t option
+  val entry : int -> int -> t -> elem
+  val mult : t -> t -> t
+  val add : t -> t -> t
   val transpose : t -> t
   val col_sp : t -> t
   val nul_sp : t -> t
+  val is_sing : t -> bool
   val inverse : t -> t
   val factor_lu : t -> t * t option
   val factor_plu : t -> t * t * t
   val ref : t -> t
   val rref : t -> t
-  val eigen : t -> (float * vector list) list
+  val eigen : t -> (elem * vector list) list
   val diag : t -> t * t option
   val is_herm : t -> bool
   val to_column : t -> vector list
-  val concat : vector list -> t option
+  val concat : vector list -> t
   val svd : t -> t * t * t
 end
 
@@ -59,6 +60,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let transpose mat = failwith "Unimplemented"
   let col_sp mat = failwith "Unimplemented" 
   let nul_sp mat = failwith "Unimplemented"
+  let is_sing mat = failwith "Unimplemented"
   let inverse mat = failwith "Unimplemented"
   let factor_lu mat = failwith "Unimplemented"
   let factor_plu mat = failwith "Unimplemented"

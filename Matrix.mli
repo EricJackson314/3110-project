@@ -27,17 +27,20 @@ module type Matrix = sig
   (* [is_square x] is true if x has equal numbers of rows and columns *)
   val is_square : t -> bool
   
-  (* [entry row col t] is [None] if the row and col specified are out of bounds
-     and [Some x] if x is the entry in t at the specified row and col. *)
-  val entry : int -> int -> t -> float option
+  (* [entry row col t] is the entry at the given row and column of the matrix.
+     Requires row and col to be in bounds, raises OutOfBoundsException
+     otherwise *)
+  val entry : int -> int -> t -> elem
   
-  (* [mult mat1 mat2] is [Some x] if x is the matrix product mat1 * mat2, or
-     [None] if there is a dimension mismatch *)
-  val mult : t -> t -> t option
+  (* [mult mat1 mat2] is the matrix product mat1 * mat2. 
+     Requires (num_cols mat1 = num_rows mat2), raises DimensionMismatchException
+     otherwise *)
+  val mult : t -> t -> t
   
-  (* [add mat1 mat2] is [Some x] if x is the matrix addition mat1 + mat2, or 
-     [None] if there is a dimension mismatch *)
-  val add : t -> t -> t option
+  (* [add mat1 mat2] is the matrix addition mat1 + mat2. Requires mat1 and mat2
+     to have the same number of rows and columns, raises
+     DimensionMismatchException otherwise *)
+  val add : t -> t -> t
   
   (* [transpose mat] is [x : Matrix.t] such that entry a b mat = entry b a x for
      all a and b *)
@@ -50,9 +53,14 @@ module type Matrix = sig
   (* [nul_sp mat] is [x] if the columns of x form a basis for the null space of
      mat *)
   val nul_sp : t -> t
-  
-  (* [inverse mat] is [Some x] if x * mat is the identity matrix, [None] if mat
-     is singular or non-square *)
+ 
+  (* [is_sing mat] is true if mat is a square matrix and is not invertible,
+     false otherwise. *)
+  val is_sing : t -> bool
+ 
+  (* [inverse mat] is [x] such that the matrix product mat * x is the identity
+     matrix. Raises SingularMatrixException if mat is singular; raises 
+     DimensionMismatchException if mat is non_square. *)
   val inverse : t -> t
   
   (* [factor_lu mat] is [Some (mat1*mat2)] for lower triangular matrix mat1 and 
@@ -75,7 +83,7 @@ module type Matrix = sig
   (* [eigen mat] is a list of eigenvalue- eigenvector list pairs, where each
      eigenvalue is paired with a list of its corresponding eigenvectors.
      Postcondition: the list contains no duplicate eigenvalues *)
-  val eigen : t -> (float * vector list) list
+  val eigen : t -> (elem * vector list) list
   
   (* [diag mat] is [Some mat1 * mat2] if mat is diagonalizable and the matrix
      product mat1 * mat2 * (inverse mat1) = mat, [None] otherwise *)
@@ -88,10 +96,10 @@ module type Matrix = sig
      order. *)
   val to_column : t -> vector list
   
-  (* [concat v] is [Some x] if x is a matrix whose columns are the column vector
-     representation of the vectors in v or [None] if there is a dimension
-     mismatch*)
-  val concat : vector list -> t option
+  (* [concat v] is matrix [x] such that the nth column of x is the nth vector
+     in v. Raises DimensionMismatchException if not all vectors in v are the
+     same length *)
+  val concat : vector list -> t
   (* [svd mat] is [u * s * v] if the matrix product u * s * (transpose v) = mat,
      u and v are orthogonal, and s is a diagonal matrix *)
   val svd : t -> t * t * t
