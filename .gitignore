@@ -15,3 +15,8 @@ _build/Vector.ml
 _build/Vector.ml.depends
 _build/Vector.mli
 _build/Vector.mli.depends
+_build/Matrix.byte
+_build/Matrix.cmo
+_build/Matrix.ml
+_build/Matrix.ml.depends
+.DS_Store
