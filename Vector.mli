@@ -1,4 +1,4 @@
-(** Real-valued, finite-dimensional vectors with basic algebraic functions.
+(** Finite-dimensional vectors with basic algebraic functions.
     @author Eric Jackson [ebj29] Ralph Wang [rw484] *)
 
 open Element
@@ -11,7 +11,7 @@ module type Vector = sig
   (** [elem] is the type of the vectors elements. *)
   type elem = E.t
 
-  (** Type of Vectors. **)
+  (** Type of Vectors. *)
   type t
 
   (** [dim v] is the dimension of the vector [v]. *)
