@@ -3,7 +3,7 @@ open Num
 module type Matrix = sig
   type t
   module E : Num
-  module V : Vector.Vector
+  module V : Vector.Vector with module E = E
   type vector = V.t
   type elem = E.t
 
