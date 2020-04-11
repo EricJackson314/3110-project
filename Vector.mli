@@ -36,19 +36,6 @@ module type Vector = sig
       direction as [v]. *)
   val normalize : t -> t
 
-  (** [basis h] is a basis for the space spanned by [h]. *)
-  val basis : t list -> t list
-
-  (** [ortho_basis h] is an orthogonal basis for the space spanned by [h]. *)
-  val ortho_basis : t list -> t list
-
-  (** [ortho_normal_basis h] is an ortho-normal basis for the space 
-      spanned by [h]. *)
-  val ortho_normal_basis : t list -> t list
-
-  (** [perp w] is the set of all vectors orthogonal to [w]. *)
-  val perp : t list -> t list
-
   (** [change_basis b v] is the vector [v]'s coordinates relative to
       the basis [b]. *)
   val change_basis : t list -> t -> t

@@ -11,10 +11,6 @@ module type Vector = sig
   val inner : t -> t -> elem
   val norm : t -> elem
   val normalize : t -> t
-  val basis : t list -> t list
-  val ortho_basis : t list -> t list
-  val ortho_normal_basis : t list -> t list
-  val perp : t list -> t list
   val change_basis : t list -> t -> t
 end
 
@@ -53,22 +49,6 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
     failwith "unimplemented"
 
   let normalize v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
-
-  let basis v_list = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
-
-  let ortho_basis v_list = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
-
-  let ortho_normal_basis v_list = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
-
-  let perp v_list = 
     (* TODO: implement this method.  *)
     failwith "unimplemented"
 
