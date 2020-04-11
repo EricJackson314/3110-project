@@ -1,9 +1,10 @@
 open Num
+open Vector
 
 module type Matrix = sig
   type t
   module E : Num
-  module V : Vector.Vector with module E = E
+  module V : Vector with module E = E
   type vector = V.t
   type elem = E.t
 
@@ -27,6 +28,7 @@ module type Matrix = sig
   val factor_plu : t -> t * t * t
   val ref : t -> t
   val rref : t -> t
+  val det : t -> elem
   val eigen : t -> (elem * vector list) list
   val diag : t -> t * t option
   val is_herm : t -> bool
@@ -66,6 +68,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let factor_plu mat = failwith "Unimplemented"
   let ref mat = failwith "Unimplemented"
   let rref mat = failwith "Unimplemented"
+  let det mat = failwith "Unimplemented"
   let eigen mat = failwith "Unimplemented"
   let diag mat = failwith "Unimplemented"
   let is_herm mat = failwith "Unimplemented"
