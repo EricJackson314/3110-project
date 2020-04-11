@@ -1,12 +1,12 @@
 (** Finite-dimensional vectors with basic algebraic functions.
     @author Eric Jackson [ebj29] Ralph Wang [rw484] *)
 
-open Element
+open Num
 
 (** Representation of a finite-dimensional vector. *)
 module type Vector = sig
   (** module [E] represents the vectors elements. *)
-  module E : Element
+  module E : Num
 
   (** [elem] is the type of the vectors elements. *)
   type elem = E.t
@@ -55,6 +55,6 @@ module type Vector = sig
 end
 
 module type VectorMaker = 
-  functor (Elem : Element) -> Vector with module E = Elem 
+  functor (Elem : Num) -> Vector with module E = Elem 
 
 module Make : VectorMaker

@@ -1,7 +1,7 @@
-open Element
+open Num
 
 module type Vector = sig
-  module E : Element
+  module E : Num
   type elem = E.t
   type t
   val dim : t -> int
@@ -19,9 +19,9 @@ module type Vector = sig
 end
 
 module type VectorMaker = 
-  functor (Elem : Element) -> Vector with module E = Elem 
+  functor (Elem : Num) -> Vector with module E = Elem 
 
-module Make : VectorMaker = functor (Elem : Element) -> struct
+module Make : VectorMaker = functor (Elem : Num) -> struct
   module E = Elem
   type elem = E.t
 
