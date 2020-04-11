@@ -11,7 +11,6 @@ module type Vector = sig
   val inner : t -> t -> elem
   val norm : t -> elem
   val normalize : t -> t
-  val change_basis : t list -> t -> t
 end
 
 module type VectorMaker = 
@@ -52,7 +51,4 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
     (* TODO: implement this method.  *)
     failwith "unimplemented"
 
-  let change_basis v_list v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
 end
