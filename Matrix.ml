@@ -11,7 +11,7 @@ module type Matrix = sig
   exception DimensionMismatchException
   exception OutOfBoundsException
   exception SingularMatrixException
-  
+
   val from_vector : vector -> t
   val num_rows : t -> int
   val num_cols : t -> int
@@ -28,6 +28,7 @@ module type Matrix = sig
   val factor_plu : t -> t * t * t
   val ref : t -> t
   val rref : t -> t
+  val pivot_cols: t -> int list
   val det : t -> elem
   val eigen : t -> (elem * vector list) list
   val diag : t -> t * t option
@@ -51,7 +52,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   exception DimensionMismatchException
   exception OutOfBoundsException
   exception SingularMatrixException
-  
+
   let from_vector v = failwith "Unimplemented"
   let num_rows mat = failwith "Unimplemented"
   let num_cols mat = failwith "Unimplemented"
@@ -68,6 +69,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let factor_plu mat = failwith "Unimplemented"
   let ref mat = failwith "Unimplemented"
   let rref mat = failwith "Unimplemented"
+  let pivot_cols = failwith "Unimplemented"
   let det mat = failwith "Unimplemented"
   let eigen mat = failwith "Unimplemented"
   let diag mat = failwith "Unimplemented"

@@ -17,6 +17,9 @@ module type Vector = sig
   (** [dim v] is the dimension of the vector [v]. *)
   val dim : t -> int
 
+  (** [nth v i] is the [i]th entry in [v]. *)
+  val nth : t -> int -> elem
+
   (** [add u v] is the sum of the vectors [u] and [v]. *)
   val add : t -> t -> t
 
@@ -26,8 +29,8 @@ module type Vector = sig
   (** [scale v c] is the vector [v] multiplied by the scalar [c]. *)
   val scale : t -> elem -> t
 
-  (** [inner u v] is the inner-product of vectors [u] and [v]. *)
-  val inner : t -> t -> elem
+  (** [dot u v] is the inner-product of vectors [u] and [v]. *)
+  val dot : t -> t -> elem
 
   (** [norm v] is the length of the vector [v]. *)
   val norm : t -> elem
@@ -36,9 +39,13 @@ module type Vector = sig
       direction as [v]. *)
   val normalize : t -> t
 
-  (** [change_basis b v] is the vector [v]'s coordinates relative to
-      the basis [b]. *)
-  val change_basis : t list -> t -> t
+  (** [from_list lst] is the vector representation of the list of elements 
+      [lst]. *)
+  val from_list : elem list -> t
+
+  (** [to_list v] is a representation of the vector [v] as a list. *)
+  val to_list : t -> elem list
+
 end
 
 module type VectorMaker = 
