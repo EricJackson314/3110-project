@@ -51,12 +51,14 @@ module type Matrix = sig
   (* [rref mat] is the reduced row echelon form of mat *)
   val rref : t-> t
 
+  (* [pivot_cols mat] is a list of indices of the pivot columns of mat *)
+  val pivot_cols : t -> int list
+
   (* [col_sp mat] is [x] if the columns of x form a basis for the columns space
      of mat *)
   val col_sp : t -> t
   
-  (* [pivot_cols mat] is a list of indices of the pivot columns of mat *)
-  val pivot_cols : t -> int list
+  
   (* [nul_sp mat] is [x] if the columns of x form a basis for the null space of
      mat *)
   val nul_sp : t -> t
