@@ -8,6 +8,7 @@ module type Matrix = sig
   module E : Num
   module V : Vector with module E = E
 
+  (* Type of vectors that this matrix module can interact with *)
   type vector = V.t
 
   (* Type of things stored in the matrices *)
@@ -17,6 +18,9 @@ module type Matrix = sig
   exception OutOfBoundsException
   exception SingularMatrixException
   
+  (* [id n] is the identity matrix with n rows and n columns *)
+  val id : int -> t
+
   (* [from_vector v] is the column matrix representation of vector v. *)
   val from_vector : vector -> t
   
@@ -27,10 +31,17 @@ module type Matrix = sig
   val num_cols : t -> int
   
   (* [entry row col t] is the entry at the given row and column of the matrix.
-     Requires row and col to be in bounds, raises OutOfBoundsException
-     otherwise *)
+     Raises OutOfBoundsException if either row or col is out of bounds. *)
   val entry : int -> int -> t -> elem
+ 
+  (* [make r c e] is [x] if x has r rows, c columns, and the entry a b x =
+     e a b. *)
+  val make : int -> int -> (int -> int -> elem) -> t
   
+  (* [map f mat] is [x] if x has the same dimensions as mat and entry r c x =
+     f (entry r c mat) *)
+  val map : (elem -> elem) -> t -> t
+
   (* [mult mat1 mat2] is the matrix product mat1 * mat2. 
      Requires (num_cols mat1 = num_rows mat2), raises DimensionMismatchException
      otherwise *)
@@ -45,6 +56,19 @@ module type Matrix = sig
      all a and b *)
   val transpose : t -> t
   
+  (* [scale_row r scalar mat] is [x] if the entries of x are the same as mat
+     in every row except row r, in which x's entries are mat's entries
+     multiplied by scalar. Raises OutOfBoundsException if r is out of bounds. *)
+  val scale_row : int -> elem -> t -> t
+
+  (* [add_row r1 r2 s mat] is mat with s * the r1th row added to the r2th row.
+     Raises OutOfBoundsException if r1 or r2 is out of bounds. *)
+  val add_row : int -> int -> elem -> t -> t
+
+  (* [row_swap r1 r2 mat] is mat with the r1th and r2th row swapped. Raises 
+     OutOfBoundsException if r1 or r2 is out of bounds. *)
+  val row_swap : int -> int -> t -> t
+
   (* [ref mat] is the row echelon form of mat, preserving determinant *)
   val ref : t -> t
 
@@ -57,7 +81,6 @@ module type Matrix = sig
   (* [col_sp mat] is [x] if the columns of x form a basis for the columns space
      of mat *)
   val col_sp : t -> t
-  
   
   (* [nul_sp mat] is [x] if the columns of x form a basis for the null space of
      mat *)
