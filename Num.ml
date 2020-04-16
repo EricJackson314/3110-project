@@ -5,7 +5,7 @@ module type Num = sig
   val add_inv : t -> t
   val mult : t -> t -> t
   val mult_inv : t -> t
-  val pow: t -> t -> t
+  val sq_rt: t -> t
   (** analog of absolute value for real and complex numbers *)
   val norm : t -> t
   val one : t

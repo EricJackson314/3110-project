@@ -24,4 +24,3 @@ val factor_plu : matrix -> matrix * matrix * matrix
 val eigen : matrix -> (elem * (vector list)) list
 val diag : matrix -> matrix * matrix option
 val svd : matrix -> matrix * matrix * matrix
-

@@ -68,10 +68,10 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
 
   let make rows cols ent = 
     Array.init cols (fun col -> Array.init rows (fun row -> ent row col))
-  
+
   let map f mat =
     make (num_rows mat) (num_cols mat) (fun r c -> f (entry r c mat))
-  
+
   (* [copy mat] is a copy of matrix x *)
   let copy mat = 
     make (num_rows mat) (num_cols mat) (fun r c -> entry r c mat)
@@ -107,14 +107,37 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       raise DimensionMismatchException
     else make rows cols (fun r c -> E.add (entry r c mat1) (entry r c mat2))
 
-  let scale_row r scalar mat = failwith "Unimplemented"
+  let scale_row r scalar mat =
+    let rows = num_rows mat in
+    let cols = num_cols mat in 
+    if r < 0 || r > num_rows mat then raise OutOfBoundsException
+    else make rows cols 
+        (fun row col -> entry row col mat 
+                        |> fun v -> if r = row then E.mult scalar v else v)
 
-  let add_row r1 r2 s mat = failwith "Unimplemented"
+  let add_row r1 r2 s mat = 
+    let rows = num_rows mat in
+    let cols = num_cols mat in
+    if r1 < 0 || r1 > rows || r2 < 0 || r2 > rows 
+    then raise OutOfBoundsException
+    else make rows cols
+        (fun row col -> entry row col mat
+                        |> fun v -> if r2 = row then E.add v (entry r1 col mat)
+                        else v ) 
 
-  let row_swap r1 r2 mat = failwith "Unimplemented"
+  let row_swap r1 r2 mat =
+    let rows = num_rows mat in
+    let cols = num_cols mat in
+    if r1 < 0 || r1 > rows || r2 < 0 || r2 > rows 
+    then raise OutOfBoundsException
+    else make rows cols
+        (fun row col ->
+           if row = r1 then entry r2 col mat else
+           if row = r2 then entry r1 col mat else
+             entry row col mat)
 
   let nul_sp mat = failwith "Unimplemented"
-  
+
   (* [eliminate r c mat] is x if elimination is performed on mat on the part of
      the matrix below and to the right of row r and column c, inclusive. Assumes
      row is between 0 and num_rows mat inclusive and col is between 0 and
@@ -145,8 +168,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
           if r = rows then x
           else elim (r + 1) (elim_row r x) in
         elim (row + 1) m
-   let ref = eliminate 0 0
-    
+  let ref = eliminate 0 0
+
   let rref mat = failwith "Unimplemented"
   (* [collect_pivots r c ls mat] is the list of the columns of the pivot
      positions below and to the right of row r and column c, inclusive pushed on
@@ -158,11 +181,11 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     else collect_pivots (r + 1) (c + 1) (c::ls) mat
   let pivot_cols mat =
     let red = ref mat in
-      collect_pivots 0 0 [] red
+    collect_pivots 0 0 [] red
 
   let col_sp (mat : t) = 
     let cols = List.fold_left (fun ls i -> 
-      ls@[mat.(i) |> Array.to_list |> V.from_list]) [] (pivot_cols mat) in
+        ls@[mat.(i) |> Array.to_list |> V.from_list]) [] (pivot_cols mat) in
     concat cols
 
 end

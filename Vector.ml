@@ -14,10 +14,11 @@ module type Vector = sig
   val normalize : t -> t
   val from_list : elem list -> t
   val to_list : t -> elem list
+  val make : int -> (int -> E.t) -> t
 end
 
 module type VectorMaker = 
-  functor (Elem : Num) -> Vector with module E = Elem 
+  functor (Elem : Num.Num) -> Vector with module E = Elem 
 
 module Make : VectorMaker = functor (Elem : Num) -> struct
   module E = Elem
@@ -41,15 +42,14 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
 
   let dot u v = List.fold_left2 ( fun u v a -> u*v + a) E.zero u v
 
-  let norm v =
-    let half = E.(mult_inv (one + one)) in
-    let sum_sq = List.fold_left (fun e a -> a + E.(norm e * norm e)) E.zero v in
-    E.pow sum_sq half
+  let norm v = List.fold_left (fun e a -> a + E.(norm e * norm e)) E.zero v |> E.sq_rt
 
   let normalize v = E.mult_inv (norm v) |> scale v
 
   let from_list lst = lst
 
-  let to_list v : elem list = v 
+  let to_list v : elem list = v
+
+  let make n f : t = List.init n f
 
 end

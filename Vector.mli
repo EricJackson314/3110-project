@@ -46,9 +46,13 @@ module type Vector = sig
   (** [to_list v] is a representation of the vector [v] as a list. *)
   val to_list : t -> elem list
 
+  (** [make n f] is the [n] dimensional vector where the value of the [i]th 
+      element is [f i]. *)
+  val make : int -> (int -> E.t) -> t
+
 end
 
 module type VectorMaker = 
-  functor (Elem : Num) -> Vector with module E = Elem 
+  functor (Elem : Num.Num) -> Vector with module E = Elem 
 
 module Make : VectorMaker
