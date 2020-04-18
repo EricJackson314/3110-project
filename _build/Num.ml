@@ -14,3 +14,4 @@ module type Num = sig
   (** [compare x y] returns 0 if x = y, -1 if x < y, 1 otherwise (optional) *)
   val compare : t -> t -> int
 end
+
