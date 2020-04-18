@@ -170,8 +170,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         elim (row + 1) m
   let ref = eliminate 0 0
 
-  let rref mat = failwith "Unimplemented"
-  (* [collect_pivots r c ls mat] is the list of the columns of the pivot
+    (* [collect_pivots r c ls mat] is the list of the columns of the pivot
      positions below and to the right of row r and column c, inclusive pushed on
      to ls. Assumes that the part of the matrix searched is in row echelon 
      form *)
@@ -182,6 +181,25 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let pivot_cols mat =
     let red = ref mat in
     collect_pivots 0 0 [] red
+
+  (* procedure sketch: find all the pivot columns, scale those columns then
+     do up elimination. *)
+  let rref mat = 
+    let scale_up_elim col x = 
+      let rec get_row row = 
+        if entry row col x = E.zero then get_row (row - 1)
+        else row
+      in
+      let piv_r = get_row ((num_rows x) - 1) in
+      let m = scale_row piv_r (E.mult_inv (entry piv_r col x)) x in
+      let rec up_elim r y = 
+        if r < 0 then y
+        else
+          up_elim (r - 1) (add_row piv_r r (entry r col y |> E.add_inv) y)
+      in up_elim (piv_r - 1) m
+    in
+    List.fold_right 
+      (fun piv_col x -> scale_up_elim piv_col x) (pivot_cols mat) (ref mat)
 
   let col_sp (mat : t) = 
     let cols = List.fold_left (fun ls i -> 
