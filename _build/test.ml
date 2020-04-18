@@ -3,7 +3,7 @@ open Num
 open Vector
 open Matrix
 
-module Float : Num = struct
+module Float = struct
   type t = float
   let add = (+.)
   let add_inv = (~-.)
@@ -27,7 +27,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
   let three = Float.(add one two)
   let four = Float.(add one three)
 
-  let vec_1 = V.from_list [zero; one; two]
+  let vec_1 = V.from_list [0.; 1.; 2.]
   let vec_2 = V.from_list [zero; two; four]
 
   let add_test : test = "add_test" >:: fun _ -> assert_equal (V.add vec_1 vec_1) vec_2
