@@ -136,8 +136,6 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
            if row = r2 then entry r1 col mat else
              entry row col mat)
 
-  let nul_sp mat = failwith "Unimplemented"
-
   (* [eliminate r c mat] is x if elimination is performed on mat on the part of
      the matrix below and to the right of row r and column c, inclusive. Assumes
      row is between 0 and num_rows mat inclusive and col is between 0 and
@@ -182,6 +180,38 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let pivot_cols mat =
     let red = ref mat in
     collect_pivots 0 0 [] red
+
+  (** [insert i e] is the list [lst] with element [e] inserted into the [i]th
+      index. *)
+  let rec insert i e lst = if i = 0 then e::lst else match lst with
+      | [] -> raise OutOfBoundsException
+      | h::t -> h::insert (i-1) e t
+
+  (** [non_pivot mat] is the list of indices of non-pivot columns in [mat]. *)
+  let non_pivot mat =
+    List.init (num_rows mat) (fun i -> i) |>
+    List.filter (fun x -> List.mem x (pivot_cols mat))
+
+  (** [insert vecs idxs] inserts the standard basis vector e_i into the ith 
+      element of vecs for each i in idxs. *)
+  let rec insert_vecs idxs vecs =
+    match idxs with
+    | [] -> vecs
+    | h::t ->
+      insert_vecs t (insert h (V.make (V.dim (List.hd vecs))
+                                 (fun i -> if i = h then V.E.(add_inv one) else V.E.zero)) vecs)
+
+  let nul_sp mat =
+    let test = mat 
+               |> rref
+               |> to_column 
+               |> List.map (fun v -> V.scale v (V.E.(add_inv one)))
+               |> insert_vecs (non_pivot mat)
+               |> concat
+               |> transpose
+               |> add (id (num_rows mat)) |> add (id (num_rows mat))
+               |> to_column in
+    mat
 
   let col_sp (mat : t) = 
     let cols = List.fold_left (fun ls i -> 
