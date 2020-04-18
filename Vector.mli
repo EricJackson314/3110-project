@@ -17,7 +17,8 @@ module type Vector = sig
   (** [dim v] is the dimension of the vector [v]. *)
   val dim : t -> int
 
-  (** [nth v i] is the [i]th entry in [v]. *)
+  (** [nth v i] is the [i]th entry in [v]. Raises OutOfBoundsException if i is
+      out of bounds. *)
   val nth : t -> int -> elem
 
   (** [add u v] is the sum of the vectors [u] and [v]. *)
