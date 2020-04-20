@@ -180,7 +180,20 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       (fun (mat, mat') -> "null_sp test" >:: fun _ ->
            assert_equal (M.nul_sp mat) mat')
       [
-
+        (M.concat 
+           [
+             M.V.from_list [-3.; 1.; 2.];
+             M.V.from_list [6.; -2.; -4.];
+             M.V.from_list [-1.; 2.; 5.];
+             M.V.from_list [1.; 3.; 8.];
+             M.V.from_list [-7.; -1.; -4.];
+           ],
+         M.concat
+           [
+             M.V.from_list [2.; 1.; 0.; 0.; 0.];
+             M.V.from_list [1.; 0.; -2.; 1.; 0.];
+             M.V.from_list [-3.; 0.; 2.; 0.; 1.];
+           ])
       ]
 
   (** [ref_tests] tests [Matrix.ref]. *)
@@ -200,6 +213,22 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
         (M.id 2, M.id 2);
         (M.id 4, M.id 4);
         (M.id 6, M.id 6);
+        (M.concat 
+           [
+             M.V.from_list [-3.; 1.; 2.];
+             M.V.from_list [6.; -2.; -4.];
+             M.V.from_list [-1.; 2.; 5.];
+             M.V.from_list [1.; 3.; 8.];
+             M.V.from_list [-7.; -1.; -4.];
+           ], 
+         M.concat 
+           [
+             M.V.from_list [1.; 0.; 0.];
+             M.V.from_list [-2.; 0.; 0.];
+             M.V.from_list [0.; 1.; 0.];
+             M.V.from_list [-1.; 2.; 0.];
+             M.V.from_list [3.; -2.; 0.];
+           ]);
       ]
 
   (** [pivot_cols_tests] tests [Matrix.pivot_cols]. *)
@@ -208,6 +237,15 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
            assert_equal (M.pivot_cols mat) idxs)
       [
         (M.id 5, [1; 2; 3; 4; 5]);
+        (M.concat 
+           [
+             M.V.from_list [-3.; 1.; 2.];
+             M.V.from_list [6.; -2.; -4.];
+             M.V.from_list [-1.; 2.; 5.];
+             M.V.from_list [1.; 3.; 8.];
+             M.V.from_list [-7.; -1.; -4.];
+           ],
+         [1; 3;]); 
       ]
 
   (** [col_sp_tests] tests [Matrix.col_sp]. *)
@@ -217,6 +255,19 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       [
         (M.id 7, M.id 7);
         (M.id 9, M.id 9);
+        (M.concat 
+           [
+             M.V.from_list [-3.; 1.; 2.];
+             M.V.from_list [6.; -2.; -4.];
+             M.V.from_list [-1.; 2.; 5.];
+             M.V.from_list [1.; 3.; 8.];
+             M.V.from_list [-7.; -1.; -4.];
+           ], 
+         M.concat 
+           [
+             M.V.from_list [-3.; 1.; 2.];
+             M.V.from_list [-1.; 2.; 5.];  
+           ]);
       ]
 
   let tests = List.flatten

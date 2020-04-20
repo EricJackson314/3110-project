@@ -4,6 +4,7 @@ module type Vector = sig
   module E : Num
   type elem = E.t
   type t
+  exception OutOfBoundsException
   val dim : t -> int
   val nth : t -> int -> elem
   val add : t -> t -> t
@@ -26,13 +27,16 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
 
   type t = elem list
 
+  exception OutOfBoundsException
+
   let ( + ) = E.add
   let ( - ) = fun a b -> E.add a (E.add_inv b)
   let ( * ) = E.mult
 
   let dim  = List.length
 
-  let nth = List.nth
+  let nth = try List.nth with
+    | exn -> raise OutOfBoundsException
 
   let add u v = List.map2 (+) u v
 

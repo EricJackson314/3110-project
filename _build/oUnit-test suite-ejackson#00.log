@@ -1,378 +1,468 @@
-2020-04-18T15:26:53+00:00 ejackson#00 I: Runner: sequential
-2020-04-18T15:26:53+00:00 ejackson#00 I: Chooser: simple
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration suite_name = "test suite"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration cache_filename = "/mnt/c/Users/ejackson/Documents/3110/cs3110-project/_build/oUnit-$(suite_name).cache"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration run_gc_full_major = "true"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration display = "true"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration results_style_1_X = "false"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration testdata_dir = "none"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration health_check_interval = "1."
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration verbose = "false"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration chooser = "simple"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration output_html_dir = "none"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration processes_kill_period = "5."
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration runner = "sequential"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration shards = "4"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration processes_grace_period = "5."
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration log_encoding = "utf-8"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration output_junit_file = "none"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration ci = "false"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Configuration output_file = "/mnt/c/Users/ejackson/Documents/3110/cs3110-project/_build/oUnit-$(suite_name)-$(shard_id).log"
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:0:add_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:0:add_test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:0:add_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:1:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:1:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:1:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:2:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:2:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:2:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:3:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:3:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:3:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:4:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:4:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:4:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:5:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:5:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:5:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:6:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:6:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:6:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:7:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:7:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:7:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:8:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:8:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:8:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:9:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:9:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:9:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:10:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:10:num_rows test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:10:num_rows test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:11:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:11:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:11:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:12:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:12:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:12:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:13:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:13:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:13:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:14:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:14:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:14:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:15:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:15:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:15:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:16:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:16:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:16:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:17:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:17:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:17:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:18:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:18:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:18:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:19:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:19:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:19:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:20:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:20:num_cols test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:20:num_cols test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:21:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:21:from_vector test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:21:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:22:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:22:from_vector test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:22:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:23:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:23:from_vector test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:23:from_vector test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:24:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:24:entry test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:24:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:25:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:25:entry test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:25:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:26:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:26:entry test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:26:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:27:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:27:entry test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:27:entry test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:28:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:28:map test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:28:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:29:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:29:map test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:29:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:30:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:30:map test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:30:map test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:31:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:31:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:31:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:32:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:32:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:32:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:33:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:33:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:33:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:34:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:34:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:34:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:35:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:35:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:35:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:36:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:36:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:36:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:37:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:37:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:37:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:38:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:38:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:38:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:39:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:39:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:39:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:40:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:40:id test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:40:id test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:41:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:41:to_column test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:41:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:42:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:42:to_column test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:42:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:43:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:43:to_column test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:43:to_column test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:44:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:44:concat_test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:44:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:45:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:45:concat_test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:45:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:46:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:46:concat_test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:46:concat_test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:47:concat test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Test test suite:47:concat test is successful.
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:47:concat test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:48:concat test.
-2020-04-18T15:26:53+00:00 ejackson#00 E: Test test suite:48:concat test exited with an error.
-2020-04-18T15:26:53+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:48:concat test.
-2020-04-18T15:26:53+00:00 ejackson#00 E: Raised by primitive operation at file "Matrix.ml", line 66, characters 6-13
-2020-04-18T15:26:53+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:53+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:53+00:00 ejackson#00 E: Called from file "test.ml", line 136, characters 24-41
-2020-04-18T15:26:53+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:53+00:00 ejackson#00 E: 
-2020-04-18T15:26:53+00:00 ejackson#00 I: End test test suite:48:concat test.
-2020-04-18T15:26:53+00:00 ejackson#00 I: Start test test suite:49:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:49:mult test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:49:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:50:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:50:mult test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:50:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised by primitive operation at unknown location
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "Matrix.ml", line 98, characters 15-29
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 147, characters 24-38
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:50:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:51:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:51:add test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:51:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:52:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:52:add test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:52:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised by primitive operation at unknown location
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "Matrix.ml", line 108, characters 59-75
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 161, characters 24-37
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:52:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:53:ref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:53:ref test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:53:ref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:53:ref test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:54:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:54:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:54:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:54:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:55:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:55:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:55:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:55:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:56:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:56:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:56:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:56:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:57:pivot_cols test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:57:pivot_cols test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:57:pivot_cols test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:57:pivot_cols test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:58:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:58:col_sp test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:58:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:58:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Start test test suite:59:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:59:col_sp test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:59:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: End test test suite:59:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 I: ==============
-2020-04-18T15:26:54+00:00 ejackson#00 I: Summary:
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:59:col_sp test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:59:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:58:col_sp test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:58:col_sp test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:57:pivot_cols test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:57:pivot_cols test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:56:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:56:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:55:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:55:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:54:rref test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Failure("Unimplemented") in test test suite:54:rref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "stdlib.ml", line 29, characters 22-33
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 192, characters 24-36
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:53:ref test has failed.
-2020-04-18T15:26:54+00:00 ejackson#00 E: not equal in test test suite:53:ref test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:52:add test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:52:add test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised by primitive operation at unknown location
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "Matrix.ml", line 108, characters 59-75
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 161, characters 24-37
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:51:add test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:50:mult test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:50:mult test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised by primitive operation at unknown location
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "Matrix.ml", line 98, characters 15-29
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 147, characters 24-38
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:49:mult test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Test test suite:48:concat test exited with an error.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:48:concat test.
-2020-04-18T15:26:54+00:00 ejackson#00 E: Raised by primitive operation at file "Matrix.ml", line 66, characters 6-13
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "test.ml", line 136, characters 24-41
-2020-04-18T15:26:54+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-18T15:26:54+00:00 ejackson#00 E: 
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:47:concat test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:46:concat_test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:45:concat_test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:44:concat_test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:43:to_column test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:42:to_column test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:41:to_column test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:40:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:39:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:38:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:37:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:36:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:35:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:34:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:33:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:32:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:31:id test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:30:map test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:29:map test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:28:map test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:27:entry test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:26:entry test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:25:entry test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:24:entry test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:23:from_vector test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:22:from_vector test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:21:from_vector test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:20:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:19:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:18:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:17:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:16:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:15:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:14:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:13:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:12:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:11:num_cols test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:10:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:9:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:8:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:7:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:6:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:5:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:4:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:3:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:2:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:1:num_rows test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Test test suite:0:add_test is successful.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Ran: 60 tests in: 0.23 seconds.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Cases: 60.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Tried: 60.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Errors: 6.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Failures: 4.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Skip: 0.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Todo: 0.
-2020-04-18T15:26:54+00:00 ejackson#00 I: Timeout: 0.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Runner: sequential
+2020-04-20T23:19:12+00:00 ejackson#00 I: Chooser: simple
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration suite_name = "test suite"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration cache_filename = "/mnt/c/Users/ejackson/Documents/3110/cs3110-project/_build/oUnit-$(suite_name).cache"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration run_gc_full_major = "true"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration display = "true"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration results_style_1_X = "false"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration testdata_dir = "none"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration health_check_interval = "1."
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration verbose = "false"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration chooser = "simple"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration output_html_dir = "none"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration processes_kill_period = "5."
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration runner = "sequential"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration shards = "4"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration processes_grace_period = "5."
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration log_encoding = "utf-8"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration output_junit_file = "none"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration ci = "false"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Configuration output_file = "/mnt/c/Users/ejackson/Documents/3110/cs3110-project/_build/oUnit-$(suite_name)-$(shard_id).log"
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:0:add_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:0:add_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:0:add_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:1:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:1:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:1:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:2:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:2:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:2:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:3:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:3:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:3:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:4:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:4:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:4:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:5:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:5:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:5:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:6:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:6:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:6:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:7:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:7:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:7:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:8:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:8:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:8:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:9:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:9:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:9:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:10:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:10:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:10:num_rows test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:11:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:11:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:11:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:12:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:12:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:12:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:13:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:13:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:13:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:14:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:14:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:14:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:15:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:15:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:15:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:16:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:16:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:16:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:17:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:17:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:17:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:18:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:18:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:18:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:19:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:19:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:19:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:20:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:20:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:20:num_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:21:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:21:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:21:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:22:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:22:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:22:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:23:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:23:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:23:from_vector test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:24:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:24:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:24:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:25:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:25:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:25:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:26:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:26:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:26:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:27:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:27:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:27:entry test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:28:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:28:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:28:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:29:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:29:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:29:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:30:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:30:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:30:map test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:31:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:31:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:31:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:32:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:32:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:32:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:33:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:33:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:33:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:34:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:34:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:34:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:35:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:35:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:35:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:36:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:36:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:36:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:37:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:37:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:37:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:38:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:38:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:38:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:39:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:39:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:39:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:40:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:40:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:40:id test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:41:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:41:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:41:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:42:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:42:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:42:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:43:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:43:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:43:to_column test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:44:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:44:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:44:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:45:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:45:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:45:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:46:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:46:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:46:concat_test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:47:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:47:concat test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:47:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:48:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:48:concat test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:48:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at file "Matrix.ml", line 66, characters 6-13
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 142, characters 24-41
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:48:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:49:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:49:mult test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:49:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:50:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:50:mult test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:50:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 98, characters 15-29
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 153, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:50:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:51:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:51:add test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:51:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:52:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:52:add test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:52:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 108, characters 59-75
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 167, characters 24-37
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:52:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:53:null_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:53:null_sp test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:53:null_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 212, characters 37-53
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "list.ml", line 234, characters 17-20
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 244, characters 25-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 181, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:53:null_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:54:ref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:54:ref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:54:ref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:54:ref test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:55:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:55:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:55:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:55:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:56:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:56:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:56:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:56:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:57:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:57:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:57:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:57:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:58:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:58:rref test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:58:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 201, characters 66-75
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 211, characters 24-36
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:58:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:59:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:59:pivot_cols test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:59:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:59:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:60:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:60:pivot_cols test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:60:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 237, characters 24-42
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:60:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:61:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:61:col_sp test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:61:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:61:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:62:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:62:col_sp test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:62:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:62:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Start test test suite:63:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:63:col_sp test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:63:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 263, characters 57-73
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 254, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: End test test suite:63:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 I: ==============
+2020-04-20T23:19:12+00:00 ejackson#00 I: Summary:
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:63:col_sp test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:63:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 263, characters 57-73
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 254, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:62:col_sp test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:62:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:61:col_sp test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:61:col_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:60:pivot_cols test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:60:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 237, characters 24-42
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:59:pivot_cols test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:59:pivot_cols test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:58:rref test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:58:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 201, characters 66-75
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 211, characters 24-36
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:57:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:57:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:56:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:56:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:55:rref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:55:rref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:54:ref test has failed.
+2020-04-20T23:19:12+00:00 ejackson#00 E: not equal in test test suite:54:ref test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 8-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:53:null_sp test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:53:null_sp test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 161, characters 16-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 181, characters 14-21
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 212, characters 37-53
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "list.ml", line 234, characters 17-20
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 244, characters 25-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 181, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:52:add test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:52:add test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 108, characters 59-75
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 167, characters 24-37
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:51:add test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:50:mult test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:50:mult test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at unknown location
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "Matrix.ml", line 98, characters 15-29
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 153, characters 24-38
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:49:mult test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Test test suite:48:concat test exited with an error.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Invalid_argument("index out of bounds") in test test suite:48:concat test.
+2020-04-20T23:19:12+00:00 ejackson#00 E: Raised by primitive operation at file "Matrix.ml", line 66, characters 6-13
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 54, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "array.ml", line 52, characters 22-27
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "test.ml", line 142, characters 24-41
+2020-04-20T23:19:12+00:00 ejackson#00 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T23:19:12+00:00 ejackson#00 E: 
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:47:concat test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:46:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:45:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:44:concat_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:43:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:42:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:41:to_column test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:40:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:39:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:38:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:37:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:36:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:35:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:34:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:33:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:32:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:31:id test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:30:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:29:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:28:map test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:27:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:26:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:25:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:24:entry test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:23:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:22:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:21:from_vector test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:20:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:19:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:18:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:17:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:16:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:15:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:14:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:13:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:12:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:11:num_cols test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:10:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:9:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:8:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:7:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:6:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:5:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:4:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:3:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:2:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:1:num_rows test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Test test suite:0:add_test is successful.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Ran: 64 tests in: 0.09 seconds.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Cases: 64.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Tried: 64.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Errors: 7.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Failures: 7.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Skip: 0.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Todo: 0.
+2020-04-20T23:19:12+00:00 ejackson#00 I: Timeout: 0.

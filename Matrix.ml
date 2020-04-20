@@ -168,7 +168,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         elim (row + 1) m
   let ref = eliminate 0 0
 
-    (* [collect_pivots r c ls mat] is the list of the columns of the pivot
+  (* [collect_pivots r c ls mat] is the list of the columns of the pivot
      positions below and to the right of row r and column c, inclusive pushed on
      to ls. Assumes that the part of the matrix searched is in row echelon 
      form *)
@@ -211,6 +211,16 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     List.init (num_rows mat) (fun i -> i) |>
     List.filter (fun x -> List.mem x (pivot_cols mat))
 
+  (** [idx_vecs idxs vecs] is the list of vectors composed by the vectors in the 
+      indices of [idxs].
+      Requires: [idxs] is sorted least to greatest.
+  *)
+  let idx_vecs idxs vecs =
+    let rec vecs_idx acc idxs vecs = match idxs with
+      | [] -> acc
+      | h::t -> vecs_idx ((List.nth vecs h)::acc) t vecs
+    in List.rev (vecs_idx [] idxs vecs)
+
   (** [insert vecs idxs] inserts the standard basis vector e_i into the ith 
       element of vecs for each i in idxs. *)
   let rec insert_vecs idxs vecs =
@@ -220,17 +230,33 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       insert_vecs t (insert h (V.make (V.dim (List.hd vecs))
                                  (fun i -> if i = h then V.E.(add_inv one) else V.E.zero)) vecs)
 
+  (** [fst_n n lst] is the first n elements of lst. Raises OutOfBoundsException
+      if [n > List.length lst]. *)
+  let fst_n n lst = 
+    let rec fst acc n lst = match n, lst with 
+      | 0, _ -> acc
+      | n, h::t -> fst (h::acc) (n-1) t
+      | _, [] -> raise OutOfBoundsException
+    in List.rev (fst [] n lst)
+
   let nul_sp mat =
-    let test = mat 
-               |> rref
-               |> to_column 
-               |> List.map (fun v -> V.scale v (V.E.(add_inv one)))
-               |> insert_vecs (non_pivot mat)
-               |> concat
-               |> transpose
-               |> add (id (num_rows mat)) |> add (id (num_rows mat))
-               |> to_column in
-    mat
+    let cols = num_cols mat in
+    let non_pivot_cols = non_pivot mat in
+    mat 
+    |> rref
+    |> transpose
+    |> to_column
+    |> insert_vecs non_pivot_cols
+    |> fst_n cols
+    |> concat
+    |> mult
+      (make cols cols 
+         (fun i j -> if i = j then V.E.(mult_inv one) else V.E.zero))
+    |> add (id (num_rows mat)) |> add (id (num_rows mat))
+    |> transpose
+    |> to_column
+    |> idx_vecs non_pivot_cols
+    |> concat
 
   let col_sp (mat : t) = 
     let cols = List.fold_left (fun ls i -> 

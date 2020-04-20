@@ -14,6 +14,10 @@ module type Vector = sig
   (** Type of Vectors. *)
   type t
 
+  (** raised if an attemt is made to access a vector index that does not 
+      exist. *)
+  exception OutOfBoundsException
+
   (** [dim v] is the dimension of the vector [v]. *)
   val dim : t -> int
 
