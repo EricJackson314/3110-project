@@ -1,0 +1,91 @@
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:1:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:1:num_rows test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:1:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:3:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:3:num_rows test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:3:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:5:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:5:num_rows test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:5:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:7:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:7:num_rows test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:7:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:9:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:9:num_rows test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:9:num_rows test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:11:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:11:num_cols test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:11:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:13:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:13:num_cols test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:13:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:15:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:15:num_cols test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:15:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:17:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:17:num_cols test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:17:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:20:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:20:num_cols test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:20:num_cols test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:22:from_vector test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:22:from_vector test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:22:from_vector test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:24:entry test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:24:entry test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:24:entry test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:26:entry test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:26:entry test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:26:entry test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:28:map test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:28:map test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:28:map test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:30:map test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:30:map test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:30:map test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:32:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:32:id test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:32:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:34:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:34:id test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:34:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:36:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:36:id test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:36:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:38:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:38:id test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:38:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:39:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:39:id test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:39:id test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:41:to_column test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:41:to_column test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:41:to_column test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:43:to_column test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:43:to_column test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:43:to_column test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:45:concat_test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:45:concat_test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:45:concat_test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:47:concat test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:47:concat test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:47:concat test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:50:mult test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:50:mult test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:50:mult test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:51:add test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:51:add test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:51:add test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:53:ref test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:53:ref test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:53:ref test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:56:rref test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Test test suite:56:rref test is successful.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:56:rref test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: Start test test suite:58:col_sp test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 E: Test test suite:58:col_sp test has failed.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 E: not equal in test test suite:58:col_sp test.
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 E: 
+2020-04-20T17:15:01+00:00 Ralphs-MacBook-Pro.local#02 I: End test test suite:58:col_sp test.

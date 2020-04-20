@@ -207,7 +207,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       (fun (mat,  idxs) -> "pivot_cols test" >:: fun _ ->
            assert_equal (M.pivot_cols mat) idxs)
       [
-        (M.id 5, [1; 2; 3; 4; 5]);
+        (M.id 5, [0; 1; 2; 3; 4]);
       ]
 
   (** [col_sp_tests] tests [Matrix.col_sp]. *)
