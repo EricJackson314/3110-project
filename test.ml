@@ -36,11 +36,51 @@ module VectorTest(VM : Vector.VectorMaker) = struct
 
   let add_test : test = "add_test" >:: fun _ -> assert_equal (V.add vec_1 vec_1) vec_2
 
+  let gen_l size = List.init size (fun _ -> Random.float 10.)
+  let gen_v size = V.from_list (gen_l size)
+  let gen_zero size = V.from_list (List.init size (fun _ -> 0.))
 
-  let tests =
+  let e1 = gen_v 0
+  let e2 = gen_v 0 
+
+  let gen_add_test size (a : unit) : test list = 
+    let s = 
+      if Random.float 1. > 0.5 then Random.float 10. else Random.float (-10.) in
+    let l1 = gen_l size in
+    let l2 = gen_l size in
+    let sum = List.map2 (fun a b -> a +. b) l1 l2 in
+    let sub = List.map2 (fun a b -> a -. b) l1 l2 in
+    let v1 = V.from_list l1 in
+    let v2 = V.from_list l2 in
+    let sl1 = List.map (fun a -> s *. a) l1 in
+    let sv1 = V.from_list sl1 in
+    let v_add = V.add v1 v2 in
+    let v_sub = V.sub v1 v2 in
+    let v_sum = V.from_list sum in
+    let v_diff = V.from_list sub in
+    let dot = List.fold_left2 (fun s a b -> s +. a *. b) 0. l1 l2 in
+    let norm = Float.sq_rt (V.dot v1 v1) in
+    let norm_v1 = V.normalize v1 in
+    let res_v1 = V.scale norm_v1 norm in
+
     [
-      add_test;
-    ]
+      ("gen_sum_test" >:: fun _ -> assert_equal v_add v_sum);
+      ("gen_size_test" >:: fun _ -> assert_equal (V.dim v1) size);
+      ("gen_sub_test" >:: fun _ -> assert_equal v_diff v_sub);
+      ("gen_zero_test" >:: 
+       fun _ -> assert_equal (V.scale v1 0.) (gen_zero size));
+      ("gen_scale_test" >:: fun _ -> assert_equal (V.scale v1 s) sv1);
+      ("gen_dot_test" >:: fun _ -> assert_equal (V.dot v1 v2) dot);
+      ("gen_norm_test" >:: fun _ -> assert_equal norm (V.norm v1));
+      ("gen_normalize_test" >:: fun _ -> assert_equal res_v1 v1);
+      ("gen_makers_test" >:: 
+       fun _ -> assert_equal v1 (V.make size (fun n -> List.nth l1 n)));
+      ("gen_tolist_test" >:: fun _ -> assert_equal l1 (V.to_list v1));
+      ("gen_nth_test" >:: fun _ -> 
+          assert_equal l1 (List.init size (fun n -> V.nth v1 n)))
+    ] 
+  let tests =
+    add_test::(List.flatten (List.init 20 (fun i -> gen_add_test i ())))
 end
 
 

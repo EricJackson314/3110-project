@@ -56,10 +56,10 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     let len = V.dim v in
     Array.make 1 (Array.init len (fun i -> V.nth v i))
 
-  let num_rows = Array.length
+  let num_cols = Array.length
 
-  let num_cols mat = 
-    if num_rows mat = 0 then 0 else Array.length mat.(0)
+  let num_rows mat = 
+    if num_cols mat = 0 then 0 else Array.length mat.(0)
 
   let entry r c mat = 
     if r >= 0 && r < num_rows mat && c >= 0 && c < num_cols mat then
@@ -122,8 +122,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     then raise OutOfBoundsException
     else make rows cols
         (fun row col -> entry row col mat
-                        |> fun v -> if r2 = row then E.add v (entry r1 col mat)
-                        else v ) 
+          |> fun v -> if r2 = row then E.add v (E.mult s (entry r1 col mat))
+                        else v) 
 
   let row_swap r1 r2 mat =
     let rows = num_rows mat in
@@ -157,11 +157,11 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       in
       match find_piv row with
       | None -> eliminate row (col + 1) mat
-      | Some r -> let piv_row = r in
-        let m = row_swap piv_row r mat in
+      | Some r -> 
+        let m = row_swap row r mat in
         let c = E.mult_inv (entry row col m) in
-        let coeff r = E.mult (entry r col m) c in
-        let elim_row r = add_row row r (coeff r) in
+        let coeff rr = E.add_inv (E.mult (entry rr col m) c) in
+        let elim_row rrr = add_row row rrr (coeff rrr) in
         let rec elim r x = 
           if r = rows then x
           else elim (r + 1) (elim_row r x) in
