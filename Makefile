@@ -1,4 +1,4 @@
-MODULES= Vector Matrix Num
+MODULES= Vector Matrix Num MatAlg
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
