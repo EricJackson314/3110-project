@@ -3,10 +3,6 @@ open Num
 open Vector
 open Matrix
 
-(* Helper Functions: *)
-(** [almost_equal v1 v2] is true if v1 and v2 are within [1e6] of eachother. *)
-let almost_equal v1 v2 = abs_float(v1 -. v2) < 1e-6
-
 module Float = struct
   type t = float
   let add = (+.)
@@ -21,9 +17,20 @@ module Float = struct
   let compare = Stdlib.compare
 end
 
+(* Helper Functions: *)
+(** [almost_equal v1 v2] is true if v1 and v2 are within [1e6] of eachother. *)
+let almost_equal v1 v2 = abs_float(v1 -. v2) < 1e-6
+
+
 (** Creates a list of tests, [tests], for vectors containing floats. *)
 module VectorTest(VM : Vector.VectorMaker) = struct
   module V = VM (Float)
+
+  (** [close_vector v1 v2] is true if all the elements of v1 are almost equal to v2. *)
+  let close_vector v1 v2 =
+    if V.dim v1 <> V.dim v2 then false else
+      List.fold_left2 (fun a e1 e2 -> a +. e1 -. e2) 0. (V.to_list v1) (V.to_list v2)
+      |> almost_equal 0.
 
   let zero = Float.zero
   let one = Float.one
@@ -72,7 +79,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
       ("gen_scale_test" >:: fun _ -> assert_equal (V.scale v1 s) sv1);
       ("gen_dot_test" >:: fun _ -> assert_equal (V.dot v1 v2) dot);
       ("gen_norm_test" >:: fun _ -> assert_equal norm (V.norm v1));
-      ("gen_normalize_test" >:: fun _ -> assert_equal res_v1 v1);
+      ("gen_normalize_test" >:: fun _ -> assert_bool "normalize test" (close_vector res_v1 v1));
       ("gen_makers_test" >:: 
        fun _ -> assert_equal v1 (V.make size (fun n -> List.nth l1 n)));
       ("gen_tolist_test" >:: fun _ -> assert_equal l1 (V.to_list v1));

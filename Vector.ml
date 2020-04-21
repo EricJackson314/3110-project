@@ -48,7 +48,9 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
 
   let norm v = List.fold_left (fun a e -> a + E.(norm e * norm e)) E.zero v |> E.sq_rt
 
-  let normalize v = E.mult_inv (norm v) |> scale v
+  let normalize v =
+    let n = norm v in
+    if n = E.zero then v else scale v (E.mult_inv n)
 
   let from_list lst = lst
 

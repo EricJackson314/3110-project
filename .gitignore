@@ -1,23 +1,5 @@
 
-_build/_digests
-_build/_log
-_build/Matrix.cmi
-_build/Matrix.mli
-_build/Matrix.mli.depends
-_build/Num.cmi
-_build/Num.mli
-_build/Num.mli.depends
-_build/ocamlc.where
-_build/Vector.byte
-_build/Vector.cmi
-_build/Vector.cmo
-_build/Vector.ml
-_build/Vector.ml.depends
-_build/Vector.mli
-_build/Vector.mli.depends
-_build/Matrix.byte
-_build/Matrix.cmo
-_build/Matrix.ml
-_build/Matrix.ml.depends
+_build/*
+doc.*
 .DS_Store
 *.native

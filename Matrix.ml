@@ -122,7 +122,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     then raise OutOfBoundsException
     else make rows cols
         (fun row col -> entry row col mat
-          |> fun v -> if r2 = row then E.add v (E.mult s (entry r1 col mat))
+                        |> fun v -> if r2 = row then E.add v (E.mult s (entry r1 col mat))
                         else v) 
 
   let row_swap r1 r2 mat =
@@ -251,8 +251,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     |> concat
     |> mult
       (make cols cols 
-         (fun i j -> if i = j then V.E.(mult_inv one) else V.E.zero))
-    |> add (id (num_rows mat)) |> add (id (num_rows mat))
+         (fun i j -> if i = j then V.E.(add_inv one) else V.E.zero))
+    |> add (id cols) |> add (id cols)
     |> transpose
     |> to_column
     |> idx_vecs non_pivot_cols
