@@ -20,3 +20,4 @@ _build/Matrix.cmo
 _build/Matrix.ml
 _build/Matrix.ml.depends
 .DS_Store
+*.native

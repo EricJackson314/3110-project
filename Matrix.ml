@@ -179,7 +179,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
 
   let pivot_cols mat =
     let red = ref mat in
-    collect_pivots 0 0 [] red
+    List.rev (collect_pivots 0 0 [] red)
 
   (* procedure sketch: find all the pivot columns, scale those columns then
      do up elimination. *)
