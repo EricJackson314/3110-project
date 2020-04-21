@@ -1,536 +1,226 @@
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:0:add_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:0:add_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:0:add_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:2:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:2:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:2:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:4:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:4:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:4:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:6:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:6:gen_dot_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:6:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:8:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:8:gen_normalize_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:8:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:10:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:10:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:10:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:12:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:12:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:12:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:14:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:14:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:14:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:16:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:16:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:16:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:19:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:19:gen_normalize_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:19:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:21:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:21:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:21:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:23:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:23:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:23:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:25:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:25:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:25:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:27:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:27:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:27:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:29:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:29:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:29:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:29:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:31:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:31:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:31:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:33:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:33:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:33:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:35:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:35:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:35:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:37:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:37:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:37:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:39:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:39:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:39:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:39:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:41:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:41:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:41:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:41:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:43:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:43:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:43:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:45:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:45:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:45:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:47:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:47:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:47:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:49:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:49:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:49:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:52:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:52:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:52:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:52:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:54:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:54:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:54:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:56:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:56:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:56:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:58:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:58:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:58:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:60:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:60:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:60:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:63:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:63:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:63:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:63:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:65:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:65:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:65:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:67:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:67:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:67:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:69:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:69:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:69:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:71:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:71:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:71:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:73:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:73:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:73:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:73:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:75:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:75:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:75:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:77:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:77:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:77:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:79:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:79:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:79:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:81:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:81:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:81:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:84:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:84:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:84:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:84:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:85:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:85:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:85:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:85:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:87:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:87:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:87:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:89:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:89:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:89:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:91:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:91:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:91:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:93:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:93:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:93:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:95:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:95:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:95:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:95:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:98:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:98:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:98:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:99:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:99:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:99:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:102:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:102:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:102:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:104:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:104:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:104:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:106:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:106:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:106:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:106:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:108:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:108:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:108:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:111:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:111:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:111:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:112:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:112:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:112:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:115:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:115:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:115:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:116:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:116:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:116:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:116:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:119:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:119:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:119:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:121:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:121:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:121:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:123:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:123:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:123:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:125:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:125:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:125:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:127:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:127:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:127:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:127:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:129:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:129:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:129:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:129:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:131:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:131:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:131:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:133:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:133:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:133:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:135:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:135:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:135:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:137:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:137:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:137:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:138:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:138:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:138:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:138:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:140:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:140:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:140:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:140:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:142:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:142:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:142:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:144:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:144:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:144:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:146:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:146:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:146:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:148:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:148:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:148:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:150:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:150:gen_norm_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:150:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:150:gen_norm_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:152:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:152:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:152:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:154:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:154:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:154:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:156:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:156:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:156:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:158:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:158:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:158:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:160:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:160:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:160:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:160:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:163:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:163:gen_makers_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:163:gen_makers_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:165:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:165:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:165:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:167:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:167:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:167:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:169:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:169:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:169:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:171:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:171:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:171:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:171:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:173:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:173:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:173:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:173:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:175:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:175:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:175:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:177:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:177:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:177:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:179:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:179:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:179:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:181:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:181:gen_scale_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:181:gen_scale_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:184:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:184:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:184:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:184:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:186:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:186:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:186:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:187:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:187:gen_nth_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:187:gen_nth_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:189:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:189:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:189:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:191:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:191:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:191:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:193:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:193:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:193:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:193:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:195:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:195:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:195:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:195:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:197:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:197:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:197:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:199:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:199:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:199:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:201:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:201:gen_sub_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:201:gen_sub_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:202:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:202:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:202:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:204:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:204:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:204:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:204:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:206:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:206:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:206:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:206:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:208:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:208:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:208:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:210:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:210:gen_sum_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:210:gen_sum_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:211:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:211:gen_size_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:211:gen_size_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:213:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:213:gen_zero_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:213:gen_zero_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:215:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:215:gen_dot_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:215:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:215:gen_dot_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:217:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:217:gen_normalize_test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:217:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:217:gen_normalize_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:219:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:219:gen_tolist_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:219:gen_tolist_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:221:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:221:num_rows test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:221:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:222:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:222:num_rows test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:222:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:224:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:224:num_rows test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:224:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:227:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:227:num_rows test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:227:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:228:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:228:num_rows test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:228:num_rows test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:231:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:231:num_cols test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:231:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:232:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:232:num_cols test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:232:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:235:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:235:num_cols test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:235:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:237:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:237:num_cols test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:237:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:239:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:239:num_cols test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:239:num_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:241:from_vector test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:241:from_vector test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:241:from_vector test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:243:from_vector test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:243:from_vector test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:243:from_vector test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:245:entry test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:245:entry test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:245:entry test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:246:entry test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:246:entry test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:246:entry test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:248:map test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:248:map test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:248:map test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:251:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:251:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:251:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:253:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:253:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:253:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:255:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:255:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:255:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:256:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:256:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:256:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:259:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:259:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:259:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:260:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:260:id test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:260:id test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:263:to_column test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:263:to_column test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:263:to_column test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:264:concat_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:264:concat_test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:264:concat_test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:267:concat test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:267:concat test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:267:concat test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:269:mult test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:269:mult test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:269:mult test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:270:mult test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:270:mult test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:270:mult test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:272:add test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:272:add test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:272:add test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:274:rref test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:274:rref test is successful.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:274:rref test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:277:pivot_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:277:pivot_cols test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:277:pivot_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:277:pivot_cols test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:278:col_sp test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:278:col_sp test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:278:col_sp test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:278:col_sp test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:279:col_sp test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:279:col_sp test has failed.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:279:col_sp test.
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 E: 
-2020-04-20T23:15:37+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:279:col_sp test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:0:add_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:0:add_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:0:add_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:2:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:2:gen_size_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:2:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:4:gen_zero_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:4:gen_zero_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:4:gen_zero_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:6:gen_dot_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:6:gen_dot_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:6:gen_dot_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:8:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:8:gen_normalize_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:8:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:10:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:10:gen_tolist_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:10:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:12:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:12:gen_sum_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:12:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:14:gen_sub_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:14:gen_sub_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:14:gen_sub_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:16:gen_scale_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:16:gen_scale_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:16:gen_scale_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:18:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:18:gen_norm_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:18:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:20:gen_makers_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:20:gen_makers_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:20:gen_makers_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:22:gen_nth_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:22:gen_nth_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:22:gen_nth_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:24:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:24:gen_size_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:24:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:26:gen_zero_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:26:gen_zero_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:26:gen_zero_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:29:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:29:gen_norm_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:29:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:29:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:30:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:30:gen_normalize_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:30:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:30:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:32:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:32:gen_tolist_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:32:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:34:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:34:gen_sum_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:34:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:35:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:35:gen_size_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:35:gen_size_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:38:gen_scale_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:38:gen_scale_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:38:gen_scale_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:40:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:40:gen_norm_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:40:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:40:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:42:gen_makers_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:42:gen_makers_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:42:gen_makers_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:44:gen_nth_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:44:gen_nth_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:44:gen_nth_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:45:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:45:gen_sum_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:45:gen_sum_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:47:gen_sub_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:47:gen_sub_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:47:gen_sub_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:50:gen_dot_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:50:gen_dot_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:50:gen_dot_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:50:gen_dot_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:51:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:51:gen_norm_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:51:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:51:gen_norm_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:52:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:52:gen_normalize_test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:52:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:52:gen_normalize_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:54:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:54:gen_tolist_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:54:gen_tolist_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:56:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:56:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:56:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:58:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:58:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:58:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:60:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:60:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:60:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:62:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:62:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:62:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:63:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:63:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:63:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:65:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:65:num_rows test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:65:num_rows test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:67:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:67:num_cols test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:67:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:70:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:70:num_cols test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:70:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:71:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:71:num_cols test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:71:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:74:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:74:num_cols test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:74:num_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:76:from_vector test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:76:from_vector test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:76:from_vector test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:78:from_vector test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:78:from_vector test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:78:from_vector test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:80:entry test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:80:entry test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:80:entry test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:82:entry test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:82:entry test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:82:entry test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:84:map test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:84:map test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:84:map test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:86:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:86:id test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:86:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:88:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:88:id test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:88:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:90:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:90:id test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:90:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:92:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:92:id test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:92:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:94:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:94:id test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:94:id test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:96:to_column test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:96:to_column test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:96:to_column test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:98:to_column test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:98:to_column test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:98:to_column test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:100:concat_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:100:concat_test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:100:concat_test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:102:concat test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:102:concat test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:102:concat test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:104:mult test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:104:mult test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:104:mult test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:106:add test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:106:add test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:106:add test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:108:null_sp test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:108:null_sp test exited with an error.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Matrix.Make(Elem).DimensionMismatchException in test test suite:108:null_sp test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "hashtbl.ml", line 198, characters 17-32
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitShared.ml", line 126, characters 8-29
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:108:null_sp test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:109:ref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:109:ref test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:109:ref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:111:rref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:111:rref test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:111:rref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:113:rref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:113:rref test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:113:rref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:113:rref test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:114:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:114:pivot_cols test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:114:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:114:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:115:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Test test suite:115:pivot_cols test has failed.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: not equal in test test suite:115:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Raised at file "src/lib/ounit2/advanced/oUnitAssert.ml", line 45, characters 2-27
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: Called from file "src/lib/ounit2/advanced/oUnitRunner.ml", line 83, characters 13-26
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 E: 
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:115:pivot_cols test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Start test test suite:117:col_sp test.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: Test test suite:117:col_sp test is successful.
+2020-04-21T15:17:09+00:00 Ralphs-MacBook-Pro.local#01 I: End test test suite:117:col_sp test.

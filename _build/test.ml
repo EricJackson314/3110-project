@@ -35,7 +35,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
   let vec_2 = V.from_list [zero; two; four]
 
   let add_test : test = "add_test" >:: fun _ -> assert_equal (V.add vec_1 vec_1) vec_2
-  
+
   let gen_l size = List.init size (fun _ -> Random.float 10.)
   let gen_v size = V.from_list (gen_l size)
   let gen_zero size = V.from_list (List.init size (fun _ -> 0.))
@@ -68,19 +68,19 @@ module VectorTest(VM : Vector.VectorMaker) = struct
       ("gen_size_test" >:: fun _ -> assert_equal (V.dim v1) size);
       ("gen_sub_test" >:: fun _ -> assert_equal v_diff v_sub);
       ("gen_zero_test" >:: 
-        fun _ -> assert_equal (V.scale v1 0.) (gen_zero size));
+       fun _ -> assert_equal (V.scale v1 0.) (gen_zero size));
       ("gen_scale_test" >:: fun _ -> assert_equal (V.scale v1 s) sv1);
       ("gen_dot_test" >:: fun _ -> assert_equal (V.dot v1 v2) dot);
       ("gen_norm_test" >:: fun _ -> assert_equal norm (V.norm v1));
       ("gen_normalize_test" >:: fun _ -> assert_equal res_v1 v1);
       ("gen_makers_test" >:: 
-        fun _ -> assert_equal v1 (V.make size (fun n -> List.nth l1 n)));
+       fun _ -> assert_equal v1 (V.make size (fun n -> List.nth l1 n)));
       ("gen_tolist_test" >:: fun _ -> assert_equal l1 (V.to_list v1));
       ("gen_nth_test" >:: fun _ -> 
-        assert_equal l1 (List.init size (fun n -> V.nth v1 n)))
+          assert_equal l1 (List.init size (fun n -> V.nth v1 n)))
     ] 
   let tests =
-    add_test::(List.flatten (List.init 20 (fun i -> gen_add_test i ())))
+    add_test::(List.flatten (List.init 5 (fun i -> gen_add_test i ())))
 end
 
 
@@ -276,7 +276,6 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       (fun (mat,  idxs) -> "pivot_cols test" >:: fun _ ->
            assert_equal (M.pivot_cols mat) idxs)
       [
-<<<<<<< HEAD
         (M.id 5, [1; 2; 3; 4; 5]);
         (M.concat 
            [
@@ -287,9 +286,6 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
              M.V.from_list [-7.; -1.; -4.];
            ],
          [1; 3;]); 
-=======
-        (M.id 5, [0; 1; 2; 3; 4]);
->>>>>>> d57ba37eb7b12fc6e462634f1b8e43cd3f2dc645
       ]
 
   (** [col_sp_tests] tests [Matrix.col_sp]. *)

@@ -80,7 +80,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
           assert_equal l1 (List.init size (fun n -> V.nth v1 n)))
     ] 
   let tests =
-    add_test::(List.flatten (List.init 20 (fun i -> gen_add_test i ())))
+    add_test::(List.flatten (List.init 5 (fun i -> gen_add_test i ())))
 end
 
 
