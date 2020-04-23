@@ -70,7 +70,10 @@ module Make = functor (Elem : Num) -> struct
     |> M.transpose 
     |> M.col_sp
 
-  let perp = failwith "Unimplemented"
+  let perp mat =
+    mat
+    |> M.transpose
+    |> M.nul_sp 
 
   let change_basis = failwith "Unimplemented"
 

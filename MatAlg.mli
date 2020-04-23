@@ -25,6 +25,8 @@ module type MatAlg = sig
       of [mat]. *)
   val row_sp : matrix -> matrix
 
+  (** [perp mat] is a matrix [m] where the columns of [m] span the orthogonal
+      complement of the subspace spanned by the columns of [mat]. *)
   val perp : matrix -> matrix
 
   (* old_basis -> new_basis -> conversion_matrix *)
