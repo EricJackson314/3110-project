@@ -41,11 +41,34 @@ module Make = functor (Elem : Num) -> struct
 
   let is_square mat = M.num_rows mat = M.num_cols mat
 
-  let ortho = failwith "Unimplemented"
+  (** [gram_schmidt v x] is hard to explain... *)
+  let gram_schmidt v x = 
+    if v = [] then x else
+      let sclr x' v' = 
+        M.V.(scale v' (E.mult (dot x v') (E.mult_inv (dot v' v')))) in 
+      List.fold_left (fun x' v' -> M.V.sub x' (sclr x' v') ) x v
 
-  let ortho_normal = failwith "Unimplemented"
+  (** [ortho mat] applies the Gram-Schmidt process to the column 
+      vectors of [mat]. *)
+  let ortho mat = 
+    mat
+    |> M.col_sp
+    |> M.to_column
+    |> List.fold_left (fun v x -> (gram_schmidt v x)::v) []
+    |> List.rev
+    |> M.concat
 
-  let row_sp = failwith "Unimplemented"
+  let ortho_normal =
+    mat
+    |> ortho
+    |> M.to_column
+    |> List.map M.V.normalize
+    |> M.concat 
+
+  let row_sp mat = 
+    mat 
+    |> M.transpose 
+    |> M.col_sp
 
   let perp = failwith "Unimplemented"
 
