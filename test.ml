@@ -4,6 +4,7 @@ open Vector
 open Matrix
 
 module Float = struct
+  let threshold = 0.000001
   type t = float
   let add = (+.)
   let add_inv = (~-.)
@@ -13,7 +14,7 @@ module Float = struct
   let norm = abs_float
   let one = 1.
   let zero = 0.
-  let equals a b = a = b
+  let equals a b = Float.abs (a -. b) < threshold
   let compare = Stdlib.compare
 end
 
@@ -283,7 +284,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       (fun (mat,  idxs) -> "pivot_cols test" >:: fun _ ->
            assert_equal (M.pivot_cols mat) idxs)
       [
-        (M.id 5, [1; 2; 3; 4; 5]);
+        (M.id 5, [0; 1; 2; 3; 4]);
         (M.concat 
            [
              M.V.from_list [-3.; 1.; 2.];
@@ -292,7 +293,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
              M.V.from_list [1.; 3.; 8.];
              M.V.from_list [-7.; -1.; -4.];
            ],
-         [1; 3;]); 
+         [0; 2]); 
       ]
 
   (** [col_sp_tests] tests [Matrix.col_sp]. *)

@@ -152,7 +152,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       let rows = num_rows mat in
       let rec find_piv r = 
         if r = rows then None 
-        else if entry r col mat = E.zero then find_piv (r + 1)
+        else if entry r col mat |> E.equals E.zero then find_piv (r + 1)
         else Some r
       in
       match find_piv row with
@@ -164,8 +164,9 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         let elim_row rrr = add_row row rrr (coeff rrr) in
         let rec elim r x = 
           if r = rows then x
-          else elim (r + 1) (elim_row r x) in
-        elim (row + 1) m
+          else elim (r + 1) (elim_row r x)
+        in
+        eliminate (row + 1) (col + 1) (elim (row + 1) m)
   let ref = eliminate 0 0
 
   (* [collect_pivots r c ls mat] is the list of the columns of the pivot
@@ -174,7 +175,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
      form *)
   let rec collect_pivots r c ls mat = 
     if r = num_rows mat || c = num_cols mat then ls
-    else if entry r c mat = E.zero then collect_pivots r (c + 1) ls mat
+    else if entry r c mat |> E.equals E.zero then collect_pivots r (c + 1) ls mat
     else collect_pivots (r + 1) (c + 1) (c::ls) mat
 
   let pivot_cols mat =
@@ -186,7 +187,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let rref mat = 
     let scale_up_elim col x = 
       let rec get_row row = 
-        if entry row col x = E.zero then get_row (row - 1)
+        if entry row col x |> E.equals E.zero then get_row (row - 1)
         else row
       in
       let piv_r = get_row ((num_rows x) - 1) in
