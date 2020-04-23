@@ -26,4 +26,3 @@ end;;
 module V = Vector.Make (Float);;
 module M = Matrix.Make (Float);;
 module MatAlg = MatAlg.Make (Float);;
-
