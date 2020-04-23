@@ -41,7 +41,8 @@ module Make = functor (Elem : Num) -> struct
 
   let is_square mat = M.num_rows mat = M.num_cols mat
 
-  (** [gram_schmidt v x] is hard to explain... *)
+  (** [gram_schmidt v x] is the vector [x'] which is the component of [x]
+      orthogonal to the vectors in [v]. *)
   let gram_schmidt v x = 
     if v = [] then x else
       let sclr x' v' = 
@@ -58,7 +59,7 @@ module Make = functor (Elem : Num) -> struct
     |> List.rev
     |> M.concat
 
-  let ortho_normal =
+  let ortho_normal mat =
     mat
     |> ortho
     |> M.to_column

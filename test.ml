@@ -360,9 +360,48 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
         (10, 9, false);
       ]
 
+  (** [ortho_test mat mat'] asserts that the orthogonal basis for the columns
+      of [mat] is spanned by the columns of [mat']. *)
+  let ortho_test mat mat' : test =
+    "ortho tets" >:: fun _ -> assert_equal (MA.ortho mat) mat'
+
+  (** [ortho_tests] tests [MatAlg.ortho]. *)
+  let ortho_tests = List.map
+      (fun (mat, mat') -> ortho_test mat mat')
+      [
+
+      ]
+
+  (** [ortho_test mat mat'] asserts that the ortho-normal basis for the columns
+      of [mat] is spanned by the columns of [mat']. *)
+  let ortho_normal_test mat mat' : test =
+    "ortho tets" >:: fun _ -> assert_equal (MA.ortho_normal mat) mat'
+
+  (** [ortho_normal_tests] tests [MatAlg.ortho_normal]. *)
+  let ortho_normal_tests = List.map
+      (fun (mat, mat') -> ortho_normal_test mat mat')
+      [
+
+      ]
+
+  (** [ortho_test mat mat'] asserts that the orthogonal complement for the 
+      columns of [mat] is spanned by the columns of  [mat']. *)
+  let perp_test mat mat' : test =
+    "ortho tets" >:: fun _ -> assert_equal (MA.perp mat) mat'
+
+  (** [perp_tests] tests [MatAlg.perp]. *)
+  let perp_tests = List.map
+      (fun (mat, mat') -> perp_test mat mat')
+      [
+
+      ]
+
   let tests = List.flatten
       [
         is_square_tests;
+        ortho_tests;
+        ortho_normal_tests;
+        perp_tests;
       ]
 end
 
