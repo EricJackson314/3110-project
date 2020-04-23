@@ -91,7 +91,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
 end
 
 
-(** Creates a list of tests, [test], for matrices containing floats. *)
+(** Creates a list of tests, [tests], for matrices containing floats. *)
 module MatrixTest(MM : Matrix.MatrixMaker)= struct
   module M = MM (Float)
 
@@ -339,13 +339,42 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
 
 end
 
-module VTest = VectorTest(Vector.Make)
-module MTest = MatrixTest(Matrix.Make)
+(** Creates a list of tests, [tests], for the MatAlg module. *)
+module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
+  module MA = MAM (Float)
+
+  (** [is_square_test m n b] asserts that the of [is_square] for an [m] by [n] 
+      matrix is [b]. *)
+  let is_square_test m n b : test =
+    "is_square test" >:: fun _ -> 
+      assert_equal MA.(is_square (M.make m n (fun i j -> 0.))) b
+
+  (** [is_square_tests] tests [MatAlg.is_square]. *)
+  let is_square_tests = List.map (fun (m, n, b) -> is_square_test m n b) 
+      [
+        (1, 1, true);
+        (2, 2, true);
+        (1, 2, false);
+        (2, 1, false);
+        (5, 5, true);
+        (10, 9, false);
+      ]
+
+  let tests = List.flatten
+      [
+        is_square_tests;
+      ]
+end
+
+module V_Test = VectorTest(Vector.Make)
+module M_Test = MatrixTest(Matrix.Make)
+(* module MatAlg_Test = MatAlgTest(MatAlg.Make) *)
 
 let tests = List.flatten 
     [
-      VTest.tests;
-      MTest.tests;
+      V_Test.tests;
+      M_Test.tests;
+      (* MatAlg_test.tests; *)
     ]
 
 let suite = "test suite" >::: tests
