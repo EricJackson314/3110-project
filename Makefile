@@ -9,6 +9,9 @@ PGS=oUnit
 default: build
 	utop
 
+demo: build
+	utop -init demo.ml
+
 build:
 	$(OCAMLBUILD) $(OBJECTS)
 

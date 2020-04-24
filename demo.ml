@@ -22,9 +22,12 @@ module Float = struct
   let zero = 0.
   let equals a b = Float.abs (a - b) < threshold
   let compare = Stdlib.compare
+  let format fmt f = Format.fprintf fmt "%f" f
 end;;
 
-module V = Vector.Make (Float);;
-module M = Matrix.Make (Float);;
-module MatAlg = MatAlg.Make (Float);;
+module MA = MatAlg.Make (Float);;
+#install_printer MA.V.format;;
+#install_printer MA.M.format;;
 
+module V = MA.V;;
+module M = MA.M;;

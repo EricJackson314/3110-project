@@ -32,6 +32,7 @@ module type Matrix = sig
   val nul_sp : t -> t
   val to_column : t -> vector list
   val concat : vector list -> t
+  val format : Format.formatter -> t -> unit
 end
 
 module type MatrixMaker = 
@@ -264,4 +265,10 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         ls@[mat.(i) |> Array.to_list |> V.from_list]) [] (pivot_cols mat) in
     concat cols
 
+  let format fmt m =
+    m 
+    |> transpose 
+    |> to_column 
+    |> List.iter (fun v -> Format.fprintf fmt "%a\n" V.format v);
 end
+

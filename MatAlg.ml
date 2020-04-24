@@ -30,7 +30,7 @@ end
 module type MatAlgMaker =
   functor (Elem : Num.Num) -> MatAlg with module E = Elem
 
-module Make = functor (Elem : Num) -> struct 
+module Make = functor (Elem : Num) -> struct
   module E = Elem
   module V = Vector.Make (E)
   module M = Matrix.Make (E)
@@ -76,7 +76,6 @@ module Make = functor (Elem : Num) -> struct
     |> M.transpose
     |> M.nul_sp 
 
-
   let rec diag_fold f i base mat = 
     if i >= M.num_rows mat then base
     else diag_fold f (i + 1) (f (M.entry i i mat) base) mat 
@@ -101,7 +100,7 @@ module Make = functor (Elem : Num) -> struct
       let x = M.rref gjm in
       M.make dim dim (fun r c -> M.entry r (c + dim) x)
 
-  let factor_plu (x : matrix) : (matrix * matrix * matrix) = failwith "Unimplemented"
+  let factor_plu = (fun _ -> failwith "Unimplemented")
 
   let factor_lu x =
     let (p, l, u) = factor_plu x in
@@ -110,10 +109,10 @@ module Make = functor (Elem : Num) -> struct
 
   let change_basis b c = M.mult (inverse c) b
 
-  let eigen = failwith "Unimplemented"
+  let eigen = (fun _ -> failwith "Unimplemented")
 
-  let diag = failwith "Unimplemented"
+  let diag = (fun _ -> failwith "Unimplemented")
 
-  let svd = failwith "Unimplemented"
+  let svd = (fun _ -> failwith "Unimplemented")
 end
 
