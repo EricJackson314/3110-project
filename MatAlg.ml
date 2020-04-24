@@ -20,10 +20,10 @@ module type MatAlg = sig
   val det : matrix -> elem
   val is_singular : matrix -> bool
   val inverse : matrix -> matrix
-  val factor_lu : matrix -> matrix * matrix option
+  val factor_lu : matrix -> (matrix * matrix) option
   val factor_plu : matrix -> matrix * matrix * matrix
   val eigen : matrix -> (elem * (vector list)) list
-  val diag : matrix -> matrix * matrix option
+  val diag : matrix -> (matrix * matrix) option
   val svd : matrix -> matrix * matrix * matrix
 end
 
@@ -76,17 +76,39 @@ module Make = functor (Elem : Num) -> struct
     |> M.transpose
     |> M.nul_sp 
 
-  let change_basis = failwith "Unimplemented"
 
-  let det = failwith "Unimplemented"
+  let rec diag_fold f i base mat = 
+    if i >= M.num_rows mat then base
+    else diag_fold f (i + 1) (f (M.entry i i mat) base) mat 
 
-  let is_singular = failwith "Unimplemented"
+  let det x =
+    if not (is_square x) then raise M.DimensionMismatchException
+    else 
+      let m = M.ref x in
+      diag_fold (fun e b -> E.mult e b) 0 E.one m
 
-  let inverse = failwith "Unimplemented"
+  let is_singular x = det x |> E.equals E.zero
 
-  let factor_lu = failwith "Unimplemented"
+  let inverse mat = 
+    if mat |> is_square |> not then raise M.DimensionMismatchException
+    else if mat |> is_singular then raise M.SingularMatrixException
+    else 
+      let dim = M.num_rows mat in
+      let gjm = M.make dim (2 * dim)
+        (fun r c -> if c < dim then M.entry r (c - dim) mat 
+          else M.entry r c (M.id dim))
+      in
+      let x = M.rref gjm in
+      M.make dim dim (fun r c -> M.entry r (c + dim) x)
 
-  let factor_plu = failwith "Unimplemented"
+  let factor_plu (x : matrix) : (matrix * matrix * matrix) = failwith "Unimplemented"
+
+  let factor_lu x =
+    let (p, l, u) = factor_plu x in
+    if p = M.id (M.num_rows x) then Some (l, u)
+    else None
+
+  let change_basis b c = M.mult (inverse c) b
 
   let eigen = failwith "Unimplemented"
 

@@ -10,6 +10,7 @@ open Matrix;;
 open MatAlg;;
 
 module Float = struct
+  let threshold = 0.000001
   type t = float
   let add = (+.)
   let add_inv = (~-.)
@@ -19,7 +20,7 @@ module Float = struct
   let norm = abs_float
   let one = 1.
   let zero = 0.
-  let equals a b = a = b
+  let equals a b = Float.abs (a - b) < threshold
   let compare = Stdlib.compare
 end;;
 

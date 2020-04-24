@@ -31,13 +31,15 @@ module type MatAlg = sig
 
   (* old_basis -> new_basis -> conversion_matrix *)
   val change_basis : matrix -> matrix -> matrix
+  (* [det mat] is the determinant of the matrix mat. Raises 
+     DimensionMismatchException if mat is non-square *)
   val det : matrix -> elem
   val is_singular : matrix -> bool
   val inverse : matrix -> matrix
-  val factor_lu : matrix -> matrix * matrix option
+  val factor_lu : matrix -> (matrix * matrix) option
   val factor_plu : matrix -> matrix * matrix * matrix
   val eigen : matrix -> (elem * (vector list)) list
-  val diag : matrix -> matrix * matrix option
+  val diag : matrix -> (matrix * matrix) option
   val svd : matrix -> matrix * matrix * matrix
 end
 
