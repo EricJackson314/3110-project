@@ -76,22 +76,22 @@ module Make = functor (Elem : Num) -> struct
     |> M.transpose
     |> M.nul_sp 
 
-  let change_basis = failwith "Unimplemented"
+  let change_basis = (fun _ -> failwith "Unimplemented")
 
-  let det = failwith "Unimplemented"
+  let det = (fun _ -> failwith "Unimplemented")
 
-  let is_singular = failwith "Unimplemented"
+  let is_singular = (fun _ -> failwith "Unimplemented")
 
-  let inverse = failwith "Unimplemented"
+  let inverse = (fun _ -> failwith "Unimplemented")
 
-  let factor_lu = failwith "Unimplemented"
+  let factor_lu = (fun _ -> failwith "Unimplemented")
 
-  let factor_plu = failwith "Unimplemented"
+  let factor_plu = (fun _ -> failwith "Unimplemented")
 
-  let eigen = failwith "Unimplemented"
+  let eigen = (fun _ -> failwith "Unimplemented")
 
-  let diag = failwith "Unimplemented"
+  let diag = (fun _ -> failwith "Unimplemented")
 
-  let svd = failwith "Unimplemented"
+  let svd = (fun _ -> failwith "Unimplemented")
 end
 

@@ -55,6 +55,7 @@ module type Vector = sig
       element is [f i]. *)
   val make : int -> (int -> E.t) -> t
 
+  (** [format fmt v] allows for pretty printing of vectors. *)
   val format : Format.formatter -> t -> unit
 
 end

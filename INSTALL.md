@@ -20,11 +20,11 @@ V.dot u v;;
 - : float = 3110.
 ```
 
-Use the function ```V.normalize u``` to normalize the vector ```u```.  For example,
+Use the function ```V.normalize u``` to normalize the vector ```w```.  For example,
 ```ocaml
-let u = V.from_list [1.; 4.; 1.; 9.; 1.; ];;
-val u : V.t = [1.000000, 4.000000, 1.000000, 9.000000, 1.000000, ]
-V.normalize u;;
+let w = V.from_list [1.; 4.; 1.; 9.; 1.; ];;
+val w : V.t = [1.000000, 4.000000, 1.000000, 9.000000, 1.000000, ]
+V.normalize w;;
 - : V.t = [0.100000, 0.400000, 0.100000, 0.900000, 0.100000, ]
 ```
 

@@ -27,4 +27,5 @@ end;;
 module V = Vector.Make (Float);;
 #install_printer V.format;;
 module M = Matrix.Make (Float);;
-module MatAlg = MatAlg.Make (Float);;
+#install_printer M.format;;
+module MA = MatAlg.Make (Float);;

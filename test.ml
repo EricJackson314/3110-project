@@ -16,7 +16,7 @@ module Float = struct
   let zero = 0.
   let equals a b = Float.abs (a -. b) < threshold
   let compare = Stdlib.compare
-  let format fmt f = Format.fprintf fmt "%s" f
+  let format fmt f = Format.fprintf fmt "%f" f
 end
 
 (* Helper Functions: *)
@@ -157,6 +157,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
            assert_equal (M.id n) (M.make n n (fun i j -> if i=j then 1. else 0.)))
       [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
+
   (** [to_column_tests] tests [Matrix.to_column]. *)
   let to_column_tests = List.map
       (fun (mat, vecs) -> "to_column test" >:: fun _ ->
@@ -252,6 +253,8 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
       [
         (M.make 2 2 (fun i j -> 1.),
          M.make 2 2 (fun i j -> if i = 0 then 1. else 0.));
+        (M.make 4 4 (fun i j -> 3.),
+         M.make 4 4 (fun i j -> if i = 0 then 1. else 0.));
       ]
 
   (** [reff_tests] tests [Matrix.ref]. *)
@@ -409,13 +412,13 @@ end
 
 module V_Test = VectorTest(Vector.Make)
 module M_Test = MatrixTest(Matrix.Make)
-(* module MatAlg_Test = MatAlgTest(MatAlg.Make) *)
+module MatAlg_Test = MatAlgTest(MatAlg.Make)
 
 let tests = List.flatten 
     [
       V_Test.tests;
       M_Test.tests;
-      (* MatAlg_test.tests; *)
+      MatAlg_Test.tests;
     ]
 
 let suite = "test suite" >::: tests
