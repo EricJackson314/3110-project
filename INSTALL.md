@@ -30,3 +30,28 @@ V.normalize w;;
 
 ### Matrices
 
+### MatAlg
+
+The MatAlg module contains more complex functions. Use ```MA.ortho_normal a``` to compute the matrix ```a'```, where the columns of ```a'``` form an ortho-normal basis for the column space of ```a```. For example,
+
+```ocaml
+let a = M.make 4 4 (fun i j -> float_of_int (i*i - j + 1));;
+val a : M.t = ...
+MA.ortho_normal a;;
+- : M.t = ...
+```
+
+Use the function ```MA.row_sp b``` to compute the matrix ```b'```, where the columns of ```b'``` span the row space of ```b```. For example,
+
+```ocaml
+let b = M.make 5 5 (fun i j -> float_of_int (i + j));;
+val b : M.t = ...
+MA.row_sp b;;
+- : M.t = ...
+```
+
+
+
+### Additional Functions
+
+There are a number of other functions not listed in this document. Run ```make docs-public``` to generate documentation and read about additional functionality.
