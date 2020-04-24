@@ -30,7 +30,7 @@ end
 module type MatAlgMaker =
   functor (Elem : Num.Num) -> MatAlg with module E = Elem
 
-module Make = functor (Elem : Num) -> struct 
+module Make = functor (Elem : Num) -> struct
   module E = Elem
   module V = Vector.Make (E)
   module M = Matrix.Make (E)

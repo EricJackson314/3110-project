@@ -24,8 +24,9 @@ module Float = struct
   let format fmt f = Format.fprintf fmt "%f" f
 end;;
 
-module V = Vector.Make (Float);;
-#install_printer V.format;;
-module M = Matrix.Make (Float);;
-#install_printer M.format;;
 module MA = MatAlg.Make (Float);;
+#install_printer MA.V.format;;
+#install_printer MA.M.format;;
+
+module V = MA.V;;
+module M = MA.M;;
