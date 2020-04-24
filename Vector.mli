@@ -55,6 +55,8 @@ module type Vector = sig
       element is [f i]. *)
   val make : int -> (int -> E.t) -> t
 
+  val format : Format.formatter -> t -> unit
+
 end
 
 module type VectorMaker = 

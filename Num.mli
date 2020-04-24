@@ -13,4 +13,5 @@ module type Num = sig
   val equals : t -> t -> bool
   (** [compare x y] returns 0 if x = y, -1 if x < y, 1 otherwise (optional) *)
   val compare : t -> t -> int
+  val format : Format.formatter -> t -> unit
 end

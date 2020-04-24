@@ -21,8 +21,10 @@ module Float = struct
   let zero = 0.
   let equals a b = a = b
   let compare = Stdlib.compare
+  let format fmt f = Format.fprintf fmt "%f" f
 end;;
 
 module V = Vector.Make (Float);;
+#install_printer V.format;;
 module M = Matrix.Make (Float);;
 module MatAlg = MatAlg.Make (Float);;

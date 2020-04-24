@@ -16,6 +16,7 @@ module type Vector = sig
   val from_list : elem list -> t
   val to_list : t -> elem list
   val make : int -> (int -> E.t) -> t
+  val format : Format.formatter -> t -> unit
 end
 
 module type VectorMaker = 
@@ -57,5 +58,10 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
   let to_list v : elem list = v
 
   let make n f : t = List.init n f
+
+  let format fmt v = 
+    Format.fprintf fmt "[";
+    List.iter (fun e -> Format.fprintf fmt "%a, " E.format e) v;
+    Format.fprintf fmt "]";
 
 end
