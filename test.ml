@@ -52,6 +52,8 @@ module VectorTest(VM : Vector.VectorMaker) = struct
   let e1 = gen_v 0
   let e2 = gen_v 0 
 
+    
+
   let gen_add_test size (a : unit) : test list = 
     let s = 
       if Random.float 1. > 0.5 then Random.float 10. else Random.float (-10.) in
@@ -228,7 +230,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [nul_sp_tests] tests [Matrix.nul_sp]. *)
   let nul_sp_tests = List.map
       (fun (mat, mat') -> "null_sp test" >:: fun _ ->
-           assert_equal (M.nul_sp mat) mat')
+           assert_equal true (M.equals (M.nul_sp mat) mat'))
       [
         (M.concat 
            [
@@ -249,18 +251,18 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [ref_tests] tests [Matrix.ref]. *)
   let ref_tests = List.map
       (fun (mat, mat') -> "ref test" >:: fun _ ->
-           assert_equal (M.ref mat) mat')
+           assert_equal true (M.equals (M.ref mat) mat'))
       [
         (M.make 2 2 (fun i j -> 1.),
          M.make 2 2 (fun i j -> if i = 0 then 1. else 0.));
         (M.make 4 4 (fun i j -> 3.),
-         M.make 4 4 (fun i j -> if i = 0 then 1. else 0.));
+         M.make 4 4 (fun i j -> if i = 0 then 3. else 0.));
       ]
 
   (** [reff_tests] tests [Matrix.ref]. *)
   let rref_tests = List.map
       (fun (mat, mat') -> "rref test" >:: fun _ ->
-           assert_equal (M.rref mat) mat')
+           assert_equal true (M.equals (M.rref mat) mat'))
       [
         (M.id 2, M.id 2);
         (M.id 4, M.id 4);
@@ -303,7 +305,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [col_sp_tests] tests [Matrix.col_sp]. *)
   let col_sp_tests = List.map
       (fun (mat, mat') -> "col_sp test" >:: fun _ ->
-           assert_equal (M.col_sp mat) mat')
+           assert_equal true (M.equals (M.col_sp mat) mat'))
       [
         (M.id 7, M.id 7);
         (M.id 9, M.id 9);
@@ -401,12 +403,55 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
 
       ]
 
+  module A = MatAlg.Make(Float)
+
+  module M = A.M
+
+  (* [test_fold mat f] is whether every row and column combination in bounds
+     for mat satisfies the function (f : (row -> col -> mat -> bool)) *)
+  let rec test_fold mat r c f =
+    if r = M.num_rows mat then true
+    else if c = M.num_cols mat then test_fold mat (r + 1) 0 f
+    else if f r c mat then test_fold mat r (c + 1) f
+    else false
+
+  let gen_alg_test d (a : unit) : test list =
+    let mat1 = M.make d d (fun _ _ -> Random.float 10.) in
+    let o1 = A.ortho mat1 in
+    let norm mat = M.mult (M.transpose mat) mat in
+    let on1 = A.ortho_normal mat1 in
+    let mat2 = M.make d d (fun _ _ -> Random.float 10.) in
+    let base = 
+    [
+      "square" >:: (fun _ -> assert_equal true (A.is_square mat1));
+      "ortho" >:: (fun _ -> assert_equal true (test_fold (norm o1) 0 0 
+        (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
+      "ortho_normal" >:: (fun _ -> assert_equal true
+       (M.equals (norm on1) (M.id (M.num_rows on1))));
+    ] in
+    let ns : test list =
+    [
+      "is_sing" >:: (fun _ -> assert_equal (Float.equals (A.det mat1)
+        Float.zero) (A.is_singular mat1));
+      "inverse" >:: (fun _ -> assert_equal true (mat1 |> A.inverse |> M.mult mat1
+        |> M.equals (M.id d)));
+      "det_inverse" >:: (fun _ -> assert_equal true (mat1 |> A.inverse |> A.det
+        |> Float.mult (A.det mat1) |> Float.equals Float.one));
+      "det_mult" >:: fun _ -> assert_equal true (M.mult mat1 mat2 |> A.det
+        |> Float.equals (mat1 |> A.det |> Float.mult (A.det mat2)));
+    ]
+    in
+    if mat1 |> A.det |> Float.equals Float.zero then base else base@ns
+
   let tests = List.flatten
       [
         is_square_tests;
         ortho_tests;
         ortho_normal_tests;
         perp_tests;
+        gen_alg_test 0 ();
+        gen_alg_test 1 ();
+        gen_alg_test 5 ();
       ]
 end
 

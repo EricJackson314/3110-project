@@ -17,7 +17,9 @@ module type Matrix = sig
   val num_rows : t -> int
   val num_cols : t -> int
   val entry : int -> int -> t -> elem
+  val equals : t -> t -> bool
   val make : int -> int -> (int -> int -> elem) -> t
+  val zero : int -> int -> t
   val map : (elem -> elem) -> t -> t
   val mult : t -> t -> t
   val add : t -> t -> t
@@ -67,8 +69,20 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       mat.(c).(r)
     else raise OutOfBoundsException
 
+  let rec iter_equals a b r c =
+    if r = num_rows a then true
+    else if c = num_cols b then iter_equals a b (r + 1) 0
+    else if entry r c a |> Elem.equals (entry r c b) |> not then false
+    else iter_equals a b r (c + 1)
+
+  let equals a b = 
+    if (num_rows a <> num_rows b) || (num_rows b <> num_rows a) then false
+    else iter_equals a b 0 0
+
   let make rows cols ent = 
     Array.init cols (fun col -> Array.init rows (fun row -> ent row col))
+  
+  let zero rows cols = make rows cols (fun _ _ -> Elem.zero)
 
   let map f mat =
     make (num_rows mat) (num_cols mat) (fun r c -> f (entry r c mat))

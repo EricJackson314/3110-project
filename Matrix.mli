@@ -34,9 +34,17 @@ module type Matrix = sig
      Raises OutOfBoundsException if either row or col is out of bounds. *)
   val entry : int -> int -> t -> elem
 
+  (* [equals a b] is whether matrices a and b are equal to each other, that is,
+     whether they hae the same number of rows and columns and whether all their
+     corresponding entries are equal, under the Elem.equals function *)
+  val equals : t -> t -> bool
+
   (* [make r c e] is [x] if x has r rows, c columns, and the entry a b x =
      e a b. *)
   val make : int -> int -> (int -> int -> elem) -> t
+  
+  (* [zero r c] is the zero matrix with r rows and c columns *)
+  val zero : int -> int -> t
 
   (* [map f mat] is [x] if x has the same dimensions as mat and entry r c x =
      f (entry r c mat) *)
@@ -45,6 +53,7 @@ module type Matrix = sig
   (* [mult mat1 mat2] is the matrix product mat1 * mat2. 
      Requires (num_cols mat1 = num_rows mat2), raises DimensionMismatchException
      otherwise *)
+
   val mult : t -> t -> t
 
   (* [add mat1 mat2] is the matrix addition mat1 + mat2. Requires mat1 and mat2

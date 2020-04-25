@@ -94,8 +94,8 @@ module Make = functor (Elem : Num) -> struct
     else 
       let dim = M.num_rows mat in
       let gjm = M.make dim (2 * dim)
-        (fun r c -> if c < dim then M.entry r (c - dim) mat 
-          else M.entry r c (M.id dim))
+        (fun r c -> if c < dim then M.entry r c mat 
+          else M.entry r (c - dim) (M.id dim))
       in
       let x = M.rref gjm in
       M.make dim dim (fun r c -> M.entry r (c + dim) x)
