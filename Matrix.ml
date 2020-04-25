@@ -170,6 +170,21 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         eliminate (row + 1) (col + 1) (elim (row + 1) m)
   let ref = eliminate 0 0
 
+  let row_op = function
+    | h::t -> 
+      h::(List.fold_left (fun acc v -> V.(sub v (scale h (nth v 0)))::acc) [] t)
+    | [] -> []
+
+  let ref' mat =
+    mat 
+    |> transpose
+    |> to_column
+    |> row_op
+    |> concat
+    |> transpose
+
+  (* let ref = ref' *)
+
   (* [collect_pivots r c ls mat] is the list of the columns of the pivot
      positions below and to the right of row r and column c, inclusive pushed on
      to ls. Assumes that the part of the matrix searched is in row echelon 
@@ -266,6 +281,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     concat cols
 
   let format fmt m =
+    Format.fprintf fmt "\n";
     m 
     |> transpose 
     |> to_column 

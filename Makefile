@@ -25,13 +25,15 @@ docs-public: build
 	ocamlfind ocamldoc -I _build -html -stars \
 	-d doc.public $(MLIS)
 
-
 docs-private: build
 	mkdir -p doc.private
 	ocamlfind ocamldoc -I _build -html -stars \
 	-d doc.private -inv-merge-ml-mli -m A $(MLIS) $(MLS)
 
-
 clean:
 	ocamlbuild -clean
 	rm -rf doc.public doc.private
+	rm -rf cs3110-project.zip
+
+zip:
+	zip cs3110-project *.ml* *.md .merlin _tags Makefile

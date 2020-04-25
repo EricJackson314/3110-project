@@ -3,12 +3,12 @@ open Vector
 open Num
 
 module type MatAlg = sig 
-  module E : Num
-  module V : Vector with module E = E
-  module M : Matrix with module E = E
-  type elem = E.t
-  type vector = V.t
+  module M : Matrix
+  module V = M.V
+  module E = M.V.E
   type matrix = M.t
+  type vector = M.V.t
+  type elem = M.E.t
 
   (** [is_square mat] is true if [mat] is a square matrix. *)
   val is_square : matrix -> bool
@@ -42,6 +42,6 @@ module type MatAlg = sig
 end
 
 module type MatAlgMaker =
-  functor (Elem : Num.Num) -> MatAlg with module E = Elem
+  functor (Elem : Num.Num) -> MatAlg with module M = Matrix.Make(Elem)
 
 module Make : MatAlgMaker
