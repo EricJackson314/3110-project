@@ -3,12 +3,12 @@ open Vector
 open Num
 
 module type MatAlg = sig 
-  module E : Num
-  module V : Vector with module E = E
-  module M : Matrix with module E = E
-  type elem = E.t
-  type vector = V.t
+  module M : Matrix
+  module V = M.V
+  module E = M.V.E
   type matrix = M.t
+  type vector = M.V.t
+  type elem = M.V.E.t
 
   val is_square : matrix -> bool
   val ortho : matrix -> matrix
@@ -28,12 +28,12 @@ module type MatAlg = sig
 end
 
 module type MatAlgMaker =
-  functor (Elem : Num.Num) -> MatAlg with module E = Elem
+  functor (Elem : Num.Num) -> MatAlg with module M = Matrix.Make(Elem)
 
 module Make = functor (Elem : Num) -> struct
-  module E = Elem
-  module V = Vector.Make (E)
-  module M = Matrix.Make (E)
+  module M = Matrix.Make (Elem)
+  module V = M.V
+  module E = M.V.E
 
   type vector = V.t
   type matrix = M.t

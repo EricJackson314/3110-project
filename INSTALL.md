@@ -50,8 +50,6 @@ MA.row_sp b;;
 - : M.t = ...
 ```
 
-
-
 ### Additional Functions
 
 There are a number of other functions not listed in this document. Run ```make docs-public``` to generate documentation and read about additional functionality.
