@@ -100,7 +100,44 @@ module Make = functor (Elem : Num) -> struct
       let x = M.rref gjm in
       M.make dim dim (fun r c -> M.entry r (c + dim) x)
 
-  let factor_plu = (fun _ -> failwith "Unimplemented")
+  let factor_plu a = 
+    let d = M.num_rows a in
+    let c = M.num_cols a in
+    let g = M.make d (c + d) (fun r col -> 
+      if col < c then M.entry r col a
+      else if (col - c) = r then E.one
+      else E.zero)
+    in
+    let eg = M.ref g in
+    let u = M.make d c (fun r c -> M.entry r c eg) in
+    let e = M.make d d (fun r col -> M.entry r (c + col) eg) in
+    let ei = inverse e in
+    (* column of the last non-zero entry in row r of matrix mat *)
+    let rec n r mat base col = 
+      if col = d then base
+      else if M.entry r col mat |> E.equals E.zero then n r mat base (col + 1)
+      else n r mat col (col + 1)
+    in
+    (* generates a list of int-int pairs, where the first int is the row of the
+       matrix mat and the second int is (n 0 mat -1 0) *)
+    let rec map mat r base =
+      if r = M.num_rows mat then base
+      else map mat (r + 1) ((r, n r mat (-1) 0)::base)
+    in
+    let m = map ei 0 [] in
+    let rec findv k ls = 
+      match ls with
+      | [] -> failwith "BAD!"
+      | (kk, vv)::tl -> if k = kk then vv else findv k tl
+    in
+    let rec findk v ls = 
+      match ls with
+      | [] -> failwith "BAD!"
+      | (kk, vv):: tl -> if v = vv then kk else findk v tl
+    in
+    let p = M.make d d (fun r c -> if c = findv r m then E.one else E.zero) in
+    let l = M.make d d (fun r c -> M.entry (findk r m) c ei) in
+    (p, l, u)
 
   let factor_lu x =
     let (p, l, u) = factor_plu x in

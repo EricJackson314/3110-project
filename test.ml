@@ -421,6 +421,7 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
     let norm mat = M.mult (M.transpose mat) mat in
     let on1 = A.ortho_normal mat1 in
     let mat2 = M.make d d (fun _ _ -> Random.float 10.) in
+    let (p, l, u) = A.factor_plu mat1 in
     let base = 
     [
       "square" >:: (fun _ -> assert_equal true (A.is_square mat1));
@@ -428,6 +429,8 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
         (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
       "ortho_normal" >:: (fun _ -> assert_equal true
        (M.equals (norm on1) (M.id (M.num_rows on1))));
+      "plu" >:: (fun _ -> assert_equal true (M.mult (M.mult p l) u
+        |> M.equals mat1));
     ] in
     let ns : test list =
     [
