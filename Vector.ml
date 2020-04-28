@@ -4,51 +4,64 @@ module type Vector = sig
   module E : Num
   type elem = E.t
   type t
+  exception OutOfBoundsException
   val dim : t -> int
+  val nth : t -> int -> elem
   val add : t -> t -> t
   val sub : t ->  t -> t
   val scale : t -> elem -> t
-  val inner : t -> t -> elem
+  val dot : t -> t -> elem
   val norm : t -> elem
   val normalize : t -> t
+  val from_list : elem list -> t
+  val to_list : t -> elem list
+  val make : int -> (int -> E.t) -> t
+  val format : Format.formatter -> t -> unit
 end
 
 module type VectorMaker = 
-  functor (Elem : Num) -> Vector with module E = Elem 
+  functor (Elem : Num.Num) -> Vector with module E = Elem 
 
 module Make : VectorMaker = functor (Elem : Num) -> struct
   module E = Elem
   type elem = E.t
 
-  (* TODO: Replace unit with an appropriate representation for vectors. *)
-  type t = unit
+  type t = elem list
 
-  let dim v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  exception OutOfBoundsException
 
-  let add u v= 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let ( + ) = E.add
+  let ( - ) = fun a b -> E.add a (E.add_inv b)
+  let ( * ) = E.mult
 
-  let sub u v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let dim  = List.length
 
-  let scale v c = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let nth = try List.nth with
+    | exn -> raise OutOfBoundsException
 
-  let inner u v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let add u v = List.map2 (+) u v
 
-  let norm v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let sub u v = List.map2 (-) u v
 
-  let normalize v = 
-    (* TODO: implement this method.  *)
-    failwith "unimplemented"
+  let scale v c = List.map (( * ) c) v
+
+  let dot u v = List.fold_left2 ( fun a u v -> a + u * v ) E.zero u v
+
+  let norm v = List.fold_left (fun a e -> a + E.(norm e * norm e)) E.zero v |> E.sq_rt
+
+  let normalize v =
+    let n = norm v in
+    if n = E.zero then v else scale v (E.mult_inv n)
+
+  let from_list lst = lst
+
+  let to_list v : elem list = v
+
+  let make n f : t = List.init n f
+
+  let format fmt v = 
+    Format.fprintf fmt "[";
+    List.iter (fun e -> Format.fprintf fmt "%a, " E.format e) v;
+    Format.fprintf fmt "]";
 
 end

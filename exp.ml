@@ -13,12 +13,9 @@ module Float = struct
   let zero = 0.
   let equals a b = Float.abs (a -. b) < threshold
   let compare = Stdlib.compare
-  let format fmt x = ()
 end
 
-module A = MatAlg.Make(Float)
-
-module Mat = A.M
+module Mat = Make(Float)
 
 let mat = Mat.concat 
            [
@@ -46,10 +43,6 @@ let piv = Mat.pivot_cols mat
 
 let rpiv = Mat.pivot_cols matrref
 
-let mat22 = Mat.make 2 2 (fun _ _ -> 1.)
-
-let matr2 = Mat.make 2 2 (fun r c -> if r = 0 then 1. else 0.)
-
 let rec list_to_string ls base = 
   match ls with
   | [] -> base
@@ -61,16 +54,7 @@ let rec mat_to_string mat base r c =
   else mat_to_string mat (base ^ (Mat.entry r c mat |> string_of_float) ^ " ")
     r (c + 1)
 
-let mat = Mat.zero 7 5
-
-let (p, l, u) = A.factor_plu mat
-
 let _ = 
-  assert (Mat.equals matrref mat2);
-  assert (Mat.equals (Mat.ref mat22) matr2);
-  print_endline (mat_to_string p "" 0 0);
-  print_endline (mat_to_string l "" 0 0);
-  print_endline (mat_to_string u "" 0 0);
   print_endline (mat_to_string mat "" 0 0);
   print_endline (mat_to_string matref "" 0 0);
   print_endline (mat_to_string matrref "" 0 0);
