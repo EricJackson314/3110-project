@@ -13,6 +13,7 @@ module type Vector = sig
   val dot : t -> t -> elem
   val norm : t -> elem
   val normalize : t -> t
+  val proj: t -> t -> t
   val from_list : elem list -> t
   val to_list : t -> elem list
   val make : int -> (int -> E.t) -> t
@@ -33,6 +34,7 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
   let ( + ) = E.add
   let ( - ) = fun a b -> E.add a (E.add_inv b)
   let ( * ) = E.mult
+  let ( / ) = fun a b -> a * E.mult_inv b
 
   let dim  = List.length
 
@@ -52,6 +54,9 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
   let normalize v =
     let n = norm v in
     if n = E.zero then v else scale v (E.mult_inv n)
+
+  let proj u y =
+    scale u (dot y u / dot u u)
 
   let from_list lst = lst
 

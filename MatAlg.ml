@@ -45,9 +45,7 @@ module Make = functor (Elem : Num) -> struct
       orthogonal to the vectors in [v]. *)
   let gram_schmidt v x = 
     if v = [] then x else
-      let sclr x' v' = 
-        M.V.(scale v' (E.mult (dot x v') (E.mult_inv (dot v' v')))) in 
-      List.fold_left (fun x' v' -> M.V.sub x' (sclr x' v') ) x v
+      List.fold_left (fun x' v' -> V.sub x' (V.proj v' x')) x v
 
   (** [ortho mat] applies the Gram-Schmidt process to the column 
       vectors of [mat]. *)
@@ -94,8 +92,8 @@ module Make = functor (Elem : Num) -> struct
     else 
       let dim = M.num_rows mat in
       let gjm = M.make dim (2 * dim)
-        (fun r c -> if c < dim then M.entry r c mat 
-          else M.entry r (c - dim) (M.id dim))
+          (fun r c -> if c < dim then M.entry r c mat 
+            else M.entry r (c - dim) (M.id dim))
       in
       let x = M.rref gjm in
       M.make dim dim (fun r c -> M.entry r (c + dim) x)
@@ -104,9 +102,9 @@ module Make = functor (Elem : Num) -> struct
     let d = M.num_rows a in
     let c = M.num_cols a in
     let g = M.make d (c + d) (fun r col -> 
-      if col < c then M.entry r col a
-      else if (col - c) = r then E.one
-      else E.zero)
+        if col < c then M.entry r col a
+        else if (col - c) = r then E.one
+        else E.zero)
     in
     let eg = M.ref g in
     let u = M.make d c (fun r c -> M.entry r c eg) in

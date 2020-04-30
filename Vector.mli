@@ -44,6 +44,10 @@ module type Vector = sig
       direction as [v]. *)
   val normalize : t -> t
 
+  (** [proj u y] is the orthogonal projection of [y] onto the 
+      line spanned by [u]. *)
+  val proj : t -> t -> t
+
   (** [from_list lst] is the vector representation of the list of elements 
       [lst]. *)
   val from_list : elem list -> t
