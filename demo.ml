@@ -20,7 +20,7 @@ module Float = struct
   let norm = abs_float
   let one = 1.
   let zero = 0.
-  let equals a b = Float.abs (a - b) < threshold
+  let equals a b = Float.abs (a -. b) < threshold
   let compare = Stdlib.compare
   let format fmt f = Format.fprintf fmt "%f" f
 end;;
@@ -31,3 +31,16 @@ module MA = MatAlg.Make (Float);;
 
 module V = MA.V;;
 module M = MA.M;;
+
+let u = V.from_list [50.; 40.; 10.; 11.; ]
+and v = V.from_list [20.; 25.; 100.; 10.; ]
+and w = V.from_list [1.; 4.; 1.; 9.; 1.; ]
+
+let a = M.concat 
+    [
+      V.from_list [-3.; 1.; 2.];
+      V.from_list [6.; -2.; -4.];
+      V.from_list [-1.; 2.; 5.];
+      V.from_list [1.; 3.; 8.];
+      V.from_list [-7.; -1.; -4.];
+    ]

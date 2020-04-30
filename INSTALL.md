@@ -30,6 +30,19 @@ V.normalize w;;
 
 ### Matrices
 
+The Matrix module contains functions for simple matrix computations. For example,
+
+```ocaml
+let a = M.make 3 3 (fun i j -> float_of_int (i + 1 + j * 3))
+and b = M.make 3 3 (fun i j -> float_of_int (3 * i + 2 + 4*j));;
+val a : M.t = ...
+val b : M.t = ...
+M.mult a b;;
+- : M.t = ...
+```
+
+
+
 ### MatAlg
 
 The MatAlg module contains more complex functions. Use ```MA.ortho_normal a``` to compute the matrix ```a'```, where the columns of ```a'``` form an ortho-normal basis for the column space of ```a```. For example,

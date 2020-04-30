@@ -81,7 +81,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
 
   let make rows cols ent = 
     Array.init cols (fun col -> Array.init rows (fun row -> ent row col))
-  
+
   let zero rows cols = make rows cols (fun _ _ -> Elem.zero)
 
   let map f mat =
@@ -189,16 +189,6 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       h::(List.fold_left (fun acc v -> V.(sub v (scale h (nth v 0)))::acc) [] t)
     | [] -> []
 
-  let ref' mat =
-    mat 
-    |> transpose
-    |> to_column
-    |> row_op
-    |> concat
-    |> transpose
-
-  (* let ref = ref' *)
-
   (* [collect_pivots r c ls mat] is the list of the columns of the pivot
      positions below and to the right of row r and column c, inclusive pushed on
      to ls. Assumes that the part of the matrix searched is in row echelon 
@@ -239,8 +229,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
 
   (** [non_pivot mat] is the list of indices of non-pivot columns in [mat]. *)
   let non_pivot mat =
-    List.init (num_rows mat) (fun i -> i) |>
-    List.filter (fun x -> List.mem x (pivot_cols mat))
+    List.init (num_cols mat) (fun i -> i) |>
+    List.filter (fun x -> not (List.mem x (pivot_cols mat)))
 
   (** [idx_vecs idxs vecs] is the list of vectors composed by the vectors in the 
       indices of [idxs].
@@ -252,14 +242,14 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       | h::t -> vecs_idx ((List.nth vecs h)::acc) t vecs
     in List.rev (vecs_idx [] idxs vecs)
 
-  (** [insert vecs idxs] inserts the standard basis vector e_i into the ith 
+  (** [insert_vecs idxs] inserts the standard basis vector e_i into the ith 
       element of vecs for each i in idxs. *)
   let rec insert_vecs idxs vecs =
     match idxs with
     | [] -> vecs
     | h::t ->
       insert_vecs t (insert h (V.make (V.dim (List.hd vecs))
-                                 (fun i -> if i = h then V.E.(add_inv one) else V.E.zero)) vecs)
+                                 (fun i -> if i = h then V.E.one else V.E.zero)) vecs)
 
   (** [fst_n n lst] is the first n elements of lst. Raises OutOfBoundsException
       if [n > List.length lst]. *)
