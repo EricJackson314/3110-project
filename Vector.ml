@@ -49,7 +49,9 @@ module Make : VectorMaker = functor (Elem : Num) -> struct
 
   let dot u v = List.fold_left2 ( fun a u v -> a + u * v ) E.zero u v
 
-  let norm v = List.fold_left (fun a e -> a + E.(norm e * norm e)) E.zero v |> E.sq_rt
+  let norm v = 
+    List.fold_left (fun a e -> a + E.(norm e * norm e)) E.zero v 
+    |> E.sq_rt
 
   let normalize v =
     let n = norm v in

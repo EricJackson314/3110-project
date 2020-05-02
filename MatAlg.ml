@@ -13,6 +13,7 @@ module type MatAlg = sig
   val is_square : matrix -> bool
   val ortho : matrix -> matrix
   val ortho_normal : matrix -> matrix
+  val factor_qr : matrix -> matrix * matrix
   val row_sp : matrix -> matrix
   val perp : matrix -> matrix
   (* old_basis -> new_basis -> conversion_matrix *)
@@ -44,8 +45,8 @@ module Make = functor (Elem : Num) -> struct
   (** [gram_schmidt v x] is the vector [x'] which is the component of [x]
       orthogonal to the vectors in [v]. *)
   let gram_schmidt v x = 
-    if v = [] then x else
-      List.fold_left (fun x' v' -> V.sub x' (V.proj v' x')) x v
+    if v = [] then x 
+    else List.fold_left (fun x' v' -> V.sub x' (V.proj v' x')) x v
 
   (** [ortho mat] applies the Gram-Schmidt process to the column 
       vectors of [mat]. *)
@@ -62,7 +63,12 @@ module Make = functor (Elem : Num) -> struct
     |> ortho
     |> M.to_column
     |> List.map M.V.normalize
-    |> M.concat 
+    |> M.concat
+
+  let factor_qr mat =
+    let q = ortho_normal mat in
+    let r = M.(mult (transpose q) mat) in
+    q, r
 
   let row_sp mat = 
     mat 
@@ -144,7 +150,27 @@ module Make = functor (Elem : Num) -> struct
 
   let change_basis b c = M.mult (inverse c) b
 
-  let eigen = (fun _ -> failwith "Unimplemented")
+  let eigen mat =
+    (* The QR algorithm will produce a matrix whose diagonal enteries 
+       approximate the eigen-values of [mat]. *)
+    let rec qr_algo mat n =
+      if n >= 0 then factor_qr mat |> fun (q, r) -> M.mult r q |> fun m -> qr_algo m (n-1) 
+      else mat in
+    let mat' = qr_algo mat 1000 in
+    (* Take the diagonal values of [mat']. *)
+    let eigen_values =
+      List.map (fun i -> M.entry i i mat') (List.init (M.num_cols mat') (fun i -> i))
+      (** Map each eigen-value [e] to the pair [(e, vs)] where [vs] are the
+          eigen-vectors corresponding to [e]. *)
+    in List.map
+      (fun eigen_value -> 
+         eigen_value, 
+         M.make (M.num_rows mat) (M.num_cols mat) (fun i j -> if i = j then V.E.mult_inv eigen_value else V.E.zero)
+         |> M.add mat
+         |> M.nul_sp
+         |> M.to_column
+      )
+      eigen_values
 
   let diag = (fun _ -> failwith "Unimplemented")
 

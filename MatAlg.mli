@@ -21,6 +21,9 @@ module type MatAlg = sig
       ortho-normal basis for the columns of [mat]. *)
   val ortho_normal : matrix -> matrix
 
+  (** [factor_qr mat] is a QR factorization of [mat]. *)
+  val factor_qr : matrix -> matrix * matrix
+
   (** [row_sp mat] is a matrix [m] where the columns of [m] span the row space
       of [mat]. *)
   val row_sp : matrix -> matrix
@@ -31,6 +34,7 @@ module type MatAlg = sig
 
   (* old_basis -> new_basis -> conversion_matrix *)
   val change_basis : matrix -> matrix -> matrix
+
   (* [det mat] is the determinant of the matrix mat. Raises 
      DimensionMismatchException if mat is non-square *)
   val det : matrix -> elem

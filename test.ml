@@ -52,7 +52,7 @@ module VectorTest(VM : Vector.VectorMaker) = struct
   let e1 = gen_v 0
   let e2 = gen_v 0 
 
-    
+
 
   let gen_add_test size (a : unit) : test list = 
     let s = 
@@ -349,6 +349,8 @@ end
 (** Creates a list of tests, [tests], for the MatAlg module. *)
 module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
   module MA = MAM (Float)
+  module M = MA.M
+  module V = M.V
 
   (** [is_square_test m n b] asserts that the of [is_square] for an [m] by [n] 
       matrix is [b]. *)
@@ -382,13 +384,41 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
   (** [ortho_test mat mat'] asserts that the ortho-normal basis for the columns
       of [mat] is spanned by the columns of [mat']. *)
   let ortho_normal_test mat mat' : test =
-    "ortho tets" >:: fun _ -> assert_equal (MA.ortho_normal mat) mat'
+    "ortho test" >:: fun _ -> assert_equal (MA.ortho_normal mat) mat'
 
   (** [ortho_normal_tests] tests [MatAlg.ortho_normal]. *)
   let ortho_normal_tests = List.map
       (fun (mat, mat') -> ortho_normal_test mat mat')
       [
 
+      ]
+
+  (** [factor_qr_test] asserts that the qr factorization of [mat] is 
+      [q], [r]. *)
+  let factor_qr_test mat q r: test =
+    "factor_qr test" >:: fun _ -> assert_equal (MA.factor_qr mat) (q, r)
+
+  (** [factor_qr_tests] tests [MatAlg.factor_qr]. *)
+  let factor_qr_tests = List.map
+      (fun (mat, q, r) -> factor_qr_test mat q r)
+      [
+        (
+          M.concat [
+            V.from_list [1.; 1.; 1.; 1.;];
+            V.from_list [0.; 1.; 1.; 1.;];
+            V.from_list [0.; 0.; 1.; 1.;];
+          ],
+          M.concat [
+            V.from_list [0.5; 0.5; 0.5; 0.5;];
+            V.from_list [-0.866025; 0.288675;  0.288675;  0.288675;];
+            V.from_list [0.; -0.816497; 0.408248; 0.408248;];
+          ],
+          M.concat [
+            V.from_list [2.; 0.; 0.];
+            V.from_list [1.5; 0.866025; 0.];
+            V.from_list [1.; 0.577350; 0.816497];
+          ]
+        )
       ]
 
   (** [ortho_test mat mat'] asserts that the orthogonal complement for the 
@@ -403,10 +433,6 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
 
       ]
 
-  module A = MatAlg.Make(Float)
-
-  module M = A.M
-
   (* [test_fold mat f] is whether every row and column combination in bounds
      for mat satisfies the function (f : (row -> col -> mat -> bool)) *)
   let rec test_fold mat r c f =
@@ -417,40 +443,41 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
 
   let gen_alg_test d (a : unit) : test list =
     let mat1 = M.make d d (fun _ _ -> Random.float 10.) in
-    let o1 = A.ortho mat1 in
+    let o1 = MA.ortho mat1 in
     let norm mat = M.mult (M.transpose mat) mat in
-    let on1 = A.ortho_normal mat1 in
+    let on1 = MA.ortho_normal mat1 in
     let mat2 = M.make d d (fun _ _ -> Random.float 10.) in
-    let (p, l, u) = A.factor_plu mat1 in
+    let (p, l, u) = MA.factor_plu mat1 in
     let base = 
-    [
-      "square" >:: (fun _ -> assert_equal true (A.is_square mat1));
-      "ortho" >:: (fun _ -> assert_equal true (test_fold (norm o1) 0 0 
-        (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
-      "ortho_normal" >:: (fun _ -> assert_equal true
-       (M.equals (norm on1) (M.id (M.num_rows on1))));
-      "plu" >:: (fun _ -> assert_equal true (M.mult (M.mult p l) u
-        |> M.equals mat1));
-    ] in
+      [
+        "square" >:: (fun _ -> assert_equal true (MA.is_square mat1));
+        "ortho" >:: (fun _ -> assert_equal true (test_fold (norm o1) 0 0 
+                                                   (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
+        "ortho_normal" >:: (fun _ -> assert_equal true
+                               (M.equals (norm on1) (M.id (M.num_rows on1))));
+        "plu" >:: (fun _ -> assert_equal true (M.mult (M.mult p l) u
+                                               |> M.equals mat1));
+      ] in
     let ns : test list =
-    [
-      "is_sing" >:: (fun _ -> assert_equal (Float.equals (A.det mat1)
-        Float.zero) (A.is_singular mat1));
-      "inverse" >:: (fun _ -> assert_equal true (mat1 |> A.inverse |> M.mult mat1
-        |> M.equals (M.id d)));
-      "det_inverse" >:: (fun _ -> assert_equal true (mat1 |> A.inverse |> A.det
-        |> Float.mult (A.det mat1) |> Float.equals Float.one));
-      "det_mult" >:: fun _ -> assert_equal true (M.mult mat1 mat2 |> A.det
-        |> Float.equals (mat1 |> A.det |> Float.mult (A.det mat2)));
-    ]
+      [
+        "is_sing" >:: (fun _ -> assert_equal (Float.equals (MA.det mat1)
+                                                Float.zero) (MA.is_singular mat1));
+        "inverse" >:: (fun _ -> assert_equal true (mat1 |> MA.inverse |> M.mult mat1
+                                                   |> M.equals (M.id d)));
+        "det_inverse" >:: (fun _ -> assert_equal true (mat1 |> MA.inverse |> MA.det
+                                                       |> Float.mult (MA.det mat1) |> Float.equals Float.one));
+        "det_mult" >:: fun _ -> assert_equal true (M.mult mat1 mat2 |> MA.det
+                                                   |> Float.equals (mat1 |> MA.det |> Float.mult (MA.det mat2)));
+      ]
     in
-    if mat1 |> A.det |> Float.equals Float.zero then base else base@ns
+    if mat1 |> MA.det |> Float.equals Float.zero then base else base@ns
 
   let tests = List.flatten
       [
         is_square_tests;
         ortho_tests;
         ortho_normal_tests;
+        factor_qr_tests;
         perp_tests;
         gen_alg_test 0 ();
         gen_alg_test 1 ();
