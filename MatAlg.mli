@@ -42,9 +42,17 @@ module type MatAlg = sig
   val inverse : matrix -> matrix
   val factor_lu : matrix -> (matrix * matrix) option
   val factor_plu : matrix -> matrix * matrix * matrix
-  val eigen : matrix -> (elem * (vector list)) list
+
+  (** [eigen mat] is the list of eigen-values and corresponding eigen-vectors
+      of [mat].
+      Returns [None] if [mat] is not diagonaliziable. *)
+  val eigen : matrix ->  (elem * vector) list option
+
+  (** [diag mat] is the pair [(p,d)] where the columns of [p] are the 
+      eigen-vectors of [mat] and [d] is a diagonal matrix containing the 
+      eigen-values of [mat].
+      Returns [None] if [mat] is not diagonizable.  *)
   val diag : matrix -> (matrix * matrix) option
-  val svd : matrix -> matrix * matrix * matrix
 end
 
 module type MatAlgMaker =

@@ -23,9 +23,8 @@ module type MatAlg = sig
   val inverse : matrix -> matrix
   val factor_lu : matrix -> (matrix * matrix) option
   val factor_plu : matrix -> matrix * matrix * matrix
-  val eigen : matrix -> (elem * (vector list)) list
+  val eigen : matrix -> (elem * vector) list option
   val diag : matrix -> (matrix * matrix) option
-  val svd : matrix -> matrix * matrix * matrix
 end
 
 module type MatAlgMaker =
@@ -150,30 +149,32 @@ module Make = functor (Elem : Num) -> struct
 
   let change_basis b c = M.mult (inverse c) b
 
-  let eigen mat =
-    (* The QR algorithm will produce a matrix whose diagonal enteries 
-       approximate the eigen-values of [mat]. *)
-    let rec qr_algo mat n =
-      if n >= 0 then factor_qr mat |> fun (q, r) -> M.mult r q |> fun m -> qr_algo m (n-1) 
-      else mat in
-    let mat' = qr_algo mat 1000 in
-    (* Take the diagonal values of [mat']. *)
-    let eigen_values =
-      List.map (fun i -> M.entry i i mat') (List.init (M.num_cols mat') (fun i -> i))
-      (** Map each eigen-value [e] to the pair [(e, vs)] where [vs] are the
-          eigen-vectors corresponding to [e]. *)
-    in List.map
-      (fun eigen_value -> 
-         eigen_value, 
-         M.make (M.num_rows mat) (M.num_cols mat) (fun i j -> if i = j then V.E.mult_inv eigen_value else V.E.zero)
-         |> M.add mat
-         |> M.nul_sp
-         |> M.to_column
-      )
-      eigen_values
+  let diag mat =
+    if not (is_square mat) || is_singular mat then None 
+    else
+      (* The QR algorithm produces two matrices [d] and [p] such that [a = pdp^-1]
+         and [d] is a diagonal matrix containing the eigenvalues of [mat]. *)
+      let rec qr_algo mat q_acc n =
+        if n >= 0 then 
+          factor_qr mat 
+          |> (fun (q, r) -> (M.mult r q, M.mult q q_acc))
+          |> fun (m, q_acc) -> (qr_algo m q_acc (n-1))
+        else mat, q_acc in
+      let d, p = qr_algo mat (M.id (M.num_cols mat)) 20 in
+      Some (p, d)
 
-  let diag = (fun _ -> failwith "Unimplemented")
+  let eigen mat = 
+    match diag mat with
+    | None -> None
+    | Some (p, d) ->
+      begin
+        let d' = M.to_column d in
+        let p' = M.to_column p in
+        let eigen_pair = fun i -> (V.nth (List.nth d' i) i, List.nth p' i) in
+        let eigen_list = 
+          List.init (M.num_cols mat) (fun i -> i)
+          |>List.map eigen_pair in
+        Some eigen_list
+      end
 
-  let svd = (fun _ -> failwith "Unimplemented")
 end
-

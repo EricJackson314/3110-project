@@ -6,8 +6,8 @@ TEST=test.byte
 OCAMLBUILD=ocamlbuild -use-ocamlfind
 PGS=oUnit
 
-default: build
-	utop
+default: 
+	opam install camlimages
 
 demo: build
 	utop -init demo.ml
