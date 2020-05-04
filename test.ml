@@ -114,7 +114,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [from_vector_tests] tests [Matrix.from_vector]. *)
   let from_vector_tests = List.map
       (fun (vec, mat) -> "from_vector test" >:: fun _ ->
-           assert_equal (M.from_vector vec) mat)
+           assert_equal true (M.equals (M.from_vector vec) mat))
       [
         (M.V.from_list [1.; 2.; 3.], 
          M.make 3 1 (fun i j -> float_of_int i +.1.));
@@ -138,7 +138,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [map_tests] tests [Matrix.map]. *)
   let map_tests = List.map
       (fun (mat, f, mat') -> "map test" >:: fun _ ->
-           assert_equal (M.map f mat) mat')
+           assert_equal true (M.equals (M.map f mat) mat'))
       [
         (M.make 2 2 (fun i j -> 1.), 
          (fun x ->x), M.make 2 2 
@@ -156,7 +156,8 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [id_tests] tests [Matrix.id]. *)
   let id_tests = List.map
       (fun n -> "id test" >:: fun _ ->
-           assert_equal (M.id n) (M.make n n (fun i j -> if i=j then 1. else 0.)))
+         assert_equal true (M.equals (M.id n) 
+           (M.make n n (fun i j -> if i=j then 1. else 0.))))
       [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
 
@@ -176,7 +177,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [concat_tests] tests [Matrix.concat]. *)
   let concat_tests = List.map
       (fun (vecs, mat) -> "concat_test" >:: fun _ ->
-           assert_equal (M.concat vecs) mat)
+           assert_equal true (M.equals (M.concat vecs) mat))
       [
         ([M.V.from_list [1.; 4.]; M.V.from_list [1.; 4.]], 
          M.make 2 2 (fun i j -> (float_of_int (i+1))**2.));
@@ -191,7 +192,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [transpose_tests] tests [Matrix.transpose]. *)
   let transpose_tests = List.map
       (fun (mat, mat') -> "concat test" >:: fun _ ->
-           assert_equal (M.transpose mat) mat')
+           assert_equal true (M.equals (M.transpose mat) mat'))
       [
         (M.make 2 2 (fun i j -> float_of_int i),
          M.make 2 2 (fun i j -> float_of_int j));
@@ -202,7 +203,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [mult_tests] tests [Matrix.mult]. *)
   let mult_tests = List.map
       (fun (m1, m2, m') -> "mult test" >:: fun _ ->
-           assert_equal (M.mult m1 m2) m')
+           assert_equal true (M.equals (M.mult m1 m2) m'))
       [
         (M.make 2 2 (fun i j -> 1.),
          M.make 2 2 (fun i j -> 1.),
@@ -216,7 +217,7 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [add_tests] tests [Matrix.add]. *)
   let add_tests = List.map
       (fun (m1, m2, m') -> "add test" >:: fun _ ->
-           assert_equal (M.add m1 m2) m')
+           assert_equal true (M.equals (M.add m1 m2) m'))
       [
         (M.make 2 2 (fun i j -> 1.),
          M.make 2 2 (fun i j -> 1.),
@@ -396,7 +397,8 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
   (** [factor_qr_test] asserts that the qr factorization of [mat] is 
       [q], [r]. *)
   let factor_qr_test mat q r: test =
-    "factor_qr test" >:: fun _ -> assert_equal (MA.factor_qr mat) (q, r)
+    "factor_qr test" >:: fun _ -> let (a, b) = MA.factor_qr mat in
+    assert_equal true (M.equals a q && M.equals b r)
 
   (** [factor_qr_tests] tests [MatAlg.factor_qr]. *)
   let factor_qr_tests = List.map
@@ -442,32 +444,35 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
     else false
 
   let gen_alg_test d (a : unit) : test list =
-    let mat1 = M.make d d (fun _ _ -> Random.float 10.) in
+    let mat1 = M.make_abs d d (fun _ _ -> Random.float 10.) in
     let o1 = MA.ortho mat1 in
     let norm mat = M.mult (M.transpose mat) mat in
     let on1 = MA.ortho_normal mat1 in
-    let mat2 = M.make d d (fun _ _ -> Random.float 10.) in
+    let mat2 = M.make_abs d d (fun _ _ -> Random.float 10.) in
     let (p, l, u) = MA.factor_plu mat1 in
     let base = 
       [
         "square" >:: (fun _ -> assert_equal true (MA.is_square mat1));
         "ortho" >:: (fun _ -> assert_equal true (test_fold (norm o1) 0 0 
-                                                   (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
+         (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
         "ortho_normal" >:: (fun _ -> assert_equal true
-                               (M.equals (norm on1) (M.id (M.num_rows on1))));
+          (M.equals (norm on1) (M.id (M.num_rows on1))));
         "plu" >:: (fun _ -> assert_equal true (M.mult (M.mult p l) u
-                                               |> M.equals mat1));
+           |> M.equals mat1));
       ] in
     let ns : test list =
       [
         "is_sing" >:: (fun _ -> assert_equal (Float.equals (MA.det mat1)
-                                                Float.zero) (MA.is_singular mat1));
-        "inverse" >:: (fun _ -> assert_equal true (mat1 |> MA.inverse |> M.mult mat1
-                                                   |> M.equals (M.id d)));
-        "det_inverse" >:: (fun _ -> assert_equal true (mat1 |> MA.inverse |> MA.det
-                                                       |> Float.mult (MA.det mat1) |> Float.equals Float.one));
-        "det_mult" >:: fun _ -> assert_equal true (M.mult mat1 mat2 |> MA.det
-                                                   |> Float.equals (mat1 |> MA.det |> Float.mult (MA.det mat2)));
+          Float.zero) (MA.is_singular mat1));
+        "inverse" >:: (fun _ -> assert_equal true 
+          (mat1 |> MA.inverse |> M.mult mat1 |> M.equals (M.id d)));
+        "det_inverse" >:: (fun _ -> 
+          assert_equal true 
+          (mat1 |> MA.inverse |> MA.det |> Float.mult (MA.det mat1)
+          |> Float.equals Float.one));
+        "det_mult" >:: fun _ -> assert_equal true 
+          (M.mult mat1 mat2 |> MA.det |> Float.equals 
+          (mat1 |> MA.det |> Float.mult (MA.det mat2)));
       ]
     in
     if mat1 |> MA.det |> Float.equals Float.zero then base else base@ns
