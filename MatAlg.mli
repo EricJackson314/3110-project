@@ -53,6 +53,11 @@ module type MatAlg = sig
       eigen-values of [mat].
       Returns [None] if [mat] is not diagonizable.  *)
   val diag : matrix -> (matrix * matrix) option
+
+  (** [pca mat] is a list of (e * c), where c is a principal component of the
+      column space of matrix mat and e is the relative importance. The output
+      is sorted with most important elements first *)
+  val pca : matrix -> (elem * vector) list
 end
 
 module type MatAlgMaker =

@@ -1,5 +1,6 @@
 open Num
 open Vector
+open Grid
 
 module type Matrix = sig
   type t
@@ -17,8 +18,11 @@ module type Matrix = sig
   val num_rows : t -> int
   val num_cols : t -> int
   val entry : int -> int -> t -> elem
+  val get_row : int -> t -> vector
+  val get_col : int -> t -> vector
   val equals : t -> t -> bool
   val make : int -> int -> (int -> int -> elem) -> t
+  val make_abs: int -> int -> (int -> int -> elem) -> t
   val zero : int -> int -> t
   val map : (elem -> elem) -> t -> t
   val mult : t -> t -> t
@@ -49,27 +53,29 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
      represented as arrays. Invariant: all inner arrays have the same length. *)
   (* The elements of any such array must not be modified outside any public 
      function it's created in. *)
-  type t = elem array array
+  type t = elem Grid.t
 
   exception DimensionMismatchException
   exception OutOfBoundsException
   exception SingularMatrixException
 
   let from_vector v = 
-    let len = V.dim v in
-    Array.make 1 (Array.init len (fun i -> V.nth v i))
+    Grid.make (V.dim v) 1 (fun r _ -> V.nth v r)
 
-  let num_cols = Array.length
+  let num_cols = Grid.num_cols
 
-  let num_rows mat = 
-    if num_cols mat = 0 then 0 else Array.length mat.(0)
+  let num_rows = Grid.num_rows
 
   let entry r c mat = 
-    if r >= 0 && r < num_rows mat && c >= 0 && c < num_cols mat then
-      mat.(c).(r)
-    else raise OutOfBoundsException
+    if r < 0 || c < 0 || r >= num_rows mat || c >= num_cols mat then
+      raise OutOfBoundsException
+    else Grid.entry r c mat
 
-  let rec iter_equals a b r c =
+  let get_row r mat = Grid.get_row r mat |> V.from_list
+
+  let get_col c mat = Grid.get_col c mat |> V.from_list
+ 
+  let rec iter_equals a b (r : int) c =
     if r = num_rows a then true
     else if c = num_cols b then iter_equals a b (r + 1) 0
     else if entry r c a |> Elem.equals (entry r c b) |> not then false
@@ -80,7 +86,10 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     else iter_equals a b 0 0
 
   let make rows cols ent = 
-    Array.init cols (fun col -> Array.init rows (fun row -> ent row col))
+    Grid.make rows cols ent
+
+  let make_abs rows cols ent =
+    Grid.make_abs rows cols ent
 
   let zero rows cols = make rows cols (fun _ _ -> Elem.zero)
 
@@ -94,8 +103,11 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let id n = make n n (fun r c -> if r = c then E.one else E.zero)
 
   let to_column mat = 
-    Array.fold_right (fun arr ls -> (arr |> Array.to_list |> V.from_list)::ls)
-      mat []
+    let rec collect ls col =
+      if col < 0 then ls
+      else collect ((get_col col mat)::ls) (col - 1)
+    in
+    collect [] ((num_cols mat) - 1)
 
   let concat v_list = 
     match v_list with
@@ -110,10 +122,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let mult mat1 mat2 = 
     if (num_cols mat1) <> (num_rows mat2) then raise DimensionMismatchException
     else 
-      let tl = transpose mat1 in
-      let v1 = tl |> to_column |> Array.of_list in
-      let v2 = mat2 |> to_column |> Array.of_list in
-      make (num_rows mat1) (num_cols mat2) (fun r c -> V.dot v1.(r) v2.(c))
+      make (num_rows mat1) (num_cols mat2) 
+        (fun r c -> V.dot (get_row r mat1) (get_col c mat2))
 
   let add mat1 mat2 = 
     let rows = num_rows mat1 in
@@ -281,7 +291,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
 
   let col_sp (mat : t) = 
     let cols = List.fold_left (fun ls i -> 
-        ls@[mat.(i) |> Array.to_list |> V.from_list]) [] (pivot_cols mat) in
+        ls@[get_col i mat]) [] (pivot_cols mat) in
     concat cols
 
   let format fmt m =

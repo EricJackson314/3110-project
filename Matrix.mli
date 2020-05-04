@@ -34,15 +34,28 @@ module type Matrix = sig
      Raises OutOfBoundsException if either row or col is out of bounds. *)
   val entry : int -> int -> t -> elem
 
+  (* [get_row r mat] is the rth row of matrix mat as a vector *)
+  val get_row : int -> t -> vector
+
+  (* [get_col c mat] is the cth column of mat as a vector *)
+  val get_col : int -> t -> vector
+
   (* [equals a b] is whether matrices a and b are equal to each other, that is,
      whether they hae the same number of rows and columns and whether all their
      corresponding entries are equal, under the Elem.equals function *)
   val equals : t -> t -> bool
 
   (* [make r c e] is [x] if x has r rows, c columns, and the entry a b x =
-     e a b. *)
+     e a b. Note that function e will be re-evaluated every time entry a b x
+     is called, so that if random number generation or mutable state is involved
+     in the function e, entry may not return the same value on each call. *)
   val make : int -> int -> (int -> int -> elem) -> t
   
+  (* [make_abs r c e] is [x] if x has r rows, c columns, and entry a b x = e a b
+     Unlike [make r c e], this function evaluates e only once for each entry so
+     the entry function is guaranteed to return the same value each time. *)
+  val make_abs : int -> int -> (int -> int -> elem) -> t
+
   (* [zero r c] is the zero matrix with r rows and c columns *)
   val zero : int -> int -> t
 
