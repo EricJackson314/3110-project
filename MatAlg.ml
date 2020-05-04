@@ -26,6 +26,7 @@ module type MatAlg = sig
   val eigen : matrix -> (elem * (vector list)) list
   val diag : matrix -> (matrix * matrix) option
   val svd : matrix -> matrix * matrix * matrix
+  val pca : matrix -> (elem * vector) list
 end
 
 module type MatAlgMaker =
@@ -175,5 +176,17 @@ module Make = functor (Elem : Num) -> struct
   let diag = (fun _ -> failwith "Unimplemented")
 
   let svd = (fun _ -> failwith "Unimplemented")
+  
+  let pca mat =
+    let covar = mat |> M.transpose |> M.mult mat in
+    let e = eigen covar in
+    let rec flatten ls (e, v) = 
+      match v with
+      | [] -> ls
+      | hd::tl -> flatten ((e, hd)::ls) (e, tl)
+    in
+    e
+    |> List.fold_left flatten []
+    |> List.sort (fun (e1, v1) (e2, v2) -> E.compare e1 e2) 
 end
 
