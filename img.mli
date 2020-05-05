@@ -1,4 +1,5 @@
 open Matrix
+open Float
 
 (* general representation type of loaded images *)
 type t
@@ -27,10 +28,3 @@ val save : t -> string -> unit
    coordinates x y and width w, height h. Pads with white pixels if out of
    bounds *)
 val sub : t -> int -> int -> int -> int -> t
-
-
-
-
-
-
-

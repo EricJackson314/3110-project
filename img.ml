@@ -1,6 +1,6 @@
 open Grid
 open Num
-
+open Float
 
 module M = Matrix.Make(Num.Float)
 type matrix = M.t
