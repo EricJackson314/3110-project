@@ -16,3 +16,18 @@ module type Num = sig
   val format : Format.formatter -> t -> unit
 end
 
+module Float : Num = struct
+  type t = float
+  let err = 0.000001
+  let add a b = a +. b
+  let add_inv a = -.a
+  let mult a b = a *. b
+  let mult_inv a = 1. /. a
+  let sq_rt = Stdlib.sqrt
+  let norm = Stdlib.abs_float
+  let one = 1.
+  let zero = 0.
+  let equals a b = a -. b |> norm < err
+  let compare = Stdlib.compare
+  let format fmt f = Format.fprintf fmt "%f" f
+end
