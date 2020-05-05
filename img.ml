@@ -1,6 +1,7 @@
 open Grid
 open Num
 open Float
+open Camlimages
 
 module M = Matrix.Make(Num.Float)
 type matrix = M.t
@@ -10,15 +11,18 @@ type t = color Grid.t
 
 exception OutOfBounds
 
-let load = failwith "Unimplemented"
+let load s =
+  let img = OImages.load s [] |> OImages.rgb24 in 
+  let blk = (fun i j -> img#get i j |> Color.brightness |> float_of_int) in
+  Grid.make_abs (img#height) (img#width) blk  
 
 let get r c i = Grid.entry r c i
 
 let as_matrix = failwith "Unimplemented"
 
-let width = failwith "Unimplemented"
+let width = Grid.get_col
 
-let height = failwith "Unimplemented"
+let height = Grid.get_row
 
 let sub = failwith "Unimplemented"
 

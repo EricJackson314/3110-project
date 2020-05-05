@@ -1,2 +1,2 @@
 B _build
-PKG oUnit
+PKG oUnit camlimages camlimages.all_formats
