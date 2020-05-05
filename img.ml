@@ -12,7 +12,7 @@ exception OutOfBounds
 
 let load = failwith "Unimplemented"
 
-let get r c i = Grid.get r c i
+let get r c i = Grid.entry r c i
 
 let as_matrix = failwith "Unimplemented"
 
@@ -21,3 +21,5 @@ let width = failwith "Unimplemented"
 let height = failwith "Unimplemented"
 
 let sub = failwith "Unimplemented"
+
+let save = failwith "Unimplemented"
