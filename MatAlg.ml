@@ -25,7 +25,7 @@ module type MatAlg = sig
   val factor_plu : matrix -> matrix * matrix * matrix
   val eigen : matrix -> (elem * vector) list option
   val diag : matrix -> (matrix * matrix) option
-  val pca : matrix -> (elem * vector) list
+  val basis : int -> matrix -> matrix
 end
 
 module type MatAlgMaker =
@@ -39,6 +39,11 @@ module Make = functor (Elem : Num) -> struct
   type vector = V.t
   type matrix = M.t
   type elem = E.t
+
+  let to_abs mat =
+    let r = M.num_rows mat in
+    let c = M.num_cols mat in
+    M.make_abs r c (fun r c -> M.entry r c mat)
 
   let is_square mat = M.num_rows mat = M.num_cols mat
 
@@ -177,19 +182,49 @@ module Make = functor (Elem : Num) -> struct
           |>List.map eigen_pair in
         Some eigen_list
       end
-
-  let pca =
-    (* let covar = mat |> M.transpose |> M.mult mat in
-       let e = eigen covar in
-       let rec flatten ls (e, v) = 
-       match v with
-       | [] -> ls
-       | hd::tl -> flatten ((e, hd)::ls) (e, tl)
-       in
-       e
-       |> List.fold_left flatten []
-       |> List.sort (fun (e1, v1) (e2, v2) -> E.compare e1 e2) *)
-    (fun mat -> failwith "Unimplemented")
-
+  (* first n elements in the list, as an option. None if n is larger than list
+     length. Required for the caller to call with base = [] *)
+  let rec fst_n n base ls = 
+    if n <= 0 then Some (List.rev base)
+    else match ls with
+    | [] -> None
+    | hd::tl -> fst_n (n - 1) tl (hd::base)
+    
+  
+  let basis k mat = 
+    let piv_rows = mat |> M.transpose |> M.pivot_cols |> fst_n k [] in
+    match piv_rows with
+    | None -> mat
+    | Some s -> 
+      let m = M.num_cols mat in
+      let n = M.num_rows mat in
+      let non_piv_rows = List.init n (fun n -> n)
+        |> List.filter (fun i -> List.mem i s) in
+      let a = M.make m k (fun r c -> M.entry (List.nth s c) r mat) in
+      let b = M.make m (n - k) (fun r c -> 
+        M.entry (List.nth non_piv_rows c) r mat)
+      in
+      let v = a 
+        |> M.transpose 
+        |> M.mult a 
+        |> to_abs 
+        |> inverse 
+        |> M.mult (a |> M.transpose |> M.mult b)
+      in
+      let rec index base e ls = 
+      match ls with
+      | [] -> None
+      | hd::tl -> if hd = e then Some base else index (base + 1) e ls
+      in
+      let u = M.make_abs m k (fun r c ->
+        match index 0 r s with
+        | Some rr -> if c = rr then E.one else E.zero
+        | None -> 
+          match index 0 r non_piv_rows with
+          | None -> failwith "BAAAAD"
+          | Some rr -> M.entry c rr v
+        )
+      in
+      u
 end
 

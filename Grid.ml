@@ -5,7 +5,9 @@ module type GridSig = sig
   exception IllegalDimensionsException
 
   type 'a t
+  (* [num_rows g] is the number of rows in grid g *)
   val num_rows : 'a t -> int
+  (* [num_cols g] is the number of columns in grid g *)
   val num_cols : 'a t -> int
   (* [entry r c g] is the entry at the rth row and cth column of grid g.
      Raises OutOfBounds if either r or c is negative or r >= num_rows g, or

@@ -1,12 +1,11 @@
 open Grid
-open Num
 open Float
 open Camlimages
 
-module M = Matrix.Make(Num.Float)
+module M = Matrix.Make(Float)
 type matrix = M.t
 (* color representing the grayscale of a singel pixel, range 0. to 255.*)
-type color = float
+type color = Float.t
 type t = color Grid.t
 
 exception OutOfBounds
@@ -16,14 +15,27 @@ let load s =
   let blk = (fun i j -> img#get i j |> Color.brightness |> float_of_int) in
   Grid.make_abs (img#height) (img#width) blk  
 
-let get r c i = Grid.entry r c i
+let get x y img = Grid.entry x y img
 
-let as_matrix = failwith "Unimplemented"
+let width = Grid.num_cols
 
-let width = Grid.get_col
+let height = Grid.num_rows
 
-let height = Grid.get_row
+let as_matrix i = M.make (height i) (width i) (fun r c -> get r c i)
 
-let sub = failwith "Unimplemented"
+let rec sub i x y w h = 
+  if w < 0 then sub i (x + w) y (-w) h
+  else if h < 0 then sub i x (y + h) w (-h)
+  else Grid.make w h (fun r c -> 
+    let xcoor = x + r in
+    let ycoor = y + r in
+    if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i then 255.
+    else get xcoor ycoor i)
 
-let save = failwith "Unimplemented"
+let save = 
+  (* encoding scheme: first four bytes are 1 6 7 8 *)
+  (* next byte is the number of basis vectors *)
+  (* next byte is 1/8 the width of the img in pixels, followed by 1/8 the 
+     height in pixels *)
+  (* next 64 bytes is the bias vector *)
+  (* next 64 bytes is ...*)

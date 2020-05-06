@@ -15,5 +15,3 @@ module type Num = sig
   val compare : t -> t -> int
   val format : Format.formatter -> t -> unit
 end
-
-module Float : Num
