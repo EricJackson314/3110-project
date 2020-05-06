@@ -1,16 +1,17 @@
 #directory "_build";;
+#load_rec "Float.cmo";;
 #load_rec "Num.cmo";;
 #load_rec "Vector.cmo";;
 #load_rec "Matrix.cmo";;
 #load_rec "MatAlg.cmo";;
 
 open Num;;
-open Num.Float;;
+open Float;;
 open Vector;;
 open Matrix;;
 open MatAlg;;
 
-module MA = MatAlg.Make (Num.Float);;
+module MA = MatAlg.Make (Float);;
 #install_printer MA.V.format;;
 #install_printer MA.M.format;;
 

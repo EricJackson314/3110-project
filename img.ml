@@ -39,3 +39,4 @@ let save =
      height in pixels *)
   (* next 64 bytes is the bias vector *)
   (* next 64 bytes is ...*)
+  failwith "Unimplemented"
