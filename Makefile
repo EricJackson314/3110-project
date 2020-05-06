@@ -1,4 +1,4 @@
-MODULES= Vector Matrix Num MatAlg img
+MODULES= Vector Matrix Num MatAlg img Float
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
