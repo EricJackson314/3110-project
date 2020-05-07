@@ -191,39 +191,12 @@ module Make = functor (Elem : Num) -> struct
       | [] -> List.rev base
       | hd::tl -> fst_n (n - 1) (hd::base) tl
 
-  let basis k mat = 
-    print_endline "Check for singularity basis function mat alg";
-    (*let piv_rows = mat |> M.transpose |> M.pivot_cols in
-      if List.length piv_rows <= k then M.col_sp mat
-      else
-      let piv_rows = fst_n k [] piv_rows in*)
-    let piv_rows = List.init k (fun n -> n) in
-    let m = M.num_cols mat in
-    let n = M.num_rows mat in
-    let non_piv_rows = List.init n (fun n -> n)
-                       |> List.filter (fun i -> List.mem i piv_rows |> not) in
-    let a = M.make m k (fun r c -> M.entry (List.nth piv_rows c) r mat) in
-    let b = M.make m (n - k) (fun r c -> 
-        M.entry (List.nth non_piv_rows c) r mat)
-    in
+  let basis k a = 
     let at = M.transpose a in
-    let ata_inv = M.mult at a |> to_abs |> inverse in 
-    let atb = M.mult at b in
-    let v = M.mult ata_inv atb in
-    let rec index base e ls = 
-      match ls with
-      | [] -> None
-      | hd::tl -> if hd = e then Some base else index (base + 1) e tl 
-    in
-    let u = M.make_abs n k (fun r c ->
-        match index 0 r piv_rows with
-        | Some rr -> if c = rr then E.one else E.zero
-        | None -> 
-          match index 0 r non_piv_rows with
-          | None -> failwith "BAAAAD"
-          | Some rr -> M.entry c rr v
-      )
-    in
-    u
+    let ata = M.mult a at in
+    let cols = ata |> M.col_sp |> M.to_column in
+    let ls = List.map (fun v -> (V.norm v, v)) cols
+      |> List.sort (fun (n1, v1) (n2, v2) -> E.compare n1 n2) in
+    fst_n k [] ls |> List.map (fun (_, v) -> v) |> M.concat
 end
 

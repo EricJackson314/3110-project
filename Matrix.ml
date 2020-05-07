@@ -120,11 +120,15 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let transpose mat = 
     make_abs (num_cols mat) (num_rows mat) (fun r c -> entry c r mat)
 
+    
   let mult mat1 mat2 = 
     if (num_cols mat1) <> (num_rows mat2) then raise DimensionMismatchException
     else 
+      let m1t = transpose mat1 in
+      let rows1 = to_column m1t in
+      let cols2 = to_column mat2 in
       make_abs (num_rows mat1) (num_cols mat2) 
-        (fun r c -> V.dot (get_row r mat1) (get_col c mat2))
+        (fun r c -> List.nth rows1 r |> V.dot (List.nth cols2 c))
 
   let add mat1 mat2 = 
     let rows = num_rows mat1 in

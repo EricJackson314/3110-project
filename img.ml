@@ -128,6 +128,12 @@ let save img name =
   (* next byte unsigned is the number of basis vectors *)
   (* next byte unsigned is 1/8 the width of the img in pixels, followed by 1/8 
      the height in pixels *)
+  (* compute the basis vectors (MA.basis) *)
+  (* convert each 8 by 8 chunk into a vector *)
+  (* if A represents an 8 by 8 chunk, and B be the basis matrix, calculate 
+     x such that Bx = A *)
+  (* collect all the components *)
+  (* scale all the components, note the scalar used (component scalar) *)
   (* next series of bytes is the component scalar *)
   (* next chunk of 64 signed bytes is the first basis vector *)
   (* following chunks of 64 signed bytes are the rest of the basis vectors *)
