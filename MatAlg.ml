@@ -182,42 +182,38 @@ module Make = functor (Elem : Num) -> struct
           |>List.map eigen_pair in
         Some eigen_list
       end
-  (* first n elements in the list, as an option. None if n is larger than list
-     length. Required for the caller to call with base = [] *)
+  (* first n elements in the list or the entire list if n is larger than the
+     length of the list *)
   let rec fst_n n base ls = 
-    if n <= 0 then Some (List.rev base)
+    if n <= 0 then List.rev base
     else match ls with
-    | [] -> None
-    | hd::tl -> fst_n (n - 1) tl (hd::base)
+    | [] -> List.rev base
+    | hd::tl -> fst_n (n - 1) (hd::base) tl
     
-  
   let basis k mat = 
-    let piv_rows = mat |> M.transpose |> M.pivot_cols |> fst_n k [] in
-    match piv_rows with
-    | None -> mat
-    | Some s -> 
+    let piv_rows = mat |> M.transpose |> M.pivot_cols in
+    if List.length piv_rows <= k then M.col_sp mat
+    else
+      let piv_rows = fst_n k [] piv_rows in
       let m = M.num_cols mat in
       let n = M.num_rows mat in
       let non_piv_rows = List.init n (fun n -> n)
-        |> List.filter (fun i -> List.mem i s) in
-      let a = M.make m k (fun r c -> M.entry (List.nth s c) r mat) in
+        |> List.filter (fun i -> List.mem i piv_rows |> not) in
+      let a = M.make m k (fun r c -> M.entry (List.nth piv_rows c) r mat) in
       let b = M.make m (n - k) (fun r c -> 
         M.entry (List.nth non_piv_rows c) r mat)
       in
-      let v = a 
-        |> M.transpose 
-        |> M.mult a 
-        |> to_abs 
-        |> inverse 
-        |> M.mult (a |> M.transpose |> M.mult b)
-      in
+      let at = M.transpose a in
+      let ata_inv = M.mult at a |> to_abs |> inverse in 
+      let atb = M.mult at b in
+      let v = M.mult ata_inv atb in
       let rec index base e ls = 
       match ls with
       | [] -> None
-      | hd::tl -> if hd = e then Some base else index (base + 1) e ls
+      | hd::tl -> if hd = e then Some base else index (base + 1) e tl 
       in
-      let u = M.make_abs m k (fun r c ->
-        match index 0 r s with
+      let u = M.make_abs n k (fun r c ->
+        match index 0 r piv_rows with
         | Some rr -> if c = rr then E.one else E.zero
         | None -> 
           match index 0 r non_piv_rows with

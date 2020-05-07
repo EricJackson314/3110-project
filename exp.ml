@@ -11,7 +11,7 @@ module Float = struct
   let norm = abs_float
   let one = 1.
   let zero = 0.
-  let equals a b = Float.abs (a -. b) < threshold
+  let equals a b = Stdlib.abs_float (a -. b) < threshold
   let compare = Stdlib.compare
   let format fmt f = Format.fprintf fmt "%f" f
 end
@@ -20,27 +20,55 @@ module MA = MatAlg.Make(Float)
 
 module M = MA.M
 
+module V = MA.V
+
 let rec mat_to_string mat base r c =
   if r = M.num_rows mat then base
   else if c = M.num_cols mat then mat_to_string mat (base ^ "\n") (r + 1) 0
   else mat_to_string mat (base ^ (M.entry r c mat |> string_of_float) ^ " ")
     r (c + 1)
 
-let gen_alg_test d (a : unit) =
-  let mat1 = M.make d d (fun _ _ -> Random.float 10.) in
-  let mat2 = M.make d d (fun _ _ -> Random.float 10.) in
-  print_endline (mat_to_string mat1 "" 0 0);
-  let _ = MA.is_square mat1 in
-  print_endline (mat_to_string mat1 "" 0 0);
-  let a = mat1 |> MA.inverse in
-  print_endline (mat_to_string mat1 "" 0 0);
-  let b = a |> M.mult mat1 in
-  print_endline (mat_to_string mat1 "" 0 0);
-  print_endline (mat_to_string b "" 0 0);
-  assert (b |> M.equals (M.id d));
-  assert (mat1 |> MA.inverse |> MA.det |> Float.mult (MA.det mat1)
-        |> Float.equals Float.one);
-  assert (M.mult mat1 mat2 |> MA.det |> Float.equals 
-        (mat1 |> MA.det |> Float.mult (MA.det mat2)))
+let rec ls_to_string ls =
+  let rec aux = function
+  | [] -> "]"
+  | [a] -> (a |> string_of_int) ^ "]"
+  | hd::tl -> (hd |> string_of_int) ^ "; " ^ (aux tl)
+  in "[" ^ (aux ls)
 
-let _ = gen_alg_test 1 ()
+let m = M.make 5 10 (fun r c -> 3 * r - 2 * c + r * c - r / (c + 1)
+  |> float_of_int)
+
+let rec fst_n n base ls =
+  if n <= 0 then Some (List.rev base)
+  else match ls with
+  | [] -> None
+  | hd::tl -> fst_n (n - 1) (hd::base) tl
+
+let k = 3
+let piv_rows = m |> M.transpose |> M.pivot_cols |> fst_n k []
+let Some s = piv_rows
+let mm = M.num_cols m 
+let nn = M.num_rows m
+let non_piv_rows = List.init nn (fun n -> n) 
+  |> List.filter (fun i -> List.mem i s |> not)
+let a = M.make mm k (fun r c -> M.entry (List.nth s c) r m)
+let b = M.make mm (nn - k) (fun r c -> M.entry (List.nth non_piv_rows c) r m)
+let ata = a |> M.mult (a |> M.transpose)
+(*
+let rec index base e ls = 
+  match ls with 
+  | [] -> None
+  | hd::tl -> if hd = e then Some base else index (base + 1) e tl
+*)
+let _ = 
+  begin match piv_rows with 
+  | None -> print_endline "bad"
+  | Some ls -> print_endline (ls_to_string ls)
+  end;
+  print_endline (mat_to_string m "" 0 0);
+  print_endline (ls_to_string non_piv_rows);
+  print_endline (mat_to_string a "" 0 0);
+  print_endline (mat_to_string b "" 0 0);
+  print_endline (mat_to_string ata "" 0 0);
+  let b = MA.basis k m in
+  print_endline (mat_to_string b "" 0 0)

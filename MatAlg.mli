@@ -53,6 +53,7 @@ module type MatAlg = sig
       eigen-values of [mat].
       Returns [None] if [mat] is not diagonizable.  *)
   val diag : matrix -> (matrix * matrix) option
+
   (** [basis k mat] is a matrix with k columns whose columns form an approximate
       basis for the columns of mat. Not guaranteed to be the optimal basis. If k
       is greater than the number of vectors needed to span the column space of

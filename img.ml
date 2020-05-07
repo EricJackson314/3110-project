@@ -34,10 +34,32 @@ let rec sub i x y w h =
       if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i then 255.
       else get xcoor ycoor i)
 
-let save t s = () 
-(* encoding scheme: first four bytes are 1 6 7 8 *)
-(* next byte is the number of basis vectors *)
-(* next byte is 1/8 the width of the img in pixels, followed by 1/8 the 
-   height in pixels *)
-(* next 64 bytes is the bias vector *)
-(* next 64 bytes is ...*)
+let jang_to_grid = 
+  (* use input channel to read bytes, if not the right signature then fail *)
+  (* procedure: figure out width and height *)
+  (* figure out number of basis vectors *)
+  (* figure out basis vectors *)
+  (* for each chunk, figure out the components *)
+  (* combine components with basis vectors, then multiply by component scalar,
+     then add the bias vector *)
+  (* copy components of the vector into the grid *)
+  failwith "Unimplemented"
+
+let save img name = 
+  (* encoding scheme: first four bytes are signed 6 5 20 20 *)
+  (* next byte unsigned is the number of basis vectors *)
+  (* next byte unsigned is 1/8 the width of the img in pixels, followed by 1/8 
+     the height in pixels *)
+  (* next series of bytes is the component scalar *)
+  (* every chunk after that is components *)
+  let out = open_out name in
+  (* signature: 6 5 20 20 *)
+  output out (Bytes.of_string "\006\005\020\020") 0 4;
+  (* number of basis vectors *)
+
+  close_out out
+
+
+
+
+
