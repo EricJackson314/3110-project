@@ -191,10 +191,12 @@ module Make = functor (Elem : Num) -> struct
     | hd::tl -> fst_n (n - 1) (hd::base) tl
     
   let basis k mat = 
-    let piv_rows = mat |> M.transpose |> M.pivot_cols in
+    print_endline "Check for singularity basis function mat alg";
+    (*let piv_rows = mat |> M.transpose |> M.pivot_cols in
     if List.length piv_rows <= k then M.col_sp mat
     else
-      let piv_rows = fst_n k [] piv_rows in
+      let piv_rows = fst_n k [] piv_rows in*)
+      let piv_rows = List.init k (fun n -> n) in
       let m = M.num_cols mat in
       let n = M.num_rows mat in
       let non_piv_rows = List.init n (fun n -> n)

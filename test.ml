@@ -14,7 +14,7 @@ module Float = struct
   let norm = abs_float
   let one = 1.
   let zero = 0.
-  let equals a b = Float.abs (a -. b) < threshold
+  let equals a b = norm (a -. b) < threshold
   let compare = Stdlib.compare
   let format fmt f = Format.fprintf fmt "%f" f
 end

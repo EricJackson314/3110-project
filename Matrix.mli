@@ -74,6 +74,9 @@ module type Matrix = sig
      DimensionMismatchException otherwise *)
   val add : t -> t -> t
 
+  (* [scale scalar mat] is the scalar product scalar * mat *)
+  val scale : elem -> t -> t
+
   (* [transpose mat] is [x : Matrix.t] such that entry a b mat = entry b a x for
      all a and b *)
   val transpose : t -> t
