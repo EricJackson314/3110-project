@@ -129,6 +129,9 @@ let save =
   (* next chunk of 64 signed bytes is the first basis vector *)
   (* following chunks of 64 signed bytes are the rest of the basis vectors *)
   (* every chunk after that is components *)
+  (* components chunks are ordered first by row, then by column. For example,
+     if (i, j) represented the (row, column) of a chunk, then the order would
+     be (0, 0), (0, 1), (0, 2), ... (1, 0), (1, 1), .. and so on *)
   failwith "Unimplemented"
 
 
