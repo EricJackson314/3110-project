@@ -11,6 +11,12 @@ module type Reader = sig
   val next_byte_unsigned : t -> int
   (* whether there are more bytes to read *)
   val has_next : t -> bool
+  (* [signed_to_unsigned x] is y if x is the integer cast of a signed byte and
+     y is the unsigned equivalent of x. *)
+  val signed_to_unsigned : int -> int
+  (* this is the inverse function of signed_to_unsighed. *)
+  val unsigned_to_signed : int -> int
 end
 
 module FileReader : Reader
+
