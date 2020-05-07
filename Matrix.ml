@@ -74,7 +74,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
   let get_row r mat = Grid.get_row r mat |> V.from_list
 
   let get_col c mat = Grid.get_col c mat |> V.from_list
- 
+
   let rec iter_equals a b (r : int) c =
     if r = num_rows a then true
     else if c = num_cols b then iter_equals a b (r + 1) 0
@@ -117,12 +117,12 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         (fun r c -> V.nth (List.nth v_list c) r)
 
   let transpose mat = 
-    make (num_cols mat) (num_rows mat) (fun r c -> entry c r mat)
+    make_abs (num_cols mat) (num_rows mat) (fun r c -> entry c r mat)
 
   let mult mat1 mat2 = 
     if (num_cols mat1) <> (num_rows mat2) then raise DimensionMismatchException
     else 
-      make (num_rows mat1) (num_cols mat2) 
+      make_abs (num_rows mat1) (num_cols mat2) 
         (fun r c -> V.dot (get_row r mat1) (get_col c mat2))
 
   let add mat1 mat2 = 

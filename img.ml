@@ -1,8 +1,10 @@
 open Grid
 open Float
+open MatAlg
 open Camlimages
 
-module M = Matrix.Make(Float)
+module MA = MatAlg.Make(Float)
+module M = MA.M
 type matrix = M.t
 (* color representing the grayscale of a singel pixel, range 0. to 255.*)
 type color = Float.t
@@ -27,16 +29,15 @@ let rec sub i x y w h =
   if w < 0 then sub i (x + w) y (-w) h
   else if h < 0 then sub i x (y + h) w (-h)
   else Grid.make w h (fun r c -> 
-    let xcoor = x + r in
-    let ycoor = y + r in
-    if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i then 255.
-    else get xcoor ycoor i)
+      let xcoor = x + r in
+      let ycoor = y + r in
+      if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i then 255.
+      else get xcoor ycoor i)
 
-let save = 
-  (* encoding scheme: first four bytes are 1 6 7 8 *)
-  (* next byte is the number of basis vectors *)
-  (* next byte is 1/8 the width of the img in pixels, followed by 1/8 the 
-     height in pixels *)
-  (* next 64 bytes is the bias vector *)
-  (* next 64 bytes is ...*)
-  failwith "Unimplemented"
+let save t s = () 
+(* encoding scheme: first four bytes are 1 6 7 8 *)
+(* next byte is the number of basis vectors *)
+(* next byte is 1/8 the width of the img in pixels, followed by 1/8 the 
+   height in pixels *)
+(* next 64 bytes is the bias vector *)
+(* next 64 bytes is ...*)

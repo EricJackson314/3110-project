@@ -4,6 +4,9 @@
 #load_rec "Vector.cmo";;
 #load_rec "Matrix.cmo";;
 #load_rec "MatAlg.cmo";;
+#require "camlimages";;
+#require "camlimages.all_formats";;
+#load_rec "Img.cmo";;
 
 open Num;;
 open Float;;

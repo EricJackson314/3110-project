@@ -1,12 +1,13 @@
+open MatAlg
 open Matrix
 open Float
 
 (** general representation type of loaded images *)
 type t
 
-module M : Matrix with module E = Float
+module MA : MatAlg with module M = Matrix.Make (Float)
 
-type matrix = M.t
+type matrix = MA.M.t
 
 exception OutOfBounds
 
