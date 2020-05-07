@@ -1,4 +1,4 @@
-MODULES= Vector Matrix Num MatAlg Img Float
+MODULES= Vector Matrix Num MatAlg Img Float Reader Writer
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)

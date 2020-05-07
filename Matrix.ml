@@ -27,6 +27,7 @@ module type Matrix = sig
   val map : (elem -> elem) -> t -> t
   val mult : t -> t -> t
   val add : t -> t -> t
+  val scale : elem -> t -> t
   val transpose : t -> t
   val scale_row : int -> elem -> t -> t
   val add_row : int -> int -> elem -> t -> t
@@ -132,6 +133,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       raise DimensionMismatchException
     else make rows cols (fun r c -> E.add (entry r c mat1) (entry r c mat2))
 
+  let scale scalar mat = map (fun e -> E.mult scalar e) mat
+
   let scale_row r scalar mat =
     let rows = num_rows mat in
     let cols = num_cols mat in 
@@ -161,6 +164,9 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
            if row = r2 then entry r1 col mat else
              entry row col mat)
 
+  let to_abs mat = 
+    make_abs (num_rows mat) (num_cols mat) (fun r c -> entry r c mat)
+
   (* [eliminate r c mat] is x if elimination is performed on mat on the part of
      the matrix below and to the right of row r and column c, inclusive. Assumes
      row is between 0 and num_rows mat inclusive and col is between 0 and
@@ -188,7 +194,7 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
         let coeff rr = E.add_inv (E.mult (entry rr col m) c) in
         let elim_row rrr = add_row row rrr (coeff rrr) in
         let rec elim r x = 
-          if r = rows then x
+          if r = rows then to_abs x
           else elim (r + 1) (elim_row r x)
         in
         eliminate (row + 1) (col + 1) (elim (row + 1) m)
@@ -223,13 +229,14 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
       let piv_r = get_row ((num_rows x) - 1) in
       let m = scale_row piv_r (E.mult_inv (entry piv_r col x)) x in
       let rec up_elim r y = 
-        if r < 0 then y
+        if r < 0 then to_abs y
         else
           up_elim (r - 1) (add_row piv_r r (entry r col y |> E.add_inv) y)
       in up_elim (piv_r - 1) m
     in
     List.fold_right 
-      (fun piv_col x -> scale_up_elim piv_col x) (pivot_cols mat) (ref mat)
+      (fun piv_col x -> scale_up_elim piv_col x) 
+      (pivot_cols mat) (ref mat)
 
   (** [insert i e] is the list [lst] with element [e] inserted into the [i]th
       index. *)
