@@ -158,8 +158,9 @@ module Make = functor (Elem : Num) -> struct
   let diag mat =
     if not (is_square mat) || is_singular mat then None 
     else
-      (* The QR algorithm produces two matrices [d] and [p] such that [a = pdp^-1]
-         and [d] is a diagonal matrix containing the eigenvalues of [mat]. *)
+      (* The QR algorithm produces two matrices [d] and [p] such that 
+         [a = pdp^-1] and [d] is a diagonal matrix containing the 
+         eigenvalues of [mat]. *)
       let rec qr_algo mat q_acc n =
         if n >= 0 then 
           factor_qr mat 

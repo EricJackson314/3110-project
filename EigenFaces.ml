@@ -50,5 +50,6 @@ let eigen_faces () =
   let c = construct_C mats in
   let () = Printf.printf "matrix built...\n%!" in
   let m = M.mult (M.transpose c) c in
-  let () = Printf.printf "matrix multiplied(%d, %d)...\n%!" (M.num_rows m) (M.num_cols m) in
+  let () = Printf.printf "matrix multiplied(%d, %d)...\n%!" 
+      (M.num_rows m) (M.num_cols m) in
   m

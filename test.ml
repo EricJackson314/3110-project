@@ -28,10 +28,12 @@ let almost_equal v1 v2 = abs_float(v1 -. v2) < 1e-6
 module VectorTest(VM : Vector.VectorMaker) = struct
   module V = VM (Float)
 
-  (** [close_vector v1 v2] is true if all the elements of v1 are almost equal to v2. *)
+  (** [close_vector v1 v2] is true if all the elements of v1 are almost
+      equal to v2. *)
   let close_vector v1 v2 =
     if V.dim v1 <> V.dim v2 then false else
-      List.fold_left2 (fun a e1 e2 -> a +. e1 -. e2) 0. (V.to_list v1) (V.to_list v2)
+      List.fold_left2 (fun a e1 e2 -> a +. e1 -. e2) 0. 
+        (V.to_list v1) (V.to_list v2)
       |> almost_equal 0.
 
   let zero = Float.zero
@@ -43,7 +45,8 @@ module VectorTest(VM : Vector.VectorMaker) = struct
   let vec_1 = V.from_list [0.; 1.; 2.]
   let vec_2 = V.from_list [zero; two; four]
 
-  let add_test : test = "add_test" >:: fun _ -> assert_equal (V.add vec_1 vec_1) vec_2
+  let add_test : test = "add_test" >:: fun _ -> 
+      assert_equal (V.add vec_1 vec_1) vec_2
 
   let gen_l size = List.init size (fun _ -> Random.float 10.)
   let gen_v size = V.from_list (gen_l size)
@@ -83,7 +86,8 @@ module VectorTest(VM : Vector.VectorMaker) = struct
       ("gen_scale_test" >:: fun _ -> assert_equal (V.scale v1 s) sv1);
       ("gen_dot_test" >:: fun _ -> assert_equal (V.dot v1 v2) dot);
       ("gen_norm_test" >:: fun _ -> assert_equal norm (V.norm v1));
-      ("gen_normalize_test" >:: fun _ -> assert_bool "normalize test" (close_vector res_v1 v1));
+      ("gen_normalize_test" >:: fun _ -> 
+          assert_bool "normalize test" (close_vector res_v1 v1));
       ("gen_makers_test" >:: 
        fun _ -> assert_equal v1 (V.make size (fun n -> List.nth l1 n)));
       ("gen_tolist_test" >:: fun _ -> assert_equal l1 (V.to_list v1));
@@ -156,8 +160,9 @@ module MatrixTest(MM : Matrix.MatrixMaker)= struct
   (** [id_tests] tests [Matrix.id]. *)
   let id_tests = List.map
       (fun n -> "id test" >:: fun _ ->
-         assert_equal true (M.equals (M.id n) 
-           (M.make n n (fun i j -> if i=j then 1. else 0.))))
+           assert_equal true (M.equals (M.id n) 
+                                (M.make n n 
+                                   (fun i j -> if i=j then 1. else 0.))))
       [1; 2; 3; 4; 5; 6; 7; 8; 9; 10]
 
 
@@ -398,7 +403,7 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
       [q], [r]. *)
   let factor_qr_test mat q r: test =
     "factor_qr test" >:: fun _ -> let (a, b) = MA.factor_qr mat in
-    assert_equal true (M.equals a q && M.equals b r)
+      assert_equal true (M.equals a q && M.equals b r)
 
   (** [factor_qr_tests] tests [MatAlg.factor_qr]. *)
   let factor_qr_tests = List.map
@@ -453,26 +458,31 @@ module MatAlgTest(MAM : MatAlg.MatAlgMaker) = struct
     let base = 
       [
         "square" >:: (fun _ -> assert_equal true (MA.is_square mat1));
-        "ortho" >:: (fun _ -> assert_equal true (test_fold (norm o1) 0 0 
-         (fun r c m -> (r = c) || (M.entry r c m |> Float.equals Float.zero))));
+        "ortho" >:: 
+        (fun _ -> assert_equal true 
+            (test_fold (norm o1) 0 0 
+               (fun r c m -> 
+                  (r = c) || (M.entry r c m |> Float.equals Float.zero))));
         "ortho_normal" >:: (fun _ -> assert_equal true
-          (M.equals (norm on1) (M.id (M.num_rows on1))));
+                               (M.equals (norm on1) (M.id (M.num_rows on1))));
         "plu" >:: (fun _ -> assert_equal true (M.mult (M.mult p l) u
-           |> M.equals mat1));
+                                               |> M.equals mat1));
       ] in
     let ns : test list =
       [
-        "is_sing" >:: (fun _ -> assert_equal (Float.equals (MA.det mat1)
-          Float.zero) (MA.is_singular mat1));
-        "inverse" >:: (fun _ -> assert_equal true 
-          (mat1 |> MA.inverse |> M.mult mat1 |> M.equals (M.id d)));
+        "is_sing" >:: 
+        (fun _ -> assert_equal 
+            (Float.equals (MA.det mat1) Float.zero) (MA.is_singular mat1));
+        "inverse" >:: 
+        (fun _ -> assert_equal true 
+            (mat1 |> MA.inverse |> M.mult mat1 |> M.equals (M.id d)));
         "det_inverse" >:: (fun _ -> 
-          assert_equal true 
-          (mat1 |> MA.inverse |> MA.det |> Float.mult (MA.det mat1)
-          |> Float.equals Float.one));
+            assert_equal true 
+              (mat1 |> MA.inverse |> MA.det |> Float.mult (MA.det mat1)
+               |> Float.equals Float.one));
         "det_mult" >:: fun _ -> assert_equal true 
-          (M.mult mat1 mat2 |> MA.det |> Float.equals 
-          (mat1 |> MA.det |> Float.mult (MA.det mat2)));
+            (M.mult mat1 mat2 |> MA.det |> Float.equals 
+               (mat1 |> MA.det |> Float.mult (MA.det mat2)));
       ]
     in
     if mat1 |> MA.det |> Float.equals Float.zero then base else base@ns
