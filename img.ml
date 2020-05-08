@@ -34,7 +34,8 @@ let rec sub i x y w h =
   else Grid.make w h (fun r c -> 
       let xcoor = x + r in
       let ycoor = y + r in
-      if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i then 255.
+      if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i
+        then 255.
       else get xcoor ycoor i)
 
 (* the first four bytes in a .jang file must be these bytes as signed ints *)
@@ -83,6 +84,8 @@ let read_scalar r : int = failwith "Unimplemented"
    vectors store signed bytes from src and cast them to float. *)
 let collect_vectors count dims src = failwith "Unimplemented" 
 
+let div_mod a b = (a / b, a mod b)
+
 let jang_to_grid f = 
   (* use input channel to read bytes, if not the right signature then fail *)
   (* procedure: figure out width and height *)
@@ -115,26 +118,100 @@ let jang_to_grid f =
         M.mult basis_mat comp_mat |> M.scale (float_of_int scalar)) c_arr)
         component_arr
     in
-    let div_mod a b = (a / b, a mod b) in
     M.make (pixels_per_block * height_blocks) (pixels_per_block * width_blocks)
       (fun r c ->
          let (rr, i) = div_mod r pixels_per_block in
          let (cc, j) = div_mod c pixels_per_block in
          M.entry i j (block_arr.(rr).(cc)))
 
+let basis_size = 32
+
+let normalize_basis_mat m = 
+  let rec max_in_column c r base =
+    if r >= M.num_rows m then base
+    else 
+      let n = Float.norm (M.entry r c m) in
+      if Float.compare n base > 0 then max_in_column c (r + 1) n
+      else max_in_column c (r + 1) base
+  in
+  M.make_abs (M.num_rows m) (M.num_cols m) (fun r c -> 
+    255. *. (M.entry r c m) /. max_in_column c 1 (M.entry 0 c m |> Float.norm))
+
+let normalize_component_mat m = 
+  let rec find_max r c base =
+    if r >= M.num_rows m then base
+    else if c >= M.num_cols m then find_max (r + 1) 0 base
+    else 
+      let n = Float.norm (M.entry r c m) in
+      if Float.compare n base > 0 then find_max r (c + 1) n
+      else find_max r (c + 1) base
+  in
+  let scalar = find_max 0 1 (M.entry 0 0 m) in
+  (scalar, M.scale (Float.mult_inv scalar) m)
+
 let save img name = 
   (* encoding scheme: first four bytes are signed 6 5 20 20 *)
   (* next byte unsigned is the number of basis vectors *)
   (* next byte unsigned is 1/8 the width of the img in pixels, followed by 1/8 
      the height in pixels *)
+  (* compute the basis vectors (MA.basis) *)
+  (* convert each 8 by 8 chunk into a vector *)
+  (* if A represents an 8 by 8 chunk, and B be the basis matrix, calculate 
+     x such that Bx = A *)
+  (* collect all the components *)
+  (* scale all the components, note the scalar used (component scalar) *)
   (* next series of bytes is the component scalar *)
   (* next chunk of 64 signed bytes is the first basis vector *)
   (* following chunks of 64 signed bytes are the rest of the basis vectors *)
   (* every chunk after that is components *)
-  let out = open_out name in
-  (* signature: 6 5 20 20 *)
-  output out (Bytes.of_string "\006\005\020\020") 0 4;
-  close_out out
+  let width_block = (width img) / block_size in
+  let height_block = (height img) / block_size in
+  let basis_dims = block_size * block_size in
+  let vec_arr_arr = Array.init height_block (fun r -> 
+    Array.init width_block (fun c -> 
+      V.make basis_dims (fun n ->
+        let (i, j) = div_mod n block_size in
+        Grid.entry (8 * r + i) (8 * c + j) img)))
+  in
+  let block_mat = M.make_abs basis_dims ((height_block + 1) * (width_block + 1))
+    (fun r c -> 
+      let (i, j) = div_mod r block_size in
+      V.nth vec_arr_arr.(i).(j) c
+    )
+  in
+  let basis_mat = MA.basis basis_size block_mat |> normalize_basis_mat in
+  let raw_component_mat = 
+    let pt = basis_mat |> M.transpose in
+    let ptp = M.mult basis_mat pt in
+    let ptp_inv = MA.inverse ptp in
+    let proj_mat = M.mult ptp_inv pt in
+    M.mult proj_mat block_mat
+  in
+  let (scalar, component_mat) = normalize_component_mat raw_component_mat in
+  let writer = Writer.create name in
+  let write = Writer.write writer in
+  List.fold_left (fun _ b -> write b) () jang_sig;
+  write basis_size;
+  let write_num i = 
+    let rec to_bytes k base = 
+      let (x, b) = div_mod k 256 in 
+      if x = 0 then b::base
+      else to_bytes x (b::base)
+    in
+    let ls = to_bytes i [] in
+    let l = List.length ls in
+    if l > 255 then failwith "BAAAAD"
+    else write l; List.fold_left (fun _ b -> write b) () ls
+  in
+  write_num (int_of_float scalar);
+  let write_vector v = 
+    List.fold_left (fun _ elem -> elem 
+      |> int_of_float |> Writer.write_signed writer)
+      () (V.to_list v)
+  in
+  List.fold_left (fun _ v -> write_vector v) () (M.to_column basis_mat);
+  List.fold_left (fun _ v -> write_vector v) () (M.to_column component_mat)
+
 (* components chunks are ordered first by row, then by column. For example,
    if (i, j) represented the (row, column) of a chunk, then the order would
    be (0, 0), (0, 1), (0, 2), ... (1, 0), (1, 1), .. and so on *)

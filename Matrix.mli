@@ -128,7 +128,7 @@ module type Matrix = sig
       mat *)
   val nul_sp : t -> t
 
-  (** [to_column_list mat] is a list containing the columns of mat as vectors,
+  (** [to_column mat] is a list containing the columns of mat as vectors,
       in order. *)
   val to_column : t -> vector list
 
