@@ -11,11 +11,12 @@ val create : string -> t
 
 (* [write r c] adds c to the list of characters for r to write to its file but
    does not necessarily write anything to the file. To write to the file, flush
-   must be called. Note that the bytes written are unsigned. *)
-val write : t -> char -> unit
+   must be called. Note that the bytes written are unsigned, and that the
+   int entered will be cast to byte. *)
+val write : t -> int -> unit
 
 (* [write_signed r c] is [write r x] where x is the unsigned equivalent of c. *)
-val write_signed : t -> char -> unit
+val write_signed : t -> int -> unit
 
 (* causes the given robot to write all of its characters to its file *)
 val flush : t -> unit

@@ -2,6 +2,7 @@ open OUnit2
 open Num
 open Vector
 open Matrix
+open Reader
 
 module Float = struct
   let threshold = 0.000001
@@ -494,6 +495,39 @@ module V_Test = VectorTest(Vector.Make)
 module M_Test = MatrixTest(Matrix.Make)
 module MatAlg_Test = MatAlgTest(MatAlg.Make)
 
+let file_io_tests =
+  let f = "to_be_deleted.txt" in
+  let w = Writer.create f in
+  Writer.close w;
+  let r = FileReader.init f in
+  let assert_end_of_reader r = assert (FileReader.has_next r |> not) in
+  assert_end_of_reader r;
+  let w = Writer.create f in
+  let ch = 'h' in
+  Writer.write w ch;
+  Writer.flush w;
+  assert (FileReader.has_next r);
+  assert (FileReader.next_byte_unsigned r = int_of_char ch);
+  assert_end_of_reader r;
+  Writer.write w ch;
+  Writer.flush w;
+  assert (FileReader.has_next r);
+  FileReader.next_byte_unsigned r |> ignore;
+  Writer.write_signed w (-5);
+  Writer.flush w;
+  let c = FileReader.next_byte_signed r in
+  assert (c = -5);
+  Writer.write_signed w (-5);
+  Writer.flush w;
+  let c = FileReader.next_byte_unsigned r in
+  assert (-5 = FileReader.unsigned_to_signed c);
+  Writer.write w (FileReader.signed_to_unsigned (-5) |> char_of_int);
+  Writer.flush w;
+  let c = FileReader.next_byte_unsigned r in
+  assert (FileReader.unsigned_to_signed c = (-5))
+
+
+
 let tests = List.flatten 
     [
       V_Test.tests;
@@ -503,4 +537,4 @@ let tests = List.flatten
 
 let suite = "test suite" >::: tests
 
-let _ = run_test_tt_main suite
+let _ = file_io_tests; run_test_tt_main suite
