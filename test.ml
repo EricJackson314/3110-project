@@ -4,6 +4,33 @@ open Vector
 open Matrix
 open Reader
 
+(******************************************************************************)
+(*  Test Plan:                                                                *)
+(* Our project was tested in a variety of ways. At the core of our project is *)
+(* a set of modules containing common funcitons from linear algebra. The      *)
+(* Vector module was tested using random tests, and the Matrix module was     *)
+(* tested using black-box testing. Because the functions in these modules are *)
+(* so fundamnetal to the rest of our project, we created a test-suite to      *)
+(* give us confidence in their correctness. On top of these modules, there is *)
+(* a MatAlg module which contains more complex functions, some of these are   *)
+(* tested in this file as part of the test-suite and others were tested       *)
+(* manually.                                                                  *)
+(* The other portion of our project involved reading/writing images from      *)
+(* files and representing them as matrcies. Some of the read/write functions  *)
+(* were included in this file as assert-statements. The remaining portions as *)
+(* well as the Img methods were tested manually.                              *)
+(* Eigenfaces, one of the primary extensions of our project was also tested   *)
+(* manually.                                                                  *)
+(* An additional extension of our project, complex-valued vectors and         *)
+(* matrices, was not tested in this method, but a few manual tests were       *)
+(* performed. Because we did not use complex-valued vectors and matrices      *)
+(* elsewhere in the project, testing them was not as imperitive. The few      *)
+(* tests that we did perform, along with the success of the real-valued tests *)
+(* gave us a sufficient understanding of which functions worked and which     *)
+(* functions would require further work to properly extend to to the domain   *)
+(* of complex numbers.                                                        *)
+(******************************************************************************)
+
 module Float = struct
   let threshold = 0.000001
   type t = float

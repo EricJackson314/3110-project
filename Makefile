@@ -40,4 +40,4 @@ clean:
 	rm -rf cs3110-project.zip
 
 zip:
-	zip cs3110-project *.ml* *.md .merlin _tags Makefile images
+	zip cs3110-project *.ml* *.md .merlin _tags Makefile images/*
