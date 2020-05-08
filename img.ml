@@ -35,7 +35,7 @@ let rec sub i x y w h =
       let xcoor = x + r in
       let ycoor = y + r in
       if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i
-        then 255.
+      then 255.
       else get xcoor ycoor i)
 
 (* the first four bytes in a .jang file must be these bytes as signed ints *)
@@ -135,7 +135,7 @@ let normalize_basis_mat m =
       else max_in_column c (r + 1) base
   in
   M.make_abs (M.num_rows m) (M.num_cols m) (fun r c -> 
-    255. *. (M.entry r c m) /. max_in_column c 1 (M.entry 0 c m |> Float.norm))
+      255. *. (M.entry r c m) /. max_in_column c 1 (M.entry 0 c m |> Float.norm))
 
 let normalize_component_mat m = 
   let rec find_max r c base =
@@ -168,16 +168,16 @@ let save img name =
   let height_block = (height img) / block_size in
   let basis_dims = block_size * block_size in
   let vec_arr_arr = Array.init height_block (fun r -> 
-    Array.init width_block (fun c -> 
-      V.make basis_dims (fun n ->
-        let (i, j) = div_mod n block_size in
-        Grid.entry (8 * r + i) (8 * c + j) img)))
+      Array.init width_block (fun c -> 
+          V.make basis_dims (fun n ->
+              let (i, j) = div_mod n block_size in
+              Grid.entry (8 * r + i) (8 * c + j) img)))
   in
   let block_mat = M.make_abs basis_dims ((height_block + 1) * (width_block + 1))
-    (fun r c -> 
-      let (i, j) = div_mod r block_size in
-      V.nth vec_arr_arr.(i).(j) c
-    )
+      (fun r c -> 
+         let (i, j) = div_mod r block_size in
+         V.nth vec_arr_arr.(i).(j) c
+      )
   in
   let basis_mat = MA.basis basis_size block_mat |> normalize_basis_mat in
   let raw_component_mat = 
@@ -206,7 +206,7 @@ let save img name =
   write_num (int_of_float scalar);
   let write_vector v = 
     List.fold_left (fun _ elem -> elem 
-      |> int_of_float |> Writer.write_signed writer)
+                                  |> int_of_float |> Writer.write_signed writer)
       () (V.to_list v)
   in
   List.fold_left (fun _ v -> write_vector v) () (M.to_column basis_mat);

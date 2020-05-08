@@ -40,12 +40,13 @@ let construct_C mats =
   let vecs = List.map mat_to_vec mats in
   let avrg = average vecs in
   let ajst = List.map (fun v -> V.sub v avrg) vecs in
-  M.concat ajst
+  M.concat ajst, avrg
 
+(** *)
 let eigen_faces () =
   let get_img name = Img.load ("images/" ^ name ^ ".bmp") |> Img.as_matrix in
-  let mats = List.map get_img ["foster"; "george"; "gries"; "kozen"] in
-  let c = construct_C mats in
+  let mats = List.map get_img ["foster-3"; "gries-3"; "nye"; "pollack-2"] in
+  let c, avrg = construct_C mats in
   let m = M.mult (M.transpose c) c in
   let eigens =
     M.make 
@@ -54,5 +55,22 @@ let eigen_faces () =
       (fun i j -> M.entry i j m +. (if i = j then 1. else 0.))
     |> MA.eigen
     |> (fun i -> match i with None -> failwith "boring" | Some lst -> lst)
-    |> List.map (fun i -> match i with (e, v) -> (e, M.scale e (M.mult c (M.from_vector v))))
-  in eigens
+    |> List.map (fun i -> match i with (e, v) -> 
+        (e, List.hd (M.to_column (M.scale e (M.mult c (M.from_vector v))))))
+  in eigens, avrg
+
+(**  *)
+let proj v eigs = List.fold_left 
+    (fun acc (eig_val, eig_vec) -> 
+       acc +. (( eig_val *. (V.dot v eig_vec)))) 0. eigs
+
+
+let main () =
+  let get_img name = 
+    Img.load ("images/" ^ name ^ ".bmp") 
+    |> Img.as_matrix
+    |> mat_to_vec in
+  let vecs = List.map get_img ["foster-3"; "gries-3"; "nye"; "pollack-2"] in
+  let eigs, avrg = eigen_faces () in
+  let foster2 = ((fun v -> proj(V.sub v avrg) eigs) (get_img "foster-4")) in
+  (List.map (fun v -> proj (V.sub v avrg) eigs) vecs, foster2)
