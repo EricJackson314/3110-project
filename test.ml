@@ -514,12 +514,12 @@ let file_io_tests =
   assert_end_of_reader r;
   let w = Writer.create f in
   let ch = 'h' in
-  Writer.write w ch;
+  Writer.write w (int_of_char ch);
   Writer.flush w;
   assert (FileReader.has_next r);
   assert (FileReader.next_byte_unsigned r = int_of_char ch);
   assert_end_of_reader r;
-  Writer.write w ch;
+  Writer.write w (int_of_char ch);
   Writer.flush w;
   assert (FileReader.has_next r);
   FileReader.next_byte_unsigned r |> ignore;
@@ -531,12 +531,10 @@ let file_io_tests =
   Writer.flush w;
   let c = FileReader.next_byte_unsigned r in
   assert (-5 = FileReader.unsigned_to_signed c);
-  Writer.write w (FileReader.signed_to_unsigned (-5) |> char_of_int);
+  Writer.write w (FileReader.signed_to_unsigned (-5));
   Writer.flush w;
   let c = FileReader.next_byte_unsigned r in
   assert (FileReader.unsigned_to_signed c = (-5))
-
-
 
 let tests = List.flatten 
     [

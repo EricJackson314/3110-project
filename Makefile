@@ -15,7 +15,7 @@ demo: build
 build:
 	$(OCAMLBUILD) $(OBJECTS)
 
-test:
+testy:
 	$(OCAMLBUILD) -tag 'debug' $(TEST) && ./$(TEST) -runner sequential
 
 docs: docs-public docs-private

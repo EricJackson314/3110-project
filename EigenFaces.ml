@@ -42,10 +42,36 @@ let construct_C mats =
   let ajst = List.map (fun v -> V.sub v avrg) vecs in
   M.concat ajst, avrg
 
+(**  *)
+let proj v eigs = List.fold_left 
+    (fun acc (eig_val, eig_vec) -> 
+       acc +. (( eig_val *. (V.dot v eig_vec)))) 0. eigs
+
+(*  *)
+let names = 
+  [
+    (* "davis"; *)
+    "foster";
+    "george";
+    "gries";
+    "kozen";
+    "muhlberger";
+    (* "myers"; *)
+    "naaman";
+    "nye"; 
+    "parikh";
+    "pollack";
+    "sridharan";
+    "trummer";
+    "weinberger";
+    "yu";
+    "zabih";
+  ]
+
 (** *)
 let eigen_faces () =
   let get_img name = Img.load ("images/" ^ name ^ ".bmp") |> Img.as_matrix in
-  let mats = List.map get_img ["foster-3"; "gries-3"; "nye"; "pollack-2"] in
+  let mats = List.map get_img names in
   let c, avrg = construct_C mats in
   let m = M.mult (M.transpose c) c in
   let eigens =
@@ -59,18 +85,28 @@ let eigen_faces () =
         (e, List.hd (M.to_column (M.scale e (M.mult c (M.from_vector v))))))
   in eigens, avrg
 
-(**  *)
-let proj v eigs = List.fold_left 
-    (fun acc (eig_val, eig_vec) -> 
-       acc +. (( eig_val *. (V.dot v eig_vec)))) 0. eigs
-
+let nearest nam_vals v =
+  let rec near nam_vals v (n, va) = 
+    match nam_vals with
+    | [] -> (n, va)
+    | (nm, vl)::t -> if (abs_float (v -. va) > (abs_float (v -. vl)))
+      then near t v (nm, vl)
+      else near t v (n, va) in
+  near nam_vals v ("", 0.)
 
 let main () =
   let get_img name = 
     Img.load ("images/" ^ name ^ ".bmp") 
     |> Img.as_matrix
     |> mat_to_vec in
-  let vecs = List.map get_img ["foster-3"; "gries-3"; "nye"; "pollack-2"] in
+  let vecs = List.map get_img names in
   let eigs, avrg = eigen_faces () in
-  let foster2 = ((fun v -> proj(V.sub v avrg) eigs) (get_img "foster-4")) in
-  (List.map (fun v -> proj (V.sub v avrg) eigs) vecs, foster2)
+  let nams_vals = 
+    List.map2 (fun n v -> (n, proj (V.sub v avrg) eigs)) names vecs in
+  let new_face name =
+    let v = (fun v -> proj(V.sub v avrg) eigs) (get_img name) in
+    (name, v, match nearest nams_vals v with nm, _ -> nm) in 
+  let foster2 = new_face "foster-2" in 
+  let nye2 = new_face "nye-2" in
+  let gries2 = new_face "gries-2" in
+  (nams_vals, foster2, nye2, gries2)
