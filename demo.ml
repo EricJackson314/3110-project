@@ -27,7 +27,7 @@ let u = V.from_list [50.; 40.; 10.; 11.; ]
 and v = V.from_list [20.; 25.; 100.; 10.; ]
 and w = V.from_list [1.; 4.; 1.; 9.; 1.; ]
 
-let mat_1 = M.concat 
+let mat_5 = M.concat 
     [
       V.from_list [-3.; 1.; 2.];
       V.from_list [6.; -2.; -4.];
@@ -48,5 +48,5 @@ let a = V_complex.from_list [(1., 2.); (3., 5.); (7., 6.)]
 and b = V_complex.from_list [(6., 4.); (2., 7.); (9., 0.)]
 and c = V_complex.from_list [(3., 4.); (8., 6.); (9., 12.)]
 
-let mat_2 = M_complex.concat [a; b; c]
-let mat_3 = M_complex.transpose mat_2
+let mat_6 = M_complex.concat [a; b; c]
+let mat_7 = M_complex.transpose mat_2

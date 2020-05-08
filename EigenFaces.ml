@@ -1,10 +1,10 @@
-#directory "_build";;
-#require "camlimages";;
-#require "camlimages.all_formats";;
-#load_rec "MatAlg.cmo";;
-#load_rec "Reader.cmo";;
-#load_rec "Writer.cmo";;
-#load_rec "Img.cmo";;
+(* #directory "_build";;
+   #require "camlimages";;
+   #require "camlimages.all_formats";;
+   #load_rec "MatAlg.cmo";;
+   #load_rec "Reader.cmo";;
+   #load_rec "Writer.cmo";;
+   #load_rec "Img.cmo";; *)
 
 open Num;;
 open MatAlg;;
@@ -50,13 +50,12 @@ let proj v eigs = List.fold_left
 (*  *)
 let names = 
   [
-    (* "davis"; *)
+    "azenkot";
     "foster";
     "george";
     "gries";
     "kozen";
     "muhlberger";
-    (* "myers"; *)
     "naaman";
     "nye"; 
     "parikh";
@@ -65,7 +64,6 @@ let names =
     "trummer";
     "weinberger";
     "yu";
-    "zabih";
   ]
 
 (** *)
@@ -95,18 +93,27 @@ let nearest nam_vals v =
   near nam_vals v ("", 0.)
 
 let main () =
-  let get_img name = 
-    Img.load ("images/" ^ name ^ ".bmp") 
+  Printf.printf "Training faces:\n";
+  List.iter (fun name -> Printf.printf "Prof. %s\n" name) names;
+  let get_img name =
+    Img.load ("images/" ^ name ^ ".bmp")
     |> Img.as_matrix
     |> mat_to_vec in
   let vecs = List.map get_img names in
   let eigs, avrg = eigen_faces () in
   let nams_vals = 
     List.map2 (fun n v -> (n, proj (V.sub v avrg) eigs)) names vecs in
+  Printf.printf "\nNew faces:\n";
   let new_face name =
     let v = (fun v -> proj(V.sub v avrg) eigs) (get_img name) in
-    (name, v, match nearest nams_vals v with nm, _ -> nm) in 
-  let foster2 = new_face "foster-2" in 
-  let nye2 = new_face "nye-2" in
-  let gries2 = new_face "gries-2" in
-  (nams_vals, foster2, nye2, gries2)
+    let resembles = match nearest nams_vals v with nm, _ -> nm in
+    Printf.printf ("%s looks like %s.\n") name resembles;
+    (name, v, resembles) in
+  let tests = List.map new_face 
+      ["nye-2"; "gries-2"] in
+  (nams_vals, tests)
+
+let _ = 
+  Printf.printf "------------\n";
+  ignore (main ());
+  Printf.printf "------------\n";
