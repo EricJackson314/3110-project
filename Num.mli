@@ -40,5 +40,4 @@ module type Num = sig
 
   (** [format fmt v] allows for pretty printing of numbers. *)
   val format : Format.formatter -> t -> unit
-
 end

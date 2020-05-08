@@ -1,7 +1,6 @@
 open Grid
 open Float
 open MatAlg
-open Camlimages
 open Reader
 open Writer
 

@@ -13,8 +13,8 @@ open Printf;;
 module MA = Img.MA;;
 module V = MA.V;;
 module M = MA.M;;
-#install_printer MA.V.format;;
-#install_printer MA.M.format;;
+(* #install_printer MA.V.format;;
+   #install_printer MA.M.format;; *)
 
 (** If [mat] is an n-by-n matrix, then [mat_to_vec mat] is an n^2-dimensional
     vector resulting from catenating the columns of [mat]. *)
@@ -44,12 +44,15 @@ let construct_C mats =
 
 let eigen_faces () =
   let get_img name = Img.load ("images/" ^ name ^ ".bmp") |> Img.as_matrix in
-  let () = Printf.printf "images in...\n%!" in
   let mats = List.map get_img ["foster"; "george"; "gries"; "kozen"] in
-  let () = Printf.printf "matices built...\n%!" in
   let c = construct_C mats in
-  let () = Printf.printf "matrix built...\n%!" in
   let m = M.mult (M.transpose c) c in
-  let () = Printf.printf "matrix multiplied(%d, %d)...\n%!" 
-      (M.num_rows m) (M.num_cols m) in
-  m
+  let eigens =
+    M.make 
+      (M.num_rows m) 
+      (M.num_cols m) 
+      (fun i j -> M.entry i j m +. (if i = j then 1. else 0.))
+    |> MA.eigen
+    |> (fun i -> match i with None -> failwith "boring" | Some lst -> lst)
+    |> List.map (fun i -> match i with (e, v) -> (e, M.scale e (M.mult c (M.from_vector v))))
+  in eigens

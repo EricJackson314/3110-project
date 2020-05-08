@@ -1,5 +1,5 @@
 (** Image representation and related functions.
-    @authors Eric Jackson [ebj29] Ralph Wang [rw484] *)
+    @author Eric Jackson [ebj29] Ralph Wang [rw484] *)
 
 open MatAlg
 open Matrix

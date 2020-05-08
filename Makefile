@@ -1,4 +1,4 @@
-MODULES= Vector Matrix Num MatAlg Img Float Reader Writer
+MODULES= Vector Matrix Grid Num MatAlg Img Reader Writer Complexc
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
