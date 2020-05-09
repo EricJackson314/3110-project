@@ -21,11 +21,13 @@ let load s =
   let blk = (fun i j -> img#get i j |> Color.brightness |> float_of_int) in
   Grid.make_abs (img#height) (img#width) blk  
 
-let get x y img = Grid.entry x y img
-
 let width = Grid.num_cols
 
 let height = Grid.num_rows
+
+let get x y img = 
+  if x < 0 || y < 0 || x >= width img || y >= height img then 255.
+  else Grid.entry x y img
 
 let as_matrix i = M.make (height i) (width i) (fun r c -> get r c i)
 
@@ -45,179 +47,218 @@ let jang_sig = [6; 5; 20; 20]
 (* the size of little chunks images are broken into before saving *)
 let block_size = 8
 
-(* returns the next byte in r as a signed byte option, and causes r to move 
-   past that byte. If no more bytes, then None *)
-let safe_signed r = 
-  if FileReader.has_next r then Some (FileReader.next_byte_signed r)
-  else None
-
-(* same as safe_signed, but returns unsigned bytes *)
-let safe_unsigned r = 
-  if FileReader.has_next r then Some (FileReader.next_byte_unsigned r)
-  else None
-
 (* checks whether the reader given is reading from a .jang format.
    Side effect: reads and discards the first four bytes in r *)
 let ensure_jang r = 
   List.init (List.length jang_sig) (fun _ -> 
-      match safe_unsigned r with
-      | Some x -> x
-      | None -> -1)
+      if FileReader.has_next r then FileReader.next_byte_unsigned r
+      else -1)
   = jang_sig
 
 (* Reads and returns the next byte in r as a signed byte, fails 
    if no more bytes are to be read. *)
 let force_signed r = 
-  match safe_signed r with
-  | Some x -> x
-  | None -> failwith "File too short"
+  if FileReader.has_next r then FileReader.next_byte_signed r
+  else failwith "file too short"
 
 (* Same as force_signed, but returns unsigned bytes *)
 let force_unsigned r =
-  match safe_unsigned r with
-  | Some x -> x
-  | None -> failwith "File too short"
+  if FileReader.has_next r then FileReader.next_byte_unsigned r
+  else failwith "file too short"
 
-let read_scalar r : int = failwith "Unimplemented"
-
-(* [collect_vectors count dims src base] reads the first count vectors of
-   dimension dims from src and returns them in an array, in order. The
-   vectors store signed bytes from src and cast them to float. *)
-let collect_vectors count dims src = failwith "Unimplemented" 
+(* reads n unsigned bytes from r and returns them in a list *)
+let read_n n r = 
+  let rec f n r base =
+    if n <= 0 then base
+    else f (n - 1) r ((force_unsigned r)::base)
+  in
+  f n r [] |> List.rev
 
 let div_mod a b = (a / b, a mod b)
 
-let jang_to_grid f = 
-  (* use input channel to read bytes, if not the right signature then fail *)
-  (* procedure: figure out width and height *)
-  (* figure out number of basis vectors *)
-  (* figure out basis vectors *)
-  (* for each chunk, figure out the components *)
-  (* combine components with basis vectors, then multiply by component scalar,
-     then add the bias vector *)
-  (* copy components of the vector into the grid *)
-  let r = FileReader.init f in
-  if r |> ensure_jang |> not then failwith "Invalid format"
-  else 
-    let size_basis = force_unsigned r in
-    let width_blocks = force_unsigned r in
-    let height_blocks = force_unsigned r in
-    let scalar = read_scalar r in
-    let pixels_per_block = block_size * block_size in
-    let basis_vectors = collect_vectors size_basis pixels_per_block r in
-    let basis_mat = 
-      M.make pixels_per_block size_basis
-        (fun r c -> V.nth basis_vectors.(c) r)
+let grid_to_string g =
+  let rec p r c base = 
+    if r >= Grid.num_rows g then base
+    else if c >= Grid.num_cols g then p (r + 1) 0 (base ^ "\n")
+    else p r (c + 1) (base ^ " " ^ 
+      (Grid.entry r c g |> int_of_float |> string_of_int))
+  in
+  p 0 0 ""
+
+let mat_to_string mat = 
+  let rec p r c base =
+    if r >= M.num_rows mat then base
+    else if c >= M.num_cols mat then p (r + 1) 0 (base ^ "\n")
+    else p r (c + 1) 
+      (base ^ (M.entry r c mat |> int_of_float |> string_of_int) ^ " ")
     in
-    let component_arr = 
-      Array.init height_blocks (fun i -> 
-          Array.init width_blocks (fun j -> 
-              collect_vectors 1 size_basis r))
-    in
-    let block_arr = Array.map (fun c_arr -> Array.map (fun comp -> 
-        let comp_mat = comp |> M.from_vector in
-        M.mult basis_mat comp_mat |> M.scale (float_of_int scalar)) c_arr)
-        component_arr
-    in
-    M.make (pixels_per_block * height_blocks) (pixels_per_block * width_blocks)
-      (fun r c ->
-         let (rr, i) = div_mod r pixels_per_block in
-         let (cc, j) = div_mod c pixels_per_block in
-         M.entry i j (block_arr.(rr).(cc)))
+  p 0 0 ""
+
+(* reads bytes from src until a complete matrix is read, then returns that
+   matrix *)
+let read_matrix src = 
+  let sc_a = force_unsigned src in
+  let sc_b = force_unsigned src in
+  let scalar = (sc_a |> float_of_int) /. (sc_b |> float_of_int) in
+  let nr_a = force_unsigned src in
+  let nr_b = force_unsigned src in
+  let nc_a = force_unsigned src in
+  let nc_b = force_unsigned src in
+  let num_rows = 256 * nr_a + nr_b in
+  let num_cols = 256 * nc_a + nc_b in
+  let entry_arr = Array.init num_rows (fun i ->
+    Array.init num_cols (fun j ->
+      let b = force_signed src in
+      (b |> float_of_int) *. scalar))
+  in
+  M.make_abs num_rows num_cols (fun r c -> entry_arr.(r).(c))
 
 let basis_size = 32
 
-let normalize_basis_mat m = 
-  let rec max_in_column c r base =
-    if r >= M.num_rows m then base
-    else 
-      let n = Float.norm (M.entry r c m) in
-      if Float.compare n base > 0 then max_in_column c (r + 1) n
-      else max_in_column c (r + 1) base
-  in
-  M.make_abs (M.num_rows m) (M.num_cols m) (fun r c -> 
-    255. *. (M.entry r c m) /. max_in_column c 1 (M.entry 0 c m |> Float.norm))
+(* returns a lower dimensional space for the given matrix *)
+let get_basis mat = 
+  let rows = block_size * block_size in
+  let cols = basis_size in
+  let pi = 4. *. (Stdlib.atan 1.) in
+  M.make rows cols (fun r c -> 
+    10. *.(Stdlib.cos ((r * c |> float_of_int) *. pi /. (rows |> float_of_int))))
 
-let normalize_component_mat m = 
-  let rec find_max r c base =
-    if r >= M.num_rows m then base
-    else if c >= M.num_cols m then find_max (r + 1) 0 base
-    else 
-      let n = Float.norm (M.entry r c m) in
-      if Float.compare n base > 0 then find_max r (c + 1) n
-      else find_max r (c + 1) base
+let compress img = 
+  (* procedure: convert each chunk to a vector and make the block_mat *)
+  (* project the block_mat onto the basis and get the components *)
+  (* return the basis matrix, the component matrix, the number of blocks
+     across, and the number of blocks vertical *)
+  let width_blocks = width img / block_size in 
+  let height_blocks = height img / block_size in
+  let block_pixels = block_size * block_size in
+  let block_mat = M.make_abs block_pixels (width_blocks * height_blocks) 
+    (fun r c -> 
+      let (x, y) = div_mod c width_blocks in
+      let (i, j) = div_mod r block_size in
+      get (block_size * x + i) (block_size * y + j) img)
   in
-  let scalar = find_max 0 1 (M.entry 0 0 m) in
-  (scalar, M.scale (Float.mult_inv scalar) m)
+  let basis = get_basis block_mat in
+  let components = 
+    let p = basis in
+    let pt = M.transpose basis in
+    let ptp_inv = M.mult pt p |> MA.inverse in
+    let cp = M.mult ptp_inv pt in
+    M.mult cp block_mat
+  in
+  (width_blocks, height_blocks, basis, components)
+
+let decompress (w, h, basis, components) = 
+  let block_mat = M.mult basis components in
+  assert (M.num_cols block_mat = w * h);
+  let output = 
+  Grid.make (block_size * h) (block_size * w) (fun r c ->
+    let (x, i) = div_mod c block_size in
+    let (y, j) = div_mod r block_size in
+    M.entry (block_size * j + i) (w * y + x) block_mat)
+  in
+  output
+
+let read_two_byte_int_unsigned src =
+  let a = force_unsigned src in
+  let b = force_unsigned src in
+  256 * a + b
+
+let jang_to_grid f = 
+  (* use input channel to read bytes, if not the right signature then fail *)
+  (* procedure: read image width in blocks, read image height in blocks *)
+  (* read the basis matrix, then read the component matrix *)
+  (* then decompress *)
+  let src = FileReader.init f in
+  if ensure_jang src |> not then failwith "File format error"
+  else 
+    let width_blocks = read_two_byte_int_unsigned src in
+    let height_blocks = read_two_byte_int_unsigned src in
+    let basis = read_matrix src in
+    let components = read_matrix src in
+    decompress (width_blocks, height_blocks, basis, components)
+
+let write_int_two_byte_unsigned writer i = 
+  let to_two_byte i = 
+    let (q, b) = div_mod i 256 in (q mod 256, b)
+  in
+  let (a, b) = to_two_byte i in
+  Writer.write writer a;
+  Writer.write writer b
+  
+(* commands writer robot w to write a byte representation of mat. *)
+let write_matrix w mat = 
+  (* procedure: first, scale the matrix so that all bytes fit within a signed
+     byte, note the scalar *)
+  (* represent the scalar as two bytes a and b, such that the scalar is 
+     approximated by a / b, write these two bytes (unsigned)*)
+  (* write the number of rows in the matrix as a two-byte int, write number of
+     columns as a two-byte int *)
+  (* record each entry as a byte *)
+  let rec max r c base = 
+    if r >= M.num_rows mat then base
+    else if c >= M.num_cols mat then max (r + 1) 0 base
+    else 
+      let n = M.entry r c mat |> Float.norm in
+      if n > base then max r (c + 1) n
+      else max r (c + 1) base
+  in
+  let scalar = (max 0 1 (M.entry 0 0 mat |> Float.norm)) /. 127. in
+  let to_rat f = 
+    if f > 1. then 
+      let a = 255 in
+      let b = 255. /. f |> int_of_float in
+      (a, b)
+    else 
+      let a = 255. *. f |> int_of_float in
+      let b = 255 in
+      (a, b)
+  in
+  let (a, b) = to_rat scalar in
+  Writer.write w a;
+  Writer.write w b;
+  write_int_two_byte_unsigned w (M.num_rows mat);
+  write_int_two_byte_unsigned w (M.num_cols mat);
+  let scaled = M.scale (Float.mult_inv scalar) mat in
+  let rec write_rec r c = 
+    if r >= M.num_rows mat then ()
+    else if c >= M.num_cols mat then write_rec (r + 1) 0
+    else begin
+      Writer.write_signed w (M.entry r c scaled |> int_of_float);
+      write_rec r (c + 1)
+    end
+  in
+  write_rec 0 0
 
 let save img name = 
   (* encoding scheme: first four bytes are signed 6 5 20 20 *)
-  (* next byte unsigned is the number of basis vectors *)
-  (* next byte unsigned is 1/8 the width of the img in pixels, followed by 1/8 
-     the height in pixels *)
-  (* compute the basis vectors (MA.basis) *)
-  (* convert each 8 by 8 chunk into a vector *)
-  (* if A represents an 8 by 8 chunk, and B be the basis matrix, calculate 
-     x such that Bx = A *)
-  (* collect all the components *)
-  (* scale all the components, note the scalar used (component scalar) *)
-  (* next series of bytes is the component scalar *)
-  (* next chunk of 64 signed bytes is the first basis vector *)
-  (* following chunks of 64 signed bytes are the rest of the basis vectors *)
-  (* every chunk after that is components *)
-  let width_block = (width img) / block_size in
-  let height_block = (height img) / block_size in
-  let basis_dims = block_size * block_size in
-  let vec_arr_arr = Array.init height_block (fun r -> 
-    Array.init width_block (fun c -> 
-      V.make basis_dims (fun n ->
-        let (i, j) = div_mod n block_size in
-        Grid.entry (8 * r + i) (8 * c + j) img)))
-  in
-  let block_mat = M.make_abs basis_dims ((height_block + 1) * (width_block + 1))
-    (fun r c -> 
-      let (i, j) = div_mod r block_size in
-      V.nth vec_arr_arr.(i).(j) c
-    )
-  in
-  let basis_mat = MA.basis basis_size block_mat |> normalize_basis_mat in
-  let raw_component_mat = 
-    let pt = basis_mat |> M.transpose in
-    let ptp = M.mult basis_mat pt in
-    let ptp_inv = MA.inverse ptp in
-    let proj_mat = M.mult ptp_inv pt in
-    M.mult proj_mat block_mat
-  in
-  let (scalar, component_mat) = normalize_component_mat raw_component_mat in
+  (* next byte is width of image in blocks *)
+  (* next byte is height of image in blocks *)
+  (* next series of bytes is basis matrix *)
+  (* next series of bytes is component matrix *)
   let writer = Writer.create name in
-  let write = Writer.write writer in
-  List.fold_left (fun _ b -> write b) () jang_sig;
-  write basis_size;
-  let write_num i = 
-    let rec to_bytes k base = 
-      let (x, b) = div_mod k 256 in 
-      if x = 0 then b::base
-      else to_bytes x (b::base)
-    in
-    let ls = to_bytes i [] in
-    let l = List.length ls in
-    if l > 255 then failwith "BAAAAD"
-    else write l; List.fold_left (fun _ b -> write b) () ls
-  in
-  write_num (int_of_float scalar);
-  let write_vector v = 
-    List.fold_left (fun _ elem -> elem 
-      |> int_of_float |> Writer.write_signed writer)
-      () (V.to_list v)
-  in
-  List.fold_left (fun _ v -> write_vector v) () (M.to_column basis_mat);
-  List.fold_left (fun _ v -> write_vector v) () (M.to_column component_mat)
+  List.fold_left (fun _ b -> Writer.write writer b) () jang_sig;
+  let (width_blocks, height_blocks, basis, components) = compress img in
+  write_int_two_byte_unsigned writer width_blocks;
+  write_int_two_byte_unsigned writer height_blocks;
+  write_matrix writer basis;
+  write_matrix writer components;
+  Writer.close writer
 
-(* components chunks are ordered first by row, then by column. For example,
-   if (i, j) represented the (row, column) of a chunk, then the order would
-   be (0, 0), (0, 1), (0, 2), ... (1, 0), (1, 1), .. and so on *)
-
-
-
-
-
+let _ = 
+   
+  let filename = "mat_io_test" in
+  let mat = M.make_abs 7 5  (fun _ _ -> Random.float 30.) in
+  let writer = Writer.create filename in
+  write_matrix writer mat;
+  Writer.close writer;
+  let reader = FileReader.init filename in
+  let cycled = read_matrix reader in
+  mat |> mat_to_string |> print_endline;
+  cycled |> mat_to_string |> print_endline;
+  let img = load "img.bmp" in
+  let filename = "img_io_test" in
+  save img filename;
+  let cycled = jang_to_grid filename in
+  let err = Grid.make_abs (height img) (width img) (fun r c -> 
+    (get r c img) -. (get r c cycled)) in
+  err |> grid_to_string |> print_endline

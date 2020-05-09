@@ -16,8 +16,7 @@ exception OutOfBounds
 val load : string -> t
 
 (**  [get x y img] is the grayscale pixel at coordinates x y of image img. Range
-     0.- 255.
-     Raises OutOfBounds if x or y is out of bounds*) 
+     0.- 255. Returns a white pixel if x or y is out of bounds *)
 val get : int -> int -> t -> float
 
 val as_matrix : t -> matrix
@@ -25,6 +24,8 @@ val as_matrix : t -> matrix
 val width : t -> int
 
 val height : t -> int
+
+val jang_to_grid : string -> t
 
 val save : t -> string -> unit
 

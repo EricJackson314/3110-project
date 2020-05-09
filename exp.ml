@@ -60,7 +60,19 @@ let rec index base e ls =
   | [] -> None
   | hd::tl -> if hd = e then Some base else index (base + 1) e tl
 *)
+
+type stream = int ref
+ 
+let next (s : stream) =  
+  let output = !s in
+  s := !s + 1; output
+
+let new_stream = ref 0
+
+let arr = Array.init 10 (fun _ -> next new_stream)
+
 let _ = 
+  print_endline (arr |> Array.to_list |> ls_to_string);
   begin match piv_rows with 
   | None -> print_endline "bad"
   | Some ls -> print_endline (ls_to_string ls)
