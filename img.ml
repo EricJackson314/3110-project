@@ -17,6 +17,8 @@ exception OutOfBounds
 exception FileFormatException
 exception TruncatedFileException
 
+let debug = true
+
 let load s =
   let img = OImages.load s [] |> OImages.rgb24 in 
   let blk = (fun i j -> img#get i j |> Color.brightness |> float_of_int) in
@@ -246,8 +248,19 @@ let save img name =
   write_matrix writer components;
   Writer.close writer
 
-let _ = 
-   
+let raw_bytes_to_file name img =
+  let writer = Writer.create name in
+  write_int_two_byte_unsigned writer (width img);
+  let rec write_rec r c = 
+    if r >= height img then ()
+    else if c >= width img then write_rec (r + 1) 0
+    else (Writer.write writer (get r c img |> int_of_float);
+      write_rec r (c + 1))
+    
+  in 
+  write_rec 0 0
+
+let _ = if debug then
   let filename = "mat_io_test" in
   let mat = M.make_abs 7 5  (fun _ _ -> Random.float 30.) in
   let writer = Writer.create filename in
@@ -259,8 +272,21 @@ let _ =
   cycled |> mat_to_string |> print_endline;
   let img = load "img.bmp" in
   let filename = "img_io_test" in
-  save img filename;
+  (* save img filename;
   let cycled = jang_to_grid filename in
   let err = Grid.make_abs (height img) (width img) (fun r c -> 
     (get r c img) -. (get r c cycled)) in
-  err |> grid_to_string |> print_endline
+  err |> grid_to_string |> print_endline *)
+  let byte_dump f =
+    let reader = FileReader.init f in
+    let rec dump r = 
+      if FileReader.has_next r then 
+        (FileReader.next_byte_unsigned r |> print_int;
+        print_string " ";
+        dump r)
+    in 
+    dump reader
+  in
+  raw_bytes_to_file filename img;
+  img |> grid_to_string |> print_endline;
+  byte_dump filename

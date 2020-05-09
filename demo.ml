@@ -49,4 +49,4 @@ and b = V_complex.from_list [(6., 4.); (2., 7.); (9., 0.)]
 and c = V_complex.from_list [(3., 4.); (8., 6.); (9., 12.)]
 
 let mat_6 = M_complex.concat [a; b; c]
-let mat_7 = M_complex.transpose mat_2
+let mat_7 = M_complex.transpose mat_6

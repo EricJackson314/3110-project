@@ -34,7 +34,7 @@ val width : t -> int
 (** [height img] is the height of the image [img]. *)
 val height : t -> int
 
-(** jang_to_grid takes a file with the same format as a .jang file and converts
+(** [jang_to_grid name] takes file [name] in .jang format and converts
     it to an image. Raises FileFormatException if the file is not a .jang file,
     raises TruncatedFileException if the file does not appear to be missing
     data. *)
@@ -42,6 +42,14 @@ val jang_to_grid : string -> t
 
 (** [save img file] saves the image [img] to the file "[file].jang". *)
 val save : t -> string -> unit
+
+(** [raw_bytes_to_file name img] saves [img] to file [name] using literal byte
+    format: The first two bytes are a two byte representation of the width of
+    the imaage in pixels, the rest of the bytes are pixel data.
+    If [w] is the width of [img] in pixels, then the first [w] bytes will be the
+    bytes of the pixels in the top row. The next [w] bytes will be the bytes of
+    pixels in the second row, and so on, downwards. *)
+val raw_bytes_to_file : string -> t -> unit
 
 (** [sub i x y w h] is the subsection of i with upper left corner at the 
     coordinates x y and width w, height h. Pads with white pixels if out of
