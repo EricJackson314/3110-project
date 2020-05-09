@@ -1,8 +1,9 @@
-MODULES= Vector Matrix Num MatAlg Img Float Reader Writer
+MODULES= Vector Matrix Grid Num MatAlg Img Reader Writer Complexc
 OBJECTS=$(MODULES:=.cmo)
 MLS=$(MODULES:=.ml)
 MLIS=$(MODULES:=.mli)
 TEST=test.byte
+FACE=EigenFaces.byte
 OCAMLBUILD=ocamlbuild -use-ocamlfind
 PGS=oUnit
 
@@ -11,6 +12,9 @@ default:
 
 demo: build
 	utop -init demo.ml
+
+faces: build
+	$(OCAMLBUILD) $(FACE) && ./$(FACE)
 
 build:
 	$(OCAMLBUILD) $(OBJECTS)
@@ -36,4 +40,4 @@ clean:
 	rm -rf cs3110-project.zip
 
 zip:
-	zip cs3110-project *.ml* *.md .merlin _tags Makefile
+	zip cs3110-project *.ml* *.md .merlin _tags Makefile images/*

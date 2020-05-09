@@ -1,7 +1,6 @@
 open Grid
 open Float
 open MatAlg
-open Camlimages
 open Reader
 open Writer
 
@@ -15,6 +14,8 @@ type color = Float.t
 type t = color Grid.t
 
 exception OutOfBounds
+exception FileFormatException
+exception TruncatedFileException
 
 let load s =
   let img = OImages.load s [] |> OImages.rgb24 in 
@@ -38,7 +39,7 @@ let rec sub i x y w h =
       let xcoor = x + r in
       let ycoor = y + r in
       if xcoor < 0 || xcoor >= width i || ycoor < 0 || ycoor >= height i
-        then 255.
+      then 255.
       else get xcoor ycoor i)
 
 (* the first four bytes in a .jang file must be these bytes as signed ints *)
@@ -59,12 +60,12 @@ let ensure_jang r =
    if no more bytes are to be read. *)
 let force_signed r = 
   if FileReader.has_next r then FileReader.next_byte_signed r
-  else failwith "file too short"
+  else raise TruncatedFileException
 
 (* Same as force_signed, but returns unsigned bytes *)
 let force_unsigned r =
   if FileReader.has_next r then FileReader.next_byte_unsigned r
-  else failwith "file too short"
+  else raise TruncatedFileException
 
 (* reads n unsigned bytes from r and returns them in a list *)
 let read_n n r = 
@@ -112,6 +113,7 @@ let read_matrix src =
       (b |> float_of_int) *. scalar))
   in
   M.make_abs num_rows num_cols (fun r c -> entry_arr.(r).(c))
+
 
 let basis_size = 32
 
@@ -169,7 +171,7 @@ let jang_to_grid f =
   (* read the basis matrix, then read the component matrix *)
   (* then decompress *)
   let src = FileReader.init f in
-  if ensure_jang src |> not then failwith "File format error"
+  if ensure_jang src |> not then raise FileFormatException
   else 
     let width_blocks = read_two_byte_int_unsigned src in
     let height_blocks = read_two_byte_int_unsigned src in
@@ -235,7 +237,7 @@ let save img name =
   (* next byte is height of image in blocks *)
   (* next series of bytes is basis matrix *)
   (* next series of bytes is component matrix *)
-  let writer = Writer.create name in
+  let writer = Writer.create (name ^ ".jang") in
   List.fold_left (fun _ b -> Writer.write writer b) () jang_sig;
   let (width_blocks, height_blocks, basis, components) = compress img in
   write_int_two_byte_unsigned writer width_blocks;

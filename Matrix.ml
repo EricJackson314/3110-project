@@ -154,7 +154,8 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     then raise OutOfBoundsException
     else make rows cols
         (fun row col -> entry row col mat
-                        |> fun v -> if r2 = row then E.add v (E.mult s (entry r1 col mat))
+                        |> fun v -> if r2 = row then E.add v 
+                            (E.mult s (entry r1 col mat))
                         else v) 
 
   let row_swap r1 r2 mat =
@@ -214,8 +215,10 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
      to ls. Assumes that the part of the matrix searched is in row echelon 
      form *)
   let rec collect_pivots r c ls mat = 
-    if r = num_rows mat || c = num_cols mat then ls
-    else if entry r c mat |> E.equals E.zero then collect_pivots r (c + 1) ls mat
+    if r = num_rows mat || c = num_cols mat 
+    then ls
+    else if entry r c mat |> E.equals E.zero 
+    then collect_pivots r (c + 1) ls mat
     else collect_pivots (r + 1) (c + 1) (c::ls) mat
 
   let pivot_cols mat =
@@ -269,8 +272,9 @@ module Make : MatrixMaker = functor (Elem : Num) -> struct
     match idxs with
     | [] -> vecs
     | h::t ->
-      insert_vecs t (insert h (V.make (V.dim (List.hd vecs))
-                                 (fun i -> if i = h then V.E.one else V.E.zero)) vecs)
+      insert_vecs t 
+        (insert h (V.make (V.dim (List.hd vecs))
+                     (fun i -> if i = h then V.E.one else V.E.zero)) vecs)
 
   (** [fst_n n lst] is the first n elements of lst. Raises OutOfBoundsException
       if [n > List.length lst]. *)

@@ -1,13 +1,30 @@
+(** More complicated matrix computations.
+    @author Eric Jackson [ebj29] Ralph Wang [rw484] *)
+
 open Matrix
 open Vector
 open Num
 
+(** MatAlg contains numbers [E], vectors [V] with elements of type [E.t], 
+    matrices [M] with elements of type [E.t], and a variety of functions to
+    manipulate them.  *)
 module type MatAlg = sig 
+  (** Represents matrices withwhich this module can interact. *)
   module M : Matrix
+
+  (** Represents vectors with which this module can interact. *)
   module V = M.V
+
+  (** Represents numbers with which this module can interact. *)
   module E = M.V.E
+
+  (** Type of matrices. *)
   type matrix = M.t
+
+  (** Type of vectors. *)
   type vector = M.V.t
+
+  (** Type of numbers. *)
   type elem = M.E.t
 
   (** [is_square mat] is true if [mat] is a square matrix. *)
@@ -32,15 +49,25 @@ module type MatAlg = sig
       complement of the subspace spanned by the columns of [mat]. *)
   val perp : matrix -> matrix
 
-  (* old_basis -> new_basis -> conversion_matrix *)
+  (** old_basis -> new_basis -> conversion_matrix *)
   val change_basis : matrix -> matrix -> matrix
 
-  (* [det mat] is the determinant of the matrix mat. Raises 
-     DimensionMismatchException if mat is non-square *)
+  (** [det mat] is the determinant of the matrix mat. Raises 
+      DimensionMismatchException if mat is non-square *)
   val det : matrix -> elem
+
+  (** [is_singular mat] is [true] if mat is singular and [false] otherwise. *)
   val is_singular : matrix -> bool
+
+  (** [inverse mat] is the inverse of the matrix [mat].
+      Requires: [mat] is a square matrix. *)
   val inverse : matrix -> matrix
+
+  (** [factor_lu mat] is the LU factorization of the matrix [mat]. Returns 
+      [none] if no such factorization exists. *)
   val factor_lu : matrix -> (matrix * matrix) option
+
+  (** [factor_plu mat] is the PLU factorization of the matrix [mat]. *)
   val factor_plu : matrix -> matrix * matrix * matrix
 
   (** [eigen mat] is the list of eigen-values and corresponding eigen-vectors
@@ -62,7 +89,9 @@ module type MatAlg = sig
   val basis : int -> matrix -> matrix
 end
 
+(** Creates a MatAlg module for matrices and vectors of type [Elem.t]. *)
 module type MatAlgMaker =
   functor (Elem : Num.Num) -> MatAlg with module M = Matrix.Make(Elem)
 
+(** Creates a MatAlg module for matrices and vectors of type [Elem.t]. *)
 module Make : MatAlgMaker

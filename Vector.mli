@@ -3,15 +3,15 @@
 
 open Num
 
-(** Representation of a finite-dimensional vector. *)
+(** Representation of finite-dimensional vectors. *)
 module type Vector = sig
-  (** module [E] represents the vectors elements. *)
+  (** module [E] represents the vector's elements. *)
   module E : Num
 
-  (** [elem] is the type of the vectors elements. *)
+  (** [elem] is the type of the vector's elements. *)
   type elem = E.t
 
-  (** Type of Vectors. *)
+  (** Type of vectors. *)
   type t
 
   (** raised if an attemt is made to access a vector index that does not 
@@ -64,7 +64,9 @@ module type Vector = sig
 
 end
 
+(** Creates a vector module containing Elements of type [Elem.t].  *)
 module type VectorMaker = 
   functor (Elem : Num.Num) -> Vector with module E = Elem 
 
+(** Creates a vector module containing Elements of type [Elem.t]. *)
 module Make : VectorMaker

@@ -1,10 +1,10 @@
-#directory "_build";;
-#require "camlimages";;
-#require "camlimages.all_formats";;
-#load_rec "MatAlg.cmo";;
-#load_rec "Reader.cmo";;
-#load_rec "Writer.cmo";;
-#load_rec "Img.cmo";;
+(* #directory "_build";;
+   #require "camlimages";;
+   #require "camlimages.all_formats";;
+   #load_rec "MatAlg.cmo";;
+   #load_rec "Reader.cmo";;
+   #load_rec "Writer.cmo";;
+   #load_rec "Img.cmo";; *)
 
 open Num;;
 open MatAlg;;
@@ -13,8 +13,8 @@ open Printf;;
 module MA = Img.MA;;
 module V = MA.V;;
 module M = MA.M;;
-#install_printer MA.V.format;;
-#install_printer MA.M.format;;
+(* #install_printer MA.V.format;;
+   #install_printer MA.M.format;; *)
 
 (** If [mat] is an n-by-n matrix, then [mat_to_vec mat] is an n^2-dimensional
     vector resulting from catenating the columns of [mat]. *)
@@ -40,15 +40,80 @@ let construct_C mats =
   let vecs = List.map mat_to_vec mats in
   let avrg = average vecs in
   let ajst = List.map (fun v -> V.sub v avrg) vecs in
-  M.concat ajst
+  M.concat ajst, avrg
 
+(**  *)
+let proj v eigs = List.fold_left 
+    (fun acc (eig_val, eig_vec) -> 
+       acc +. (( eig_val *. (V.dot v eig_vec)))) 0. eigs
+
+(*  *)
+let names = 
+  [
+    "azenkot";
+    "foster";
+    "george";
+    "gries";
+    "kozen";
+    "muhlberger";
+    "naaman";
+    "nye"; 
+    "parikh";
+    "pollack";
+    "sridharan";
+    "trummer";
+    "weinberger";
+    "yu";
+  ]
+
+(** *)
 let eigen_faces () =
   let get_img name = Img.load ("images/" ^ name ^ ".bmp") |> Img.as_matrix in
-  let () = Printf.printf "images in...\n%!" in
-  let mats = List.map get_img ["foster"; "george"; "gries"; "kozen"] in
-  let () = Printf.printf "matices built...\n%!" in
-  let c = construct_C mats in
-  let () = Printf.printf "matrix built...\n%!" in
+  let mats = List.map get_img names in
+  let c, avrg = construct_C mats in
   let m = M.mult (M.transpose c) c in
-  let () = Printf.printf "matrix multiplied(%d, %d)...\n%!" (M.num_rows m) (M.num_cols m) in
-  m
+  let eigens =
+    M.make 
+      (M.num_rows m) 
+      (M.num_cols m) 
+      (fun i j -> M.entry i j m +. (if i = j then 1. else 0.))
+    |> MA.eigen
+    |> (fun i -> match i with None -> failwith "boring" | Some lst -> lst)
+    |> List.map (fun i -> match i with (e, v) -> 
+        (e, List.hd (M.to_column (M.scale e (M.mult c (M.from_vector v))))))
+  in eigens, avrg
+
+let nearest nam_vals v =
+  let rec near nam_vals v (n, va) = 
+    match nam_vals with
+    | [] -> (n, va)
+    | (nm, vl)::t -> if (abs_float (v -. va) > (abs_float (v -. vl)))
+      then near t v (nm, vl)
+      else near t v (n, va) in
+  near nam_vals v ("", 0.)
+
+let main () =
+  Printf.printf "Training faces:\n";
+  List.iter (fun name -> Printf.printf "Prof. %s\n" name) names;
+  let get_img name =
+    Img.load ("images/" ^ name ^ ".bmp")
+    |> Img.as_matrix
+    |> mat_to_vec in
+  let vecs = List.map get_img names in
+  let eigs, avrg = eigen_faces () in
+  let nams_vals = 
+    List.map2 (fun n v -> (n, proj (V.sub v avrg) eigs)) names vecs in
+  Printf.printf "\nNew faces:\n";
+  let new_face name =
+    let v = (fun v -> proj(V.sub v avrg) eigs) (get_img name) in
+    let resembles = match nearest nams_vals v with nm, _ -> nm in
+    Printf.printf ("%s looks like %s.\n") name resembles;
+    (name, v, resembles) in
+  let tests = List.map new_face 
+      ["nye-2"; "gries-2"] in
+  (nams_vals, tests)
+
+let _ = 
+  Printf.printf "------------\n";
+  ignore (main ());
+  Printf.printf "------------\n";

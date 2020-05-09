@@ -158,15 +158,16 @@ module Make = functor (Elem : Num) -> struct
   let diag mat =
     if not (is_square mat) || is_singular mat then None 
     else
-      (* The QR algorithm produces two matrices [d] and [p] such that [a = pdp^-1]
-         and [d] is a diagonal matrix containing the eigenvalues of [mat]. *)
+      (* The QR algorithm produces two matrices [d] and [p] such that 
+         [a = pdp^-1] and [d] is a diagonal matrix containing the 
+         eigenvalues of [mat]. *)
       let rec qr_algo mat q_acc n =
         if n >= 0 then 
           factor_qr mat 
           |> (fun (q, r) -> (M.mult r q, M.mult q q_acc))
           |> fun (m, q_acc) -> (qr_algo m q_acc (n-1))
         else mat, q_acc in
-      let d, p = qr_algo mat (M.id (M.num_cols mat)) 20 in
+      let d, p = qr_algo mat (M.id (M.num_cols mat)) 25 in
       Some (p, d)
 
   let eigen mat = 
@@ -196,7 +197,7 @@ module Make = functor (Elem : Num) -> struct
     let ata = M.mult a at in
     let cols = ata |> M.col_sp |> M.to_column in
     let ls = List.map (fun v -> (V.norm v, v)) cols
-      |> List.sort (fun (n1, v1) (n2, v2) -> E.compare n1 n2) in
+             |> List.sort (fun (n1, v1) (n2, v2) -> E.compare n1 n2) in
     fst_n k [] ls |> List.map (fun (_, v) -> v) |> M.concat
 end
 
